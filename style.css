@@ -15,21 +15,16 @@ h1, h2, h3, h4, h5, h6 {
 .social a {
     text-decoration: none;
 }
+.card {
+    border-radius: 25px;
+    padding: 15px;
+    margin: 10px 10px;
+}
 section h1 {
     margin-top: 1em;
 }
 section li {
     list-style: none;
-}
-.bio {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-right: 5%;
-    margin-bottom: 5%;
-}
-#perfil {
-    display: flex;
 }
 #especial { font-weight: bold; }
 #muestras {
@@ -38,7 +33,22 @@ section li {
     justify-content:space-evenly;
     margin: 50px;
 }
-
+.btn-edit {
+    display:flex;
+    align-self:flex-end;
+    position: absolute;
+    top: 30px;
+}
+.ref-list {
+    position: relative;
+}
+    .btn-list {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 50px;
+        width: 100px;
+    }
 .cover {
     color:whitesmoke;
     background-color:grey;
