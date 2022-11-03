@@ -34,10 +34,9 @@ section li {
     margin: 50px;
 }
 .btn-edit {
-    display:flex;
-    align-self:flex-end;
-    position: absolute;
-    top: 30px;
+    position: relative;
+    float: right;
+    margin-right: 50px;
 }
 .ref-list {
     position: relative;
@@ -49,13 +48,6 @@ section li {
         height: 50px;
         width: 100px;
     }
-.cover {
-    color:whitesmoke;
-    background-color:grey;
-    background-image: url();
-    background-size:cover;
-    background-position: center;
-}
 #skills {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
