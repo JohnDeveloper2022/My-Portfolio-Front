@@ -34,20 +34,19 @@ section li {
     margin: 50px;
 }
 .btn-edit {
-    position: relative;
+    position: absolute;
+    right: 0px;
+    width: 50px;
+    padding: 10px;
+}
+.btn-list {
+    position: absolute;
     float: right;
-    margin-right: 50px;
+    right: 20px;
+    width: 150px;
+    padding: 10px;
+    text-align: right;
 }
-.ref-list {
-    position: relative;
-}
-    .btn-list {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        height: 50px;
-        width: 100px;
-    }
 #skills {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
@@ -67,18 +66,13 @@ section li {
         margin-top: 60px;
     }
 #pie {
-    height: 100px;
-    background-color:lightgrey;
-}
-.marca {
-    float: left;
-    margin-left: 30px;
-    margin-top: 20px;
-    font-weight: bold;
+    background-color: lightgrey; 
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 .datos li {
-    display: inline;
-    float: left;
-    margin-left: 300px;
-    padding-top: 40px;
+    display:inline-block;
+    padding: 30px;
 }
