@@ -15,21 +15,16 @@ h1, h2, h3, h4, h5, h6 {
 .social a {
     text-decoration: none;
 }
+.card {
+    border-radius: 25px;
+    padding: 15px;
+    margin: 10px 10px;
+}
 section h1 {
     margin-top: 1em;
 }
 section li {
     list-style: none;
-}
-.bio {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-right: 5%;
-    margin-bottom: 5%;
-}
-#perfil {
-    display: flex;
 }
 #especial { font-weight: bold; }
 #muestras {
@@ -38,13 +33,19 @@ section li {
     justify-content:space-evenly;
     margin: 50px;
 }
-
-.cover {
-    color:whitesmoke;
-    background-color:grey;
-    background-image: url();
-    background-size:cover;
-    background-position: center;
+.btn-edit {
+    position: absolute;
+    right: 0px;
+    width: 50px;
+    padding: 10px;
+}
+.btn-list {
+    position: absolute;
+    float: right;
+    right: 20px;
+    width: 150px;
+    padding: 10px;
+    text-align: right;
 }
 #skills {
     display: grid;
@@ -65,18 +66,13 @@ section li {
         margin-top: 60px;
     }
 #pie {
-    height: 100px;
-    background-color:lightgrey;
-}
-.marca {
-    float: left;
-    margin-left: 30px;
-    margin-top: 20px;
-    font-weight: bold;
+    background-color: lightgrey; 
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 .datos li {
-    display: inline;
-    float: left;
-    margin-left: 300px;
-    padding-top: 40px;
+    display:inline-block;
+    padding: 30px;
 }
