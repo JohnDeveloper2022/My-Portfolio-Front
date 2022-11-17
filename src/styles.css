@@ -68,6 +68,40 @@ section li {
         justify-content:center;
         margin-top: 60px;
     }
+.progress {
+    margin: 25px 200px 25px 200px;
+}
+.progress .bar-1 {
+    height: auto;
+    width: 75%;
+    background-color:chartreuse;
+    animation: progress-1 2s ease-out;
+}
+.progress .bar-2 {
+    height: auto;
+    width: 25%;
+    background-color:darkorchid;
+    animation: progress-2 2s ease-out;
+}
+.progress .bar-3 {
+    height: auto;
+    width: 50%;
+    background-color:darkcyan;
+    animation: progress-3 2s ease-out;
+}
+@keyframes progress-1 {
+    from {width: 0%;}
+    to {width: 75%;}
+}
+@keyframes progress-2 {
+    from {width: 0%;}
+    to {width: 25%;}
+}
+@keyframes progress-3 {
+    from {width: 0%;}
+    to {width: 50%;}
+}
+
 #pie {
     background-color: lightgrey; 
     list-style-type: none;
