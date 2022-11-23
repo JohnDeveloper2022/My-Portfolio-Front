@@ -50,7 +50,121 @@ section li {
     padding: 10px;
     text-align: right;
 }
-#skills {
+.round-circles {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    min-height: 50vh;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0rem;
+    margin: auto;
+}
+.circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: blueviolet;
+    margin: 1rem;
+}
+.circle svg {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    transform: rotate(-90deg);
+}
+.measure-1 {
+    stroke: darkslategrey;
+    stroke-width: 20;
+    stroke-dasharray: 410;
+    stroke-dashoffset: 66;
+    animation: spinner-1 3s ease-out;
+    fill: none;
+}
+.measure-2 {
+    stroke: darkslategrey;
+    stroke-width: 20;
+    stroke-dasharray: 410;
+    stroke-dashoffset: 164;
+    animation: spinner-2 3s ease-out;
+    fill: none;
+}
+.measure-3 {
+    stroke: darkslategrey;
+    stroke-width: 20;
+    stroke-dasharray: 410;
+    stroke-dashoffset: 82;
+    animation: spinner-3 3s ease-out;
+    fill: none;
+}
+.measure-4 {
+    stroke: darkslategrey;
+    stroke-width: 20;
+    stroke-dasharray: 410;
+    stroke-dashoffset: 102;
+    animation: spinner-4 3s ease-out;
+    fill: none;
+}
+.measure-5 {
+    stroke: darkslategrey;
+    stroke-width: 20;
+    stroke-dasharray: 410;
+    stroke-dashoffset: 41;
+    animation: spinner-5 3s ease-out;
+    fill: none;
+}
+.measure-6 {
+    stroke: darkslategrey;
+    stroke-width: 20;
+    stroke-dasharray: 410;
+    stroke-dashoffset: 61;
+    animation: spinner-6 3s ease-out;
+    fill: none;
+}
+@keyframes spinner-1 {
+    from {stroke-dashoffset: 410;}
+    to {stroke-dashoffset: 66;}
+}
+@keyframes spinner-2 {
+    from {stroke-dashoffset: 410;}
+    to {stroke-dashoffset: 164;}
+}
+@keyframes spinner-3 {
+    from {stroke-dashoffset: 410;}
+    to {stroke-dashoffset: 82;}
+}
+@keyframes spinner-4 {
+    from {stroke-dashoffset: 410;}
+    to {stroke-dashoffset: 102;}
+}
+@keyframes spinner-5 {
+    from {stroke-dashoffset: 410;}
+    to {stroke-dashoffset: 41;}
+}
+@keyframes spinner-6 {
+    from {stroke-dashoffset: 410;}
+    to {stroke-dashoffset: 61;}
+}
+.circle .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 115px;
+    height: 115px;
+    background: white;
+    border-radius: 50%;
+    font-size: 1.85em;
+    font-weight: bolder;
+    color: grey;
+    fill: none;
+    margin: 0;
+}
+/*#skills {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
     justify-items: center;
@@ -67,9 +181,9 @@ section li {
         display: flex;
         justify-content:center;
         margin-top: 60px;
-    }
+    }*/
 .progress {
-    margin: 25px 200px 25px 200px;
+    margin: 25px 200px;
 }
 .progress .bar-1 {
     height: auto;
