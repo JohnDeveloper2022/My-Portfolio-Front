@@ -5,18 +5,30 @@
 .cursiva {
     font-style: italic;
 }
-/*body {
-    font-family: ;
+body {
+    font-family: 'Lora', serif;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: ;
-}*/
-.social {
-    display:inline;
-    float:left;
+    font-family: 'Open Sans', sans-serif;
 }
-.social a {
-    text-decoration: none;
+.social li {
+    display:list-item;
+    list-style-type: none;
+    position: relative;
+    float: left;
+    align-items: center;
+    margin-left: 15px;
+}
+.button {
+    background-color:darkorchid;
+    text-align: center;
+    font-size:medium;
+    border-radius: 2px;
+    border: none;
+    padding: 5px 12px;
+}
+.button:hover {
+    background-color: darkslateblue;
 }
 .card {
     border-radius: 25px;
@@ -30,11 +42,9 @@ section li {
     list-style: none;
 }
 #especial { font-weight: bold; }
-#muestras {
+#project {
     display: flex;
-    flex-direction: row;
-    justify-content:space-evenly;
-    margin: 50px;
+    justify-content: center;
 }
 .btn-edit {
     position: absolute;
@@ -50,6 +60,18 @@ section li {
     padding: 10px;
     text-align: right;
 }
+.experience {
+    margin-left: 100px;
+}
+.linea svg {
+    position: absolute;
+    float: left;
+    stroke:darkred;
+    stroke-width: 4;
+    width: 500;
+    height: 20;
+    transform: rotate(45deg);
+} 
 .round-circles {
     display: flex;
     flex-wrap: wrap;
@@ -183,7 +205,7 @@ section li {
         margin-top: 60px;
     }*/
 .progress {
-    margin: 25px 200px;
+    margin: 25px 50px;
 }
 .progress .bar-1 {
     height: auto;
