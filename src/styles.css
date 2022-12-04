@@ -2,6 +2,10 @@
     margin-left: 8px;
     margin-right: 8px;
 }
+.cabecera {
+    background-color: black;
+    padding: 25px 25px;
+}
 .cursiva {
     font-style: italic;
 }
@@ -20,25 +24,35 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 15px;
 }
 .button {
-    background-color:darkorchid;
+    background-color:#ed0c50;
+    color: white;
     text-align: center;
     font-size:medium;
+    font-weight: bold;
     border-radius: 2px;
     border: none;
     padding: 5px 12px;
 }
 .button:hover {
-    background-color: darkslateblue;
+    background-color:#800026;
+}
+.programador {
+    text-align: left;
+    font-size: 80px;
+}
+.musico {
+    text-align: right;
+    font-size: 80px;
 }
 .card {
     border-radius: 25px;
     padding: 15px;
     margin: 10px 10px;
 }
-section h1 {
+div h1 {
     margin-top: 1em;
 }
-section li {
+div li {
     list-style: none;
 }
 #especial { font-weight: bold; }
@@ -87,7 +101,7 @@ section li {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: blueviolet;
+    background: #d3d3d380;
     margin: 1rem;
 }
 .circle svg {
@@ -97,7 +111,7 @@ section li {
     transform: rotate(-90deg);
 }
 .measure-1 {
-    stroke: darkslategrey;
+    stroke: #ed0c50;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 66;
@@ -105,7 +119,7 @@ section li {
     fill: none;
 }
 .measure-2 {
-    stroke: darkslategrey;
+    stroke: #ed0c50;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 164;
@@ -113,7 +127,7 @@ section li {
     fill: none;
 }
 .measure-3 {
-    stroke: darkslategrey;
+    stroke: #ed0c50;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 82;
@@ -121,7 +135,7 @@ section li {
     fill: none;
 }
 .measure-4 {
-    stroke: darkslategrey;
+    stroke: #ed0c50;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 102;
@@ -129,7 +143,7 @@ section li {
     fill: none;
 }
 .measure-5 {
-    stroke: darkslategrey;
+    stroke: #ed0c50;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 41;
@@ -137,7 +151,7 @@ section li {
     fill: none;
 }
 .measure-6 {
-    stroke: darkslategrey;
+    stroke: #ed0c50;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 61;
@@ -178,11 +192,11 @@ section li {
     transform: translate(-50%, -50%);
     width: 115px;
     height: 115px;
-    background: white;
+    background: rgb(46, 46, 46);
     border-radius: 50%;
-    font-size: 1.85em;
+    font-size: 1em;
     font-weight: bolder;
-    color: grey;
+    color: white;
     fill: none;
     margin: 0;
 }
@@ -204,25 +218,35 @@ section li {
         justify-content:center;
         margin-top: 60px;
     }*/
-.progress {
+div .progress {
     margin: 25px 50px;
+    background-color: white;
 }
 .progress .bar-1 {
     height: auto;
     width: 75%;
-    background-color:chartreuse;
+    font-size: 1.35em;
+    font-weight: bolder;
+    background-color: #ed0c50;
+    border-radius: 15px;
     animation: progress-1 2s ease-out;
 }
 .progress .bar-2 {
     height: auto;
     width: 25%;
-    background-color:darkorchid;
+    font-size: 1.35em;
+    font-weight: bolder;
+    background-color: #C40AC4;
+    border-radius: 15px;
     animation: progress-2 2s ease-out;
 }
 .progress .bar-3 {
     height: auto;
     width: 50%;
-    background-color:darkcyan;
+    font-size: 1.35em;
+    font-weight: bolder;
+    background-color: #F05483;
+    border-radius: 15px;
     animation: progress-3 2s ease-out;
 }
 @keyframes progress-1 {
@@ -239,13 +263,43 @@ section li {
 }
 
 #pie {
-    background-color: lightgrey; 
-    list-style-type: none;
+    display:inline-block;
     text-align: center;
+    width: 100%;
+    background-color: black;
+    padding: 10px;
     margin: 0;
-    padding: 0;
+}
+#logo {
+    display: block;
+    float:left;
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #ed0c50;
+    margin: 0;
+}
+#logo:hover {
+    background-color:#800026;
+}
+#jg {
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bolder;
+}
+#copyright {
+    float: left;
+    padding: 30px 0;
+    text-align: center;
+    color: #ed0c50;
 }
 .datos li {
-    display:inline-block;
-    padding: 30px;
+    display: inline-flex;
+    list-style-type: none;
+    color: white;
+    padding:10px;
+    margin-left: 50px;
 }
