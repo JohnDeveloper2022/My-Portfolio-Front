@@ -36,14 +36,35 @@ h1, h2, h3, h4, h5, h6 {
 .button:hover {
     background-color:#800026;
 }
-.programador {
-    text-align: left;
-    font-size: 80px;
+.modal-content {
+    max-width: 340px;
+    margin: auto;
 }
-.musico {
-    text-align: right;
-    font-size: 80px;
+.text-center {
+    width: 100%;
+    text-align: center;
 }
+.form-group {
+    margin-bottom: 1rem;
+}
+#btn-login {
+    background: #ed0c50;
+    padding: 6px 20px;
+    border:none;
+    border-radius: 2px;
+}
+#btn-close {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border:none;
+    border-radius: 2px;
+}
+.cover {
+    padding: 100px;
+    background-color: beige;
+}
+/*.cover-text {
+}*/
 .card {
     border-radius: 25px;
     padding: 15px;
