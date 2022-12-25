@@ -48,14 +48,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 #btn-login {
+    width: 100%;
     background: #ed0c50;
     padding: 6px 20px;
     border:none;
     border-radius: 2px;
 }
 #btn-close {
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding: 6px 20px;
     border:none;
     border-radius: 2px;
 }
