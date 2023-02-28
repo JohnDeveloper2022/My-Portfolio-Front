@@ -23,8 +23,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     margin-left: 15px;
 }
-.button {
-    background-color:#ed0c50;
+.login-button {
+    background-color:#ed0c32;
     color: white;
     text-align: center;
     font-size:medium;
@@ -33,10 +33,10 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     padding: 5px 12px;
 }
-.button:hover {
-    background-color:#800026;
+.login-button:hover {
+    background-color:#ba0927;
 }
-.modal-content {
+.login-format {
     max-width: 340px;
     margin: auto;
 }
@@ -49,10 +49,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 #btn-login {
     width: 100%;
-    background: #ed0c50;
+    background: #ed0c32;
     padding: 6px 20px;
     border:none;
     border-radius: 2px;
+}
+#btn-login:hover {
+    background: #ba0927;
 }
 #btn-close {
     padding: 6px 20px;
@@ -61,10 +64,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 .cover {
     padding: 100px;
-    background-color: beige;
+    background-color: #f2f2f0;
 }
-/*.cover-text {
-}*/
+.cover-text {
+    font-size: 3vw;
+    text-align: center;
+}
+.contact-button {
+    color: #ed0c32;
+    background-color: #f2f2f0;
+    padding: 5px 12px;
+    font-weight: bold;
+    border: 2px solid #ed0c32;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.contact-button:hover {
+    background-color: #ed0c32;
+    color: white;
+}
+#btn-centered {
+    width: fit-content;
+    margin: auto;    
+}
+#btn-close-contact {
+    border: none;
+}
+#btn-send-contact {
+    background: #ed0c32;
+    border: none;
+    margin-left: 12px;
+}
+#btn-send-contact:hover {
+    background: #ba0927;
+}
 .card {
     border-radius: 25px;
     padding: 15px;
@@ -122,7 +155,7 @@ div li {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: #d3d3d380;
+    background: #f2f2f0;
     margin: 1rem;
 }
 .circle svg {
@@ -132,7 +165,7 @@ div li {
     transform: rotate(-90deg);
 }
 .measure-1 {
-    stroke: #ed0c50;
+    stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 66;
@@ -140,7 +173,7 @@ div li {
     fill: none;
 }
 .measure-2 {
-    stroke: #ed0c50;
+    stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 164;
@@ -148,7 +181,7 @@ div li {
     fill: none;
 }
 .measure-3 {
-    stroke: #ed0c50;
+    stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 82;
@@ -156,7 +189,7 @@ div li {
     fill: none;
 }
 .measure-4 {
-    stroke: #ed0c50;
+    stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 102;
@@ -164,7 +197,7 @@ div li {
     fill: none;
 }
 .measure-5 {
-    stroke: #ed0c50;
+    stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 41;
@@ -172,7 +205,7 @@ div li {
     fill: none;
 }
 .measure-6 {
-    stroke: #ed0c50;
+    stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
     stroke-dashoffset: 61;
@@ -213,7 +246,7 @@ div li {
     transform: translate(-50%, -50%);
     width: 115px;
     height: 115px;
-    background: rgb(46, 46, 46);
+    background: #474b4f;
     border-radius: 50%;
     font-size: 1em;
     font-weight: bolder;
@@ -248,7 +281,7 @@ div .progress {
     width: 75%;
     font-size: 1.35em;
     font-weight: bolder;
-    background-color: #ed0c50;
+    background-color: #ed0c32;
     border-radius: 15px;
     animation: progress-1 2s ease-out;
 }
@@ -257,7 +290,7 @@ div .progress {
     width: 25%;
     font-size: 1.35em;
     font-weight: bolder;
-    background-color: #C40AC4;
+    background-color: #ff264a;
     border-radius: 15px;
     animation: progress-2 2s ease-out;
 }
@@ -266,7 +299,7 @@ div .progress {
     width: 50%;
     font-size: 1.35em;
     font-weight: bolder;
-    background-color: #F05483;
+    background-color: #A1182f;
     border-radius: 15px;
     animation: progress-3 2s ease-out;
 }
@@ -298,11 +331,11 @@ div .progress {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    background-color: #ed0c50;
+    background-color: #ed0c32;
     margin: 0;
 }
 #logo:hover {
-    background-color:#800026;
+    background-color:#ba0927;
 }
 #jg {
     color: white;
@@ -315,7 +348,7 @@ div .progress {
     float: left;
     padding: 30px 0;
     text-align: center;
-    color: #ed0c50;
+    color: #ed0c32;
 }
 .datos li {
     display: inline-flex;
