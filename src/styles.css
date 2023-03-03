@@ -62,13 +62,62 @@ h1, h2, h3, h4, h5, h6 {
     border:none;
     border-radius: 2px;
 }
-.cover {
-    padding: 100px;
+/*.cover {
+    padding-bottom: 50px;
     background-color: #f2f2f0;
-}
+}*/
 .cover-text {
-    font-size: 3vw;
+    font-size: 2vw;
+    text-align:start;
+    font-weight:normal;
+    font-variant: small-caps;
+    color: white;
+    /*border: solid red;*/
+    width: 70%;
+    margin: 25px auto;
+}
+#intermitente {
+    animation: cursor infinite 0.8s
+}
+@keyframes cursor {
+    from {opacity: 0;}
+    to   { opacity: 1;}
+}
+.programador {
+    background-color: white;
+    color: black;
+    font-size: 5vw;
+    font-weight: bold;
+    margin: auto;
+    margin-bottom: 25px;
+    padding: 10px;
+    width: 70%;
     text-align: center;
+    mix-blend-mode: screen;
+    animation: program 6s;
+}
+@keyframes program {
+    0% {margin-left: 0%; margin-bottom: 25px; opacity: 0;}
+    5% {opacity: 0;}
+    50%{margin-left: 15%; opacity: 0.9;}
+}
+.musico {
+    background-color: white;
+    color: black;
+    font-size: 5vw;
+    font-weight: bold;
+    margin: auto;
+    margin-bottom: 25px;
+    padding: 10px;
+    width: 70%;
+    text-align: center;
+    mix-blend-mode: screen;
+    animation: mus 5s;
+}
+@keyframes mus {
+    0%  {margin-right: 0;opacity: 0;}
+    20% {opacity: 0;}
+    50% {margin-right: 15%;opacity: 0.8;}
 }
 .contact-button {
     color: #ed0c32;
