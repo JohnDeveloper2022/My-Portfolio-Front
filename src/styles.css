@@ -1,11 +1,11 @@
-* {
+*/* {
     margin-left: 8px;
     margin-right: 8px;
 }
 .cabecera {
     background-color: black;
     padding: 25px 25px;
-}
+}*/
 .cursiva {
     font-style: italic;
 }
@@ -15,23 +15,24 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', sans-serif;
 }
-.social li {
-    display:list-item;
+/*.social li {
+    display:inline-block;
     list-style-type: none;
-    position: relative;
-    float: left;
-    align-items: center;
-    margin-left: 15px;
+}*/
+.social-icon {
+    color: white;
+    border: slateblue solid 2px;
 }
 .login-button {
     background-color:#ed0c32;
     color: white;
-    text-align: center;
+    /*text-align: center;
     font-size:medium;
     font-weight: bold;
     border-radius: 2px;
     border: none;
     padding: 5px 12px;
+    border: fuchsia solid 2px;*/
 }
 .login-button:hover {
     background-color:#ba0927;
@@ -72,7 +73,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight:normal;
     font-variant: small-caps;
     color: white;
-    /*border: solid red;*/
     width: 70%;
     margin: 25px auto;
 }
@@ -365,15 +365,20 @@ div .progress {
     to {width: 50%;}
 }
 
-#pie {
-    display:inline-block;
-    text-align: center;
+.pie {
+    background-color: #212529;
     width: 100%;
-    background-color: black;
-    padding: 10px;
+    text-align: center;
+    padding: 0;
     margin: 0;
 }
-#logo {
+.pie li {
+    display: inline-block;
+    color: white;
+    padding: 25px 50px;
+
+}
+/*#logo {
     display: block;
     float:left;
     position: relative;
@@ -405,4 +410,4 @@ div .progress {
     color: white;
     padding:10px;
     margin-left: 50px;
-}
+}*/
