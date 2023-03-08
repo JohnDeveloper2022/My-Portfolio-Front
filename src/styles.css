@@ -164,17 +164,26 @@ div li {
     text-align: right;
 }
 .experience {
-    margin-left: 100px;
+    width: 60%;
+    margin: auto;
 }
-.linea svg {
-    position: absolute;
-    float: left;
-    stroke:darkred;
-    stroke-width: 4;
-    width: 500;
-    height: 20;
-    transform: rotate(45deg);
-} 
+@media screen and (max-width: 720px) {
+    .experience {width: 80%;}
+}
+.btn-experience {
+    background-color: #ed0c32;
+    color: white;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    box-shadow: 0 4px 8px 0 rgb(0,0,0,0.2);
+    transition: 0.3s;
+}
+.btn-experience:hover {
+    background-color: #474b4f;
+    box-shadow: -4px 4px 12px 0 rgb(0,0,0,0.2);
+    transform:translate(6px);
+}
 .round-circles {
     display: flex;
     flex-wrap: wrap;
