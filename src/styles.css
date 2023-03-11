@@ -15,18 +15,20 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', sans-serif;
 }
-
-.login-format {
+.navbar-nav a:hover, .navbar-nav a:focus{
+    color: whitesmoke;
+}
+/*.login-format {
     max-width: 340px;
     margin: auto;
-}
+}*/
 .text-center {
     width: 100%;
     text-align: center;
 }
-.form-group {
+/*.form-group {
     margin-bottom: 1rem;
-}
+}*/
 #btn-login {
     width: 100%;
     background: #ed0c32;
@@ -393,7 +395,7 @@ div .progress {
 .pie li {
     display: inline-block;
     color: white;
-    padding: 25px 50px;
+    padding: 25px;
 
 }
 /*#logo {

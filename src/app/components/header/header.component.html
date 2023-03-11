@@ -1,39 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
 	<div class="container-fluid">
-	  <a class="navbar-brand" href="#">
+	  <a class="navbar-brand me-4" href="#">
 		<img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
 		<span style="color: white;">Argentina Programa</span></a>
 	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNav">
-		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		  <li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="#">Home</a>
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">		  
+		  <li class="nav-item me-2">
+			<a class="nav-link" href="#sobre-mi">Sobre mí</a>
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#">Sobre mí</a>
+		  <li class="nav-item me-2">
+			<a class="nav-link" href="#experiencia">Experiencia</a>
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#">Experiencia</a>
+		  <li class="nav-item me-2">
+			<a class="nav-link" href="#educacion">Educación</a>
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#">Educación</a>
+		  <li class="nav-item me-2">
+			<a class="nav-link" href="#skills">Skills</a>
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#">Skills</a>
+		  <li class="nav-item me-2">
+			<a class="nav-link" href="#proyectos">Proyectos</a>
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#">Contacto</a>
+		  <li class="nav-item me-2">
+			<a class="nav-link" href="#contacto">Contacto</a>
 		  </li>
-		  <!--<li class="nav-item">
-			<a class="nav-link" href="#"><i class="fa-brands fa-linkedin"></i></a>
-		  </li>-->
 		</ul>
-		<div class="d-flex me-4 mb-2 mb-lg-0">
-			<a class="navbar-nav nav-link me-3" href="#"><i class="fa-brands fa-linkedin"></i></a>
-			<a class="navbar-nav nav-link me-3" href="#"><i class="fa-brands fa-github"></i></a>
-			<a class="navbar-nav nav-link" href="#"><i class="fa-solid fa-envelope"></i></a>
+		<div class="d-flex me-3 mb-3 mt-0 mb-lg-0">
+			<a class="navbar-nav nav-link me-3" href="https://www.linkedin.com/in/jlg26"><i class="fa-brands fa-linkedin"></i></a>
+			<a class="navbar-nav nav-link me-3" href="https://github.com/JohnDeveloper2022"><i class="fa-brands fa-github"></i></a>
 		</div>
 		<form class="d-flex">
 			<button class="btn btn-outline-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">LOG IN</button>
@@ -41,20 +37,20 @@
 	  </div>
 	  <!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
+			<div class="modal-dialog" style="max-width: 340px; margin: auto;">
 				<div class="modal-content login-format">
 					<div class="modal-header" style="border-bottom:none;">
 						<h1 class="modal-title fs-3 text-center" id="exampleModalLabel">JOHNNY</h1>
 					</div>
-					<div class="modal-body" style="padding:10px 0;">
+					<div class="modal-body">
 						<form action="" method="post">
-							<div class="form-group">
+							<div class="form-group mb-3">
 								<input class="form-control" type="text" placeholder="Username" aria-label="default input example">
 							</div>
-							<div class="form-group">
+							<div class="form-group mb-3">
 								<input class="form-control" type="password" id="inputPassword" placeholder="Password">
 							</div>
-							<div class="form-group">
+							<div class="form-group mb-3">
 								<button type="submit" class="btn btn-primary" id="btn-login">Log in</button>
 							</div>
 						</form>
