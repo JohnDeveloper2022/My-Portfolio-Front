@@ -129,14 +129,16 @@ h1, h2, h3, h4, h5, h6 {
     background: #ba0927;
 }
 .mas-sobreMi {
-    color: black;
-    background-color: #f2f2f0;
+    color: #6c757d;
+    background-color: white;
     padding: 0 10px;
     border: none;
     border-radius: 5px;
+    transition: 0.2s;
 }
 .mas-sobreMi:hover {
-    background-color: #e0e0e0;
+    color: #ed0c32;
+    text-decoration: underline;
 }
 .card {
     border-radius: 25px;
