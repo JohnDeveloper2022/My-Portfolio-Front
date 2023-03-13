@@ -123,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 #btn-send-contact {
     background: #ed0c32;
     border: none;
-    margin-left: 12px;
+    border-radius: 2px;
 }
 #btn-send-contact:hover {
     background: #ba0927;
@@ -386,7 +386,9 @@ div .progress {
     from {width: 0%;}
     to {width: 50%;}
 }
-
+input:valid{
+    border: 2px solid violet;
+}
 .pie {
     background-color: #212529;
     width: 100%;
