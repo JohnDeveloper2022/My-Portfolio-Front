@@ -325,24 +325,7 @@ div li {
     fill: none;
     margin: 0;
 }
-/*#skills {
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    justify-items: center;
-}
-.icono {
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    background:lightgray;
-    float: left;
-    margin: 25px;
-}
-    .ability {
-        display: flex;
-        justify-content:center;
-        margin-top: 60px;
-    }*/
+
 div .progress {
     margin: 25px 50px;
     background-color: white;
@@ -386,9 +369,7 @@ div .progress {
     from {width: 0%;}
     to {width: 50%;}
 }
-input:valid{
-    border: 2px solid violet;
-}
+
 .pie {
     background-color: #212529;
     width: 100%;
@@ -421,17 +402,4 @@ input:valid{
     text-align: center;
     font-size: 3em;
     font-weight: bolder;
-}
-#copyright {
-    float: left;
-    padding: 30px 0;
-    text-align: center;
-    color: #ed0c32;
-}
-.datos li {
-    display: inline-flex;
-    list-style-type: none;
-    color: white;
-    padding:10px;
-    margin-left: 50px;
 }*/
