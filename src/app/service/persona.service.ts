@@ -31,8 +31,8 @@ export class PersonaService {
   }
 
   //borrar persona
-  public delete(id:number):Observable<any> {
-    return this.http.delete<any>('http://localhost:8080/delete/id')
+  public delete(id:number):Observable<Persona> {
+    return this.http.delete<Persona>('http://localhost:8080/delete/persona/id')
   }
 }
 
