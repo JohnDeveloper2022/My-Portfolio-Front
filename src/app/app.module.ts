@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -12,6 +14,14 @@ import { IdiomasComponent } from './components/idiomas/idiomas.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { FormEducacionComponent } from './components/educacion/form-educacion.component';
+import { PorfolioComponent } from './components/portfolio/porfolio.component';
+
+const appRoutes: Routes = [
+  { path: '', component: PorfolioComponent},
+  { path: 'estudios', component: EducacionComponent},
+  { path: 'estudios/form', component: FormEducacionComponent}
+]
 
 @NgModule({
   declarations: [
@@ -24,11 +34,15 @@ import { ContactoComponent } from './components/contacto/contacto.component';
     IdiomasComponent,
     ProyectosComponent,
     FooterComponent,
-    ContactoComponent
+    ContactoComponent,
+    FormEducacionComponent,
+    PorfolioComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

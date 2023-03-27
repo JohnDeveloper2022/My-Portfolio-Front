@@ -198,6 +198,12 @@ div li {
     box-shadow: -4px 4px 12px 0 rgb(0,0,0,0.2);
     transform:translate(6px);
 }
+.educacion {
+    width: 60%;
+}
+@media screen and (max-width: 720px) {
+    .educacion {width: 100%;}
+}
 .edu {
     text-align: center;
     font-weight: bold;
