@@ -4,20 +4,30 @@ import { EducacionService } from 'src/app/service/educacion.service';
 import { Educacion } from './educacion';
 
 @Component({
-  selector: 'app-educacion',
-  templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css']
+  selector: 'app-form-educacion',
+  templateUrl: './form-educacion.component.html',
+  styleUrls: ['./form-educacion.component.css']
 })
-export class EducacionComponent implements OnInit {
-
+export class FormEducacionComponent implements OnInit {
   educacion:Educacion = new Educacion();
-  estudios:Educacion[];
+  titulo:string="Registro de Estudio";
 
   constructor(private educacionService:EducacionService, private router:Router, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.educacionService.getAll().subscribe(
-      edu => this.estudios=edu
+    this.cargar();
+  }
+
+  cargar():void{
+    this.activatedRoute.params.subscribe(
+      e=>{
+        let id=e['id'];
+        if(id){
+          this.educacionService.get(id).subscribe(
+            es=>this.educacion=es
+          )
+        }
+      }
     );
   }
 
@@ -31,14 +41,6 @@ export class EducacionComponent implements OnInit {
   update():void{
     this.educacionService.edit(this.educacion).subscribe(
       res=>this.router.navigate(['/estudios'])
-    );
-  }
-
-  delete(educacion:Educacion):void{
-    this.educacionService.delete(educacion.id).subscribe(
-      res=>this.educacionService.getAll().subscribe(
-        response=>this.estudios=response
-      )
     );
   }
 

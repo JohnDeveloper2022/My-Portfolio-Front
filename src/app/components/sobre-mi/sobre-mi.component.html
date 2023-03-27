@@ -1,16 +1,78 @@
-<div class="card">
+<div class="card" id="sobre-mi">
     <h1>Sobre mí</h1>
     <div class="btn-edit">
         <a href="#"><i class="fas fa-pen"></i></a>
     </div>
-    <p>Mi nombre es Johnny Gamboa. Soy músico y programador residenciado en Buenos Aires, Argentina.
-        Realicé estudios musicales en Caracas (Venezuela) obteniendo el grado de Licenciado en Música, 
-        así como también el grado de Doctor en Música y Medios Audiovisuales por la Universitat Politècnica de València (València, España).
-    </p>
-    <p>Actualmente me encuentro estudiando programación, adquiriendo conocimiento en diversas tecnologías
-        vinculadas al desarrollo web front-end y back-end.
-    </p>
-    <p>Lo que más me gusta de la programación es su desarrollo y aplicación multidisciplinar,
-        abarcando áreas del conocimiento científico, cultural y tecnológico.
-    </p>
+    <div class="row m-auto" style="display:inline-flex; max-width: 80%;">
+      <div class="col-md-6">
+        <p>Mi nombre es Johnny Gamboa. Soy músico y programador residenciado en Buenos Aires, Argentina.
+            Realicé estudios musicales en Caracas (Venezuela) obteniendo el grado de Licenciado en Música, 
+            así como también el grado de Doctor en Música y Medios Audiovisuales por la Universitat Politècnica de València (València, España).
+        </p>
+        <p>Actualmente me encuentro estudiando programación, adquiriendo conocimiento en diversas tecnologías
+            vinculadas al desarrollo web front-end y back-end.
+        </p>
+        <p>Lo que más me gusta de la programación es su desarrollo y aplicación multidisciplinar,
+            abarcando áreas del conocimiento científico, cultural y tecnológico.
+        </p>
+      </div>
+      <div class="card text-center col-md-6" style="width: 18rem; margin: auto;">
+        <img [src]="fotoPerfil" class="img-thumbnail" alt="Imagen de perfil">
+        <div>
+          <a href="#" style="float: right;"><i class="fas fa-pen"></i></a>
+        </div>
+        <div class="card-body text-danger">
+          <h5 class="card-title">Johnny Gamboa</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Desarrollador Full Stack</h6>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto" style="width: 80%;">
+      <button id="cerrar" class="mas-sobreMi" type="button" onclick="document.getElementById('cerrar').style.display= 'none'" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <small>...ver más</small>
+      </button>
+    </div>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body" style="max-width: 80%; margin: auto;">
+            Estas son algunas de las tecnologías que he utilizado en mi portfolio y con las que trabajo actualmente:
+            </div>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card card-effect">
+                    <i class="fa-brands fa-angular fa-5x"></i>
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title" style="color: #ed0c32;">Angular</h5>
+                      <p class="card-text">Con este framework he creado el diseño básico del Front-end basado en componentes responsivos.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-effect">
+                    <i class="fa-brands fa-bootstrap fa-5x"></i>
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title" style="color: #ed0c32;">Bootstrap</h5>
+                      <p class="card-text">Bootstrap me ha permitido generar una serie de clases responsivas e interfaces al instante.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-effect">
+                    <i class="fa-brands fa-java fa-5x"></i>
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title" style="color: #ed0c32;">Java</h5>
+                      <p class="card-text">En Java he implementado las clases de objetos y los endpoints necesarios para el Back-end, resultando en una aplicación multiplataforma.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-effect">
+                    <i class="fa-solid fa-power-off fa-5x"></i>
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title" style="color: #ed0c32;">Spring Boot</h5>
+                      <p class="card-text">Con esta herramienta he generado las APIs necesarias para conectar con la base de datos de mi aplicación.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
 </div>

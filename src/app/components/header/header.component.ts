@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonaService } from 'src/app/service/persona.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: PersonaService) { }
 
   ngOnInit(): void {
+    this.service.getAll().subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
