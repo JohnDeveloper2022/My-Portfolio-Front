@@ -101,52 +101,50 @@
 	<!-- Modal add educacion-->
 	<div class="modal fade" id="estudioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-			<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<form>
-					<div class="mb-3">
-						<label for="nombre_instituto" class="form-label">Institución</label>
-						<input type="text" class="form-control" id="nombre_instituto" name="nombre_instituto" [(ngModel)]="educacion.nombre_instituto" placeholder="Default input">
-					</div>
-					<div class="mb-3">
-						<label for="titulo" class="form-label">Título</label>
-						<input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="educacion.titulo" placeholder="Default input">
-					</div>
-					<div class="row mb-3" style="display:inline-flex;">
-						<div class="col-md-6">
-							<label for="name" class="col-form-label">Fecha de inicio</label>
-							<select class="form-select" id="fecha_inicio" name="fecha_inicio" [(ngModel)]="educacion.fecha_inicio" aria-label="Default select example">
-								<option selected>Año de inicio</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
-							</select>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nombre_instituto" class="form-label">Institución</label>
+							<input type="text" class="form-control" id="nombre_instituto" name="nombre_instituto" [(ngModel)]="educacion.nombre_instituto" placeholder="Default input">
 						</div>
-						<div class="col-md-6">
-							<label for="apellido" class="col-form-label">Fecha fin</label>
-							<select class="form-select" id="fecha_fin" name="fecha_fin" [(ngModel)]="educacion.fecha_fin" aria-label="Default select example">
-								<option selected>Año de finalización</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
-							</select>
+						<div class="mb-3">
+							<label for="titulo" class="form-label">Título</label>
+							<input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="educacion.titulo" placeholder="Default input">
 						</div>
-					</div>
-					<div class="mb-3">
-						<label for="descripcion" class="form-label">Descripción</label>
-						<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" rows="3"></textarea>
-					</div>
-					<input id="persona_id" name="persona_id" type="hidden" value="1" [(ngModel)]="educacion.persona_id" />
-				</form>
+						<div class="row mb-3">
+							<div class="col-md-6">
+								<label for="fecha_inicio" class="col-form-label">Fecha de inicio</label>
+								<select class="form-select" id="fecha_inicio" name="fecha_inicio" [(ngModel)]="educacion.fecha_inicio" aria-label="Default select example">
+									<option value="{{mes}}" *ngFor="let mes of meses">
+										{{mes}}
+									</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<label for="fecha_fin" class="col-form-label">Fecha de finalización</label>
+								<select class="form-select" id="fecha_fin" name="fecha_fin" [(ngModel)]="educacion.fecha_fin" aria-label="Default select example">
+									<option value="{{year}}" *ngFor="let year of yearList">
+										{{year}}
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="descripcion" class="form-label">Descripción</label>
+							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" rows="3"></textarea>
+						</div>
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="educacion.persona_id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" (click)="create()">Registrar</button>
+				</div>
 			</div>
-			<div class="modal-footer">
-			<button type="button" class="btn btn-primary" (click)="create()">Registrar</button>
-			</div>
-		</div>
 		</div>
 	</div> 
 	<div class="row educacion" id="accordionExample" style="margin: auto;" *ngFor="let educacion of estudios; let i = index">
@@ -187,9 +185,9 @@
 							<label for="titulo" class="form-label">Título</label>
 							<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Default input">
 						</div>
-						<div class="row mb-3" style="display:inline-flex;">
+						<div class="row mb-3">
 							<div class="col-md-6">
-								<label for="name" class="col-form-label">Fecha de inicio</label>
+								<label for="fecha_inicio" class="col-form-label">Fecha de inicio</label>
 								<select class="form-select" id="fecha_inicio" name="fecha_inicio" aria-label="Default select example">
 									<option selected>Año de inicio</option>
 									<option value="1">One</option>
@@ -198,7 +196,7 @@
 								</select>
 							</div>
 							<div class="col-md-6">
-								<label for="apellido" class="col-form-label">Fecha fin</label>
+								<label for="fecha_fin" class="col-form-label">Fecha de finalización</label>
 								<select class="form-select" id="fecha_fin" name="fecha_fin" aria-label="Default select example">
 									<option selected>Año de finalización</option>
 									<option value="1">One</option>
@@ -211,6 +209,7 @@
 							<label for="descripcion" class="form-label">Descripción</label>
 							<textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
 						</div>
+						<input type="hidden" id="persona_id" name="persona_id" value="1"/>
 					</form>
 				</div>
 				<div class="modal-footer">

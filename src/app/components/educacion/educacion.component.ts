@@ -10,16 +10,28 @@ import { Educacion } from './educacion';
 })
 export class EducacionComponent implements OnInit {
 
+  meses:string[];
+  yearList:number[] = [];
+
   educacion:Educacion = new Educacion();
   estudios:Educacion[];
 
-  constructor(private educacionService:EducacionService, private router:Router, private activatedRoute:ActivatedRoute) { }
+  constructor(private educacionService:EducacionService, private router:Router, private activatedRoute:ActivatedRoute) { 
+    this.meses= ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
+    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+    for (let i = 1930; i <= 2023; i++) {
+      this.yearList.push(i);
+    }
+  }
 
   ngOnInit(): void {
     this.educacionService.getAll().subscribe(
       edu => this.estudios=edu
     );
   }
+  
+
 
   create():void{
     console.log(this.educacion);
