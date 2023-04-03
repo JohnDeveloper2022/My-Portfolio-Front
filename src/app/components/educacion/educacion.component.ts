@@ -29,28 +29,41 @@ export class EducacionComponent implements OnInit {
     this.educacionService.getAll().subscribe(
       edu => this.estudios=edu
     );
+
+    this.cargaForm();
   }
-  
 
+  cargaForm():void {
+    this.activatedRoute.params.subscribe(
+      enlace=>{
+        let id=enlace['id'];
+        if(id){
+          this.educacionService.get(id).subscribe(
+            e=>this.educacion=e
+          );
+        }
+      }
+    );
+  }
 
-  create():void{
+  createEdu():void{
     console.log(this.educacion);
     this.educacionService.create(this.educacion).subscribe(
       res=>this.router.navigate(['/estudios'])
     );
   }
 
-  update():void{
+  updateEdu():void{
     this.educacionService.edit(this.educacion).subscribe(
       res=>this.router.navigate(['/estudios'])
     );
   }
 
-  delete(educacion:Educacion):void{
+  deleteEdu(educacion:Educacion):void{
     this.educacionService.delete(educacion.id).subscribe(
-      res=>this.educacionService.getAll().subscribe(
-        response=>this.estudios=response
-      )
+        res=>this.educacionService.getAll().subscribe(
+          response=>this.estudios=response
+        )
     );
   }
 

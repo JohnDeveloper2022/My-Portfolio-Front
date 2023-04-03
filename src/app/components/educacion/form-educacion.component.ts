@@ -44,4 +44,11 @@ export class FormEducacionComponent implements OnInit {
     );
   }
 
+  deleteEdu(id:number):void{
+    console.log(id)
+    this.educacionService.delete(id).subscribe(
+        res=>this.router.navigate(['/estudios'])
+    );
+  }
+
 }

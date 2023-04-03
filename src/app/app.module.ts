@@ -20,6 +20,7 @@ import { PorfolioComponent } from './components/portfolio/porfolio.component';
 const appRoutes: Routes = [
   { path: '', component: PorfolioComponent},
   { path: 'estudios', component: EducacionComponent},
+  { path: 'estudios/:id', component: EducacionComponent},  
   { path: 'estudios/form', component: FormEducacionComponent}
 ]
 
