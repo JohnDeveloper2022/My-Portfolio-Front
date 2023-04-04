@@ -14,6 +14,7 @@ export class ExperienciaComponent implements OnInit {
   yearList:number[] = [];
 
   experiencia:Experiencia = new Experiencia();
+  experiencias:Experiencia[];
 
   constructor(private experienciaService:ExperienciaService, private router:Router, private activatedRoute:ActivatedRoute) { 
 
@@ -26,6 +27,44 @@ export class ExperienciaComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.experienciaService.getAll().subscribe(
+      exp => this.experiencias=exp
+    );
+
+    this.cargaForm();
+  }
+
+  cargaForm(): void {
+    this.activatedRoute.params.subscribe(
+      enlace=>{
+        let id=enlace['id'];
+        if(id){
+          this.experienciaService.get(id).subscribe(
+            exp=>this.experiencia=exp
+          );
+        }
+      }
+    );
+  }
+
+  createExp(): void {
+    this.experienciaService.create(this.experiencia).subscribe(
+      res=> this.router.navigate([''])
+    );
+  }
+
+  updateExp(): void {
+    this.experienciaService.edit(this.experiencia).subscribe(
+      res=> this.router.navigate([''])
+    );
+  }
+
+  deleteExp(experiencia:Experiencia): void {
+    this.experienciaService.delete(experiencia.id).subscribe(
+      res=> this.experienciaService.getAll().subscribe(
+        response=> this.experiencias=response
+      )
+    );
   }
 
 }

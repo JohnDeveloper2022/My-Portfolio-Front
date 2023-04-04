@@ -17,7 +17,7 @@ export class ExperienciaService {
 
   //ver experiencia
   public get(id:number):Observable<Experiencia> {
-    return this.http.get<Experiencia>('http://localhost:8080/ver/experiencia/id');
+    return this.http.get<Experiencia>('http://localhost:8080/ver/experiencia/' + id);
   }
 
   //crear experiencia
@@ -32,6 +32,6 @@ export class ExperienciaService {
 
   //borrar experiencia
   public delete(id:number):Observable<Experiencia> {
-    return this.http.delete<Experiencia>('http://localhost:8080/delete/experiencia/id');
+    return this.http.delete<Experiencia>('http://localhost:8080/delete/experiencia/' + id);
   }
 }
