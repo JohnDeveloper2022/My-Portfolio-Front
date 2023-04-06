@@ -17,7 +17,7 @@ export class SkillService {
 
   //ver skill
   public get(id:number):Observable<Skill> {
-    return this.http.get<Skill>('http://localhost:8080/ver/skill/id');
+    return this.http.get<Skill>('http://localhost:8080/ver/skill/' + id);
   }
 
   //crear skill
@@ -32,6 +32,6 @@ export class SkillService {
 
   //borrar skill
   public delete(id:number):Observable<Skill> {
-    return this.http.delete<Skill>('http://localhost:8080/delete/skill/id');
+    return this.http.delete<Skill>('http://localhost:8080/delete/skill/' + id);
   }
 }

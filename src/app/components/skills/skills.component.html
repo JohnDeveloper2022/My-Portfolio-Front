@@ -1,19 +1,85 @@
 <div class="card" id="skills">
     <h1>Hard & Soft skills</h1>
     <div class="btn-edit">
-        <a href="#"><i class="fas fa-plus"></i></a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#addSkillModal"><i class="fas fa-plus"></i></a>
     </div>
-    <div class="round-circles">
+    <!--Modal add skill-->
+    <div class="modal fade" id="addSkillModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Añadir skill</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="conocimiento" class="col-form-label"><small class="text-muted">Conocimiento o habilidad</small></label>
+                        <input type="text" class="form-control" id="conocimiento" name="conocimiento" [(ngModel)]="skill.nombre_skill">
+                    </div>
+                    <input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="skill.persona_id" />
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" (click)="createSkill()">Registrar</button>
+            </div>
+          </div>
+        </div>
+    </div> 
+    <div class="round-circles" *ngFor="let skill of skills; let i = index">
+        <div style="float: right; border: solid rebeccapurple;">
+            <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editSkillModal" [routerLink]="['/skills/editar', skill.id]"><i class="fas fa-pen"></i></a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#deleteSkillModal" [routerLink]="['/skills/eliminar', skill.id]"><i class="fas fa-trash"></i></a>
+        </div>
         <div class="circle">
             <svg>
                 <circle class="measure-1" cx="75" cy="75" r="65" />
             </svg>
-            <div class="inner">HTML <br>
-                & <br>
-                CSS
-            </div>
+            <div class="inner">{{skill.nombre_skill}}</div>
         </div>
-        <div class="circle">
+        <!--Modal edit skill-->
+        <div class="modal fade" id="editSkillModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Editar skill</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="conocimiento" class="col-form-label"><small class="text-muted">Conocimiento o habilidad</small></label>
+                            <input type="text" class="form-control" id="conocimiento" name="conocimiento" [(ngModel)]="skill.nombre_skill">
+                        </div>
+                        <input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="skill.persona_id" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" (click)="updateSkill()">Actualizar</button>
+                </div>
+              </div>
+            </div>
+        </div> 
+        <!--Modal delete skill-->
+        <div class="modal fade" id="deleteSkillModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="card modal-header" style="color: #ed0c32; border: none;">
+                  <i class="fa-solid fa-trash-can fa-5x"></i>
+                </div>
+                <div class="modal-body mb-2" style="text-align: center;">
+                  ¿Deseas eliminar esta habilidad?
+                </div>
+                <div class="modal-footer mb-3" style="justify-content: center; border: none;">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" (click)="deleteSkill(skill)">Eliminar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!--<div class="circle">
             <svg>
                 <circle class="measure-2" cx="75" cy="75" r="65" />
             </svg>
@@ -42,14 +108,6 @@
                 <circle class="measure-6" cx="75" cy="75" r="65" />
             </svg>
             <div class="inner">SPRING BOOT</div>
-        </div>
-    </div>
-    <!--<div id="skills">
-            <div class="icono"><span class="ability">Comunicación</span></div>
-            <div class="icono"><span class="ability">Trabajo en equipo</span></div>
-            <div class="icono"><span class="ability">Creatividad</span></div>
-            <div class="icono"><span class="ability">HTML</span></div>
-            <div class="icono"><span class="ability">CSS</span></div>
-            <div class="icono"><span class="ability">JavaScript</span></div>
         </div>-->
+    </div>
 </div>

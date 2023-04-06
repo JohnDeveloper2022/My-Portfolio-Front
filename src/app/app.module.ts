@@ -26,7 +26,9 @@ const appRoutes: Routes = [
   { path: 'experiencia/eliminar/:id', component: ExperienciaComponent},
   { path: 'sobreMi/editar', component: SobreMiComponent},
   { path: 'sobreMi/foto/editar', component: SobreMiComponent},
-  { path: 'sobreMi/datos/editar', component: SobreMiComponent}
+  { path: 'sobreMi/datos/editar', component: SobreMiComponent},
+  { path: 'skills/editar/:id', component: SkillsComponent},
+  { path: 'skills/eliminar/:id', component: SkillsComponent}
 ]
 
 @NgModule({
