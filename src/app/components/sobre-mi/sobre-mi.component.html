@@ -1,7 +1,7 @@
 <div class="card" id="sobre-mi">
     <h1>Sobre mí</h1>
     <div class="btn-edit">
-        <a href="#"><i class="fas fa-pen"></i></a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobreMi/editar']"><i class="fas fa-pen"></i></a>
     </div>
     <div class="row m-auto" style="display:inline-flex; max-width: 80%;">
       <div class="col-md-6">
@@ -17,13 +17,95 @@
         </p>
       </div>
       <div class="card text-center col-md-6" style="width: 18rem; margin: auto;">
-        <img [src]="fotoPerfil" class="img-thumbnail" alt="Imagen de perfil">
-        <div>
-          <a href="#" style="float: right;"><i class="fas fa-pen"></i></a>
+        <div class="img-perfil">
+          <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editFotoModal" [routerLink]="['/sobreMi/foto/editar']">
+            <img [src]="fotoPerfil" class="img-thumbnail" alt="Imagen de perfil">
+            <i class="fa-solid fa-camera fa-3x img-perfil-camara"></i>
+          </a>
         </div>
         <div class="card-body text-danger">
+          <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editDataModal" [routerLink]="['/sobreMi/datos/editar']"><i class="fas fa-pen"></i></a>
           <h5 class="card-title">Johnny Gamboa</h5>
           <h6 class="card-subtitle mb-2 text-muted">Desarrollador Full Stack</h6>
+        </div>
+      </div>
+    </div>
+    <!--Modal edit sobre mí-->
+    <div class="modal fade" id="editAboutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Sobre mí</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="sobre-mi" class="col-form-label"><small class="text-muted">Incluye una descripción personal, tus habilidades y objetivos.</small></label>
+                <textarea class="form-control" id="sobre-mi" rows="3"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Actualizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Modal edit foto-->
+    <div class="modal fade" id="editFotoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="border: none;">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Foto de perfil</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body mb-2">
+            <form>
+              <div class="text-center">
+                <img src="..." alt="" class="img-thumbnail" width="200px" height="200px">
+              </div>
+            </form>
+            <div style="text-align: center;">Formato .jpg o .png</div>
+          </div>
+          <div class="modal-footer mb-2" style="justify-content: center;">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cambiar foto</button>
+            <button type="button" class="btn btn-primary">Actualizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Modal edit Datos-->
+    <div class="modal fade" id="editDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Datos personales</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="name" class="col-form-label">Nombre</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="col-md-6">
+                  <label for="apellido" class="col-form-label">Apellido</label>
+                  <input type="text" class="form-control" id="apellido">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="profesion" class="col-form-label">Profesión</label>
+                <input type="text" class="form-control" id="profesion">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Actualizar</button>
+          </div>
         </div>
       </div>
     </div>

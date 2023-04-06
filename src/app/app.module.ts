@@ -23,7 +23,10 @@ const appRoutes: Routes = [
   { path: 'estudios/:id', component: EducacionComponent},  
   { path: 'estudios/form', component: FormEducacionComponent},
   { path: 'experiencia/editar/:id', component: ExperienciaComponent},
-  { path: 'experiencia/eliminar/:id', component: ExperienciaComponent}
+  { path: 'experiencia/eliminar/:id', component: ExperienciaComponent},
+  { path: 'sobreMi/editar', component: SobreMiComponent},
+  { path: 'sobreMi/foto/editar', component: SobreMiComponent},
+  { path: 'sobreMi/datos/editar', component: SobreMiComponent}
 ]
 
 @NgModule({
