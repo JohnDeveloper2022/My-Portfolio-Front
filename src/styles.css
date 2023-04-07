@@ -341,7 +341,19 @@ div li {
     fill: none;
     margin: 0;
 }
-
+.idiomas {
+    width: 80%;
+    margin: auto;
+}
+.progress {
+    position: relative;
+}
+.btn-edit-idioma {
+    position: relative;
+    float: right;
+    width: fit-content;
+    margin-top: -50px;
+}
 div .progress {
     margin: 25px 50px;
     background-color: white;

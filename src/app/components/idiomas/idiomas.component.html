@@ -1,20 +1,104 @@
 <div class="card">
     <h1 style="margin-bottom:25px">Idiomas</h1>
     <div class="btn-edit">
-        <a href="#"><i class="fas fa-plus"></i></a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#addIdiomaModal"><i class="fas fa-plus"></i></a>
     </div>
-    <div>
+    <div class="idiomas" *ngFor="let idioma of idiomas; let i = index">
         <div class="progress">
             <div class="progress-bar bar-1" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <b>INGLÉS</b></div>
+                <b>{{idioma.nombre_idioma}}</b>
+            </div>
         </div>
-        <div class="progress">
+        <div class="btn-edit-idioma">
+            <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editIdiomaModal" [routerLink]="['/idiomas/editar', idioma.id]"><i class="fas fa-pen"></i></a>
+			<a href="#" data-bs-toggle="modal" data-bs-target="#deleteIdiomaModal" [routerLink]="['/idiomas/eliminar', idioma.id]"><i class="fas fa-trash"></i></a>
+        </div>
+        <!--<div class="progress">
             <div class="progress-bar bar-2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                 <b>ALEMÁN</b></div>
         </div>
         <div class="progress">
             <div class="progress-bar bar-3" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                 <b>ITALIANO</b></div>
-        </div>
+        </div>-->
     </div>
+    <!--Modal add idioma-->
+    <div class="modal fade" id="addIdiomaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="border: none;">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Añadir idioma</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nombre_idioma" class="form-label">Idioma</label>
+							<input type="text" class="form-control" id="nombre_idioma" name="nombre_idioma" [(ngModel)]="idioma.nombre_idioma" placeholder="Default input">
+						</div>
+						<div class="mb-3">
+							<label for="nivel" class="form-label">Nivel</label>
+							<select class="form-select" id="nivel" name="nivel" [(ngModel)]="idioma.nivel" aria-label="Default select example">
+                                <option value="{{nivel}}" *ngFor="let nivel of niveles">
+                                    {{nivel}}
+                                </option>
+                            </select>
+						</div>
+						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="idioma.persona_id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" role="button" (click)="createIdiom()">Registrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!--Modal edit idioma-->
+    <div class="modal fade" id="editIdiomaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="border: none;">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar idioma</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nombre_idioma" class="form-label">Idioma</label>
+							<input type="text" class="form-control" id="nombre_idioma" name="nombre_idioma" [(ngModel)]="idioma.nombre_idioma" placeholder="Default input">
+						</div>
+						<div class="mb-3">
+							<label for="nivel" class="form-label">Nivel</label>
+							<select class="form-select" id="nivel" name="nivel" [(ngModel)]="idioma.nivel" aria-label="Default select example">
+                                <option value="{{nivel}}" *ngFor="let nivel of niveles">
+                                    {{nivel}}
+                                </option>
+                            </select>
+						</div>
+						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="idioma.persona_id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" role="button" (click)="updateIdiom()">Actualizar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!--Modal delete idioma-->
+	<div class="modal fade" id="deleteIdiomaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="card modal-header" style="color: #ed0c32; border: none;">
+			  <i class="fa-solid fa-trash-can fa-5x"></i>
+			</div>
+			<div class="modal-body mb-2" style="text-align: center;">
+			  ¿Deseas eliminar este idioma?
+			</div>
+			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-primary" (click)="deleteIdiom(idioma)">Eliminar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 </div>
