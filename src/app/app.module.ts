@@ -27,8 +27,6 @@ const appRoutes: Routes = [
   { path: 'sobreMi/editar', component: SobreMiComponent},
   { path: 'sobreMi/foto/editar', component: SobreMiComponent},
   { path: 'sobreMi/datos/editar', component: SobreMiComponent},
-  { path: 'skills/editar/:id', component: SkillsComponent},
-  { path: 'skills/eliminar/:id', component: SkillsComponent},
   { path: 'idiomas/agregar', component: IdiomasComponent},
   { path: 'idiomas/editar/:id', component: IdiomasComponent},
   { path: 'idiomas/eliminar/:id', component: IdiomasComponent}

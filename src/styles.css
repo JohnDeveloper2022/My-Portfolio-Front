@@ -227,14 +227,16 @@ div li {
     background-color: #f2f2f0;
 }
 .round-circles {
+    position: relative;
+    float: left;
     /*display: flex;
     flex-wrap: wrap;
-    /*background-color: white;
+    background-color: white;
     min-height: 50vh;
     justify-content: center;
     align-items: center;
-    margin: auto;*/
-    border: solid greenyellow;
+    margin: auto;
+    border: solid greenyellow;*/
 
 }
 .circle {

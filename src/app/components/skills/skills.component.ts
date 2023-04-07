@@ -10,49 +10,20 @@ import { Skill } from './skill';
 })
 export class SkillsComponent implements OnInit {
 
+  nivelSkill:number[] = [];
+
   skill:Skill = new Skill();
   skills:Skill[];
 
-  constructor(private skillService:SkillService, private router:Router, private activatedRoute:ActivatedRoute) { }
+  constructor(private skillService:SkillService, private router:Router, private activatedRoute:ActivatedRoute) {
+    for( let i = 0; i <= 100; i++) {
+      this.nivelSkill.push(i);
+    }
+  }
 
   ngOnInit(): void {
     this.skillService.getAll().subscribe(
-      skl=> this.skills = skl
-    );
-
-    this.cargaForm();
-  }
-
-  cargaForm(): void {
-    this.activatedRoute.params.subscribe(
-      enlace=>{
-        let id=enlace['id'];
-        if(id){
-          this.skillService.get(id).subscribe(
-            skl=> this.skill=skl
-          );
-        }
-      }
-    );
-  }
-  
-  createSkill(): void {
-    this.skillService.create(this.skill).subscribe(
-      res=> this.router.navigate([''])
-    );
-  }
-
-  updateSkill(): void {
-    this.skillService.edit(this.skill).subscribe(
-      res=> this.router.navigate([''])
-    );
-  }
-
-  deleteSkill(skill:Skill): void {
-    this.skillService.delete(skill.id).subscribe(
-      res=> this.skillService.getAll().subscribe(
-        response=> this.skills=response
-      )
+      sk=> this.skills = sk
     );
   }
 
