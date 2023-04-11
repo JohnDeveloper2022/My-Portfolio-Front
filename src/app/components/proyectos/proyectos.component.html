@@ -1,30 +1,78 @@
 <div class="card" id="proyectos">
     <h1>Proyectos</h1>
     <div class="btn-edit">
-        <a href="#"><i class="fas fa-plus"></i></a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#addProyectoModal"><i class="fas fa-plus"></i></a>
     </div>
     <p>En esta seccion se encuentra la información de proyectos desarrollados.
         <span id="especial">La sección incluye este portfolio web</span>y se ilustra
         con imágenes de los proyectos.
     </p>
-    <div id="project">
+    <div id="project" *ngFor="let proy of proyectos">
         <div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Nombre Proyecto 1</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" style="background-color:lightgrey">Ver proyecto</a>
+                <h5 class="card-title">{{proy.nombre_proyecto}}</h5>
+                <p class="card-text">{{proy.descripcion}}</p>
+                <a href="#" style="background-color:lightgrey;">Ver proyecto</a>
             </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Nombre Proyecto 2</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" style="background-color:lightgrey">Ver proyecto</a>
+            <div class="btn-edit-proyecto">
+                <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editProyectoModal"><i class="fas fa-pen"></i></a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#deleteProyectoModal"><i class="fas fa-trash"></i></a>
             </div>
         </div>
     </div>
+    <!--Modal add proyecto-->
+    <div class="modal fade" id="addProyectoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="border: none;">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Añadir proyecto</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nombre_proyecto" class="form-label">Título del proyecto</label>
+							<input type="text" class="form-control" id="nombre_proyecto" name="nombre_proyecto" [(ngModel)]="proyecto.nombre_proyecto" placeholder="Default input">
+						</div>
+                        <div class="mb-3">
+							<label for="descripcion" class="form-label">Descripción</label>
+							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion" rows="3"></textarea>
+						</div>
+						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="proyecto.persona_id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" role="button" (click)="createPro()">Registrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!--Modal editar proyecto-->
+    <div class="modal fade" id="editProyectoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="border: none;">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar proyecto</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nombre_proyecto" class="form-label">Título del proyecto</label>
+							<input type="text" class="form-control" id="nombre_proyecto" name="nombre_proyecto" [(ngModel)]="proyecto.nombre_proyecto" placeholder="Default input">
+						</div>
+                        <div class="mb-3">
+							<label for="descripcion" class="form-label">Descripción</label>
+							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion" rows="3"></textarea>
+						</div>
+						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="proyecto.persona_id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" role="button">Actualizar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

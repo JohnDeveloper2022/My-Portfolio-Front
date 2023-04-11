@@ -399,7 +399,12 @@ div .progress {
     from {width: 0%;}
     to {width: 50%;}
 }
-
+.btn-edit-proyecto {
+    position: relative;
+    text-align: right;
+    margin-top: -45px;
+    
+}
 .pie {
     background-color: #212529;
     width: 100%;
