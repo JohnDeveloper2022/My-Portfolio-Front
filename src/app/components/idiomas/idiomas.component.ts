@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Idioma } from './idioma';
 import { IdiomaService } from 'src/app/service/idioma.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
+import { Usuario } from 'src/app/usuario';
 
 @Component({
   selector: 'app-idiomas',
@@ -10,14 +12,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class IdiomasComponent implements OnInit {
 
+  usuario:Usuario = new Usuario();
+  userLogueado:boolean = false;
   niveles:string[];
 
   idioma:Idioma = new Idioma();
   idiomas:Idioma[];
 
-  constructor(private idiomaService:IdiomaService, private router:Router, private activatedRoute:ActivatedRoute) { 
-    this.niveles = ['Básico', 'Intermedio', 'Avanzado', 'Nativo'];
+  constructor(private idiomaService:IdiomaService, private router:Router, private activatedRoute:ActivatedRoute,
+    private loginService:LoginService) {
 
+    this.niveles = ['Básico', 'Intermedio', 'Avanzado', 'Nativo'];
 
   }
 
@@ -26,6 +31,11 @@ export class IdiomasComponent implements OnInit {
       idiom=> this.idiomas=idiom
     );
     this.cargaForm();
+    if(this.loginService.getUser(this.usuario)) {
+      this.userLogueado = true;
+    } else {
+      this.userLogueado = false;
+    }
   }
 
   cargaForm(): void {
