@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg py-0 navbar-dark bg-dark">
 	<div class="container-fluid">
-	  <a class="navbar-brand me-4" href="#">
-		<img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
-		<span style="color: white;">Argentina Programa</span></a>
+	  <a class="navbar-brand me-4" href="https://www.argentina.gob.ar/economia/conocimiento/argentina-programa">
+		<img [src]="logoArgPro" alt="" width="" height="" class="d-inline-block align-text-top" style="margin-left: -15px;">
+	  </a>
 	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	  </button>
@@ -64,7 +64,11 @@
 	</div>
   </nav>
 <div class="card">
-	<div class="img-fluid" style="background-color: black; padding-bottom: 50px;">
+	<!--<img [src]="coverImage" class="img-fluid" alt="Imagen Destacada">-->
+	<div style="background-color: #212529; padding-bottom: 50px;">
+		<!--<div class="persona-coding">
+			<img [src]="miniCover" class="img-fluid" width="50%">
+		</div>-->
 		<div class="cover-text">
 			Hola <span style="color: #ed0c32;">Mundo</span><br>
 			Mi <span style="color: #ed0c32;">nombre</span> es <span style="color: #ed0c32;font-weight: bold;">JOHNNY </span>GAMBOA<span id="intermitente">_</span>

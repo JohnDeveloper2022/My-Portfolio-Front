@@ -8,6 +8,10 @@ import { PersonaService } from 'src/app/service/persona.service';
 })
 export class HeaderComponent implements OnInit {
 
+  logoArgPro = 'assets/images/logo_ArgPro.png'
+  coverImage = 'assets/images/cover.jpg'
+  miniCover = 'assets/images/version_control.svg'
+
   constructor(private service: PersonaService) { }
 
   ngOnInit(): void {

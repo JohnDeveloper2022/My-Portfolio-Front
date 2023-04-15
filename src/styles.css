@@ -44,10 +44,13 @@ h1, h2, h3, h4, h5, h6 {
     border:none;
     border-radius: 2px;
 }
-/*.cover {
-    padding-bottom: 50px;
-    background-color: #f2f2f0;
-}*/
+
+.persona-coding {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    border: solid greenyellow;
+}
 .cover-text {
     font-size: 2vw;
     text-align:start;
@@ -56,6 +59,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     width: 70%;
     margin: 25px auto;
+    border: solid greenyellow;
 }
 #intermitente {
     animation: cursor infinite 0.8s
