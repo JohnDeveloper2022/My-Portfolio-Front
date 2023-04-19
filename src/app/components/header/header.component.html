@@ -33,7 +33,9 @@
 		</div>
 		<form class="d-flex">
 			<button class="btn btn-outline-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#loginModal"
-			routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">LOG IN</button>
+			routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="userLogueado; else elseBlock">LOG IN</button>
+			<ng-template #elseBlock><button class="btn btn-outline-danger btn-sm" type="button"
+			routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">LOG OUT</button></ng-template>
 		</form>
 	  </div>
 	  <!--Login Modal -->

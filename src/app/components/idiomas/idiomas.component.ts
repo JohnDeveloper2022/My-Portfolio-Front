@@ -31,6 +31,7 @@ export class IdiomasComponent implements OnInit {
       idiom=> this.idiomas=idiom
     );
     this.cargaForm();
+    
     if(this.loginService.getUser(this.usuario)) {
       this.userLogueado = true;
     } else {

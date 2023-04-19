@@ -3,7 +3,7 @@
     <div style="border-bottom:none;">
         <h1 class="fs-3 text-center mb-3">JOHNNY</h1>
     </div>
-    <form (ngSubmit)="userLogin()">
+    <form (ngSubmit)="login()">
         <div class="form-group mb-3">
             <label for="user_id" class="form-label">Nombre Usuario</label>
             <input type="text" class="form-control" id="user_id" name="user_id" [(ngModel)]="usuario.username" placeholder="Username" aria-label="default input example">
@@ -17,7 +17,7 @@
         </div>
     </form>
     <div class="" style="background-color: #f2f2f0; margin: 0 -12px; padding: 16px; text-align: right;">
-        <button type="button" class="btn btn-secondary" id="btn-close" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" id="btn-close" (click)="volver()">Close</button>
     </div>
 </div>
 
