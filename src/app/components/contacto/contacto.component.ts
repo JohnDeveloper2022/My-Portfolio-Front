@@ -12,4 +12,8 @@ export class ContactoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    console.log('prueba de mi formulario');
+  }
+
 }

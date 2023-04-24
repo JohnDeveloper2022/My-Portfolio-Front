@@ -1,6 +1,6 @@
 export class Skill {
     id:number;
     nombre_skill:string;
-    nivel:number;
+    nivel:string;
     persona_id:number;
 }

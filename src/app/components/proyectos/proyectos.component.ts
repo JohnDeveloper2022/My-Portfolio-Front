@@ -19,12 +19,14 @@ export class ProyectosComponent implements OnInit {
     this.proyectoService.getAll().subscribe(
       pro=> this.proyectos = pro
     );
+
+    this.cargaForm();
   }
 
   cargaForm(): void {
     this.activatedRoute.params.subscribe(
       enlace=>{
-        let id = enlace['id'];
+        let id=enlace['id'];
         if(id){
           this.proyectoService.get(id).subscribe(
             pro=> this.proyecto=pro

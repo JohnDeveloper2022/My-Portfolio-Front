@@ -7,20 +7,22 @@
         <span id="especial">La sección incluye este portfolio web</span>y se ilustra
         con imágenes de los proyectos.
     </p>
-    <div id="project" *ngFor="let proy of proyectos">
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{proy.nombre_proyecto}}</h5>
-                <p class="card-text">{{proy.descripcion}}</p>
-                <a href="#" style="background-color:lightgrey;">Ver proyecto</a>
-            </div>
-            <div class="btn-edit-proyecto">
-                <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editProyectoModal"><i class="fas fa-pen"></i></a>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#deleteProyectoModal"><i class="fas fa-trash"></i></a>
-            </div>
-        </div>
-    </div>
+	<ul style="text-align: center;">
+		<li class="col-md-6" id="project" *ngFor="let proy of proyectos"> 
+			<div class="card" style="width: 18rem;">
+				<img src="..." class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">{{proy.nombre_proyecto}}</h5>
+					<p class="card-text">{{proy.descripcion}}</p>
+					<a href="#" style="background-color:lightgrey;">Ver proyecto</a>
+				</div>
+				<div class="btn-edit-proyecto">
+					<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editProyectoModal" [routerLink]="['/proyectos/editar', proy.id]"><i class="fas fa-pen"></i></a>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#deleteProyectoModal" [routerLink]="['/proyectos/eliminar', proy.id]"><i class="fas fa-trash"></i></a>
+				</div>
+			</div>
+		</li>
+	</ul>
     <!--Modal add proyecto-->
     <div class="modal fade" id="addProyectoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -33,11 +35,13 @@
 					<form>
 						<div class="mb-3">
 							<label for="nombre_proyecto" class="form-label">Título del proyecto</label>
-							<input type="text" class="form-control" id="nombre_proyecto" name="nombre_proyecto" [(ngModel)]="proyecto.nombre_proyecto" placeholder="Default input">
+							<input type="text" class="form-control" id="nombre_proyecto" name="nombre_proyecto" #project="ngModel" [(ngModel)]="proyecto.nombre_proyecto" placeholder="p. ej. Alexa" maxlength="45" required ngModel>
+							<div><span *ngIf="project.invalid && project.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
                         <div class="mb-3">
 							<label for="descripcion" class="form-label">Descripción</label>
-							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion" rows="3"></textarea>
+							<textarea class="form-control" id="descripcion" name="descripcion" #descripcion="ngModel" [(ngModel)]="proyecto.descripcion" rows="3" maxlength="150" required ngModel></textarea>
+							<div><span *ngIf="descripcion.invalid && descripcion.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
 						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="proyecto.persona_id" />
 					</form>
@@ -60,19 +64,38 @@
 					<form>
 						<div class="mb-3">
 							<label for="nombre_proyecto" class="form-label">Título del proyecto</label>
-							<input type="text" class="form-control" id="nombre_proyecto" name="nombre_proyecto" [(ngModel)]="proyecto.nombre_proyecto" placeholder="Default input">
+							<input type="text" class="form-control" id="nombre_proyecto" name="nombre_proyecto" #project="ngModel" [(ngModel)]="proyecto.nombre_proyecto" placeholder="p. ej. Alexa" maxlength="45" required ngModel>
+							<div><span *ngIf="project.invalid && project.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
                         <div class="mb-3">
 							<label for="descripcion" class="form-label">Descripción</label>
-							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion" rows="3"></textarea>
+							<textarea class="form-control" id="descripcion" name="descripcion" #descripcion="ngModel" [(ngModel)]="proyecto.descripcion" rows="3" maxlength="150" required ngModel></textarea>
+							<div><span *ngIf="descripcion.invalid && descripcion.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
 						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="proyecto.persona_id" />
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" role="button">Actualizar</button>
+					<button type="button" class="btn btn-primary" role="button" (click)="updatePro()">Actualizar</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!--Modal delete proyecto-->
+	<div class="modal fade" id="deleteProyectoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="card modal-header" style="color: #ed0c32; border: none;">
+			  <i class="fa-solid fa-trash-can fa-5x"></i>
+			</div>
+			<div class="modal-body mb-2" style="text-align: center;">
+			  ¿Deseas eliminar este proyecto?
+			</div>
+			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-primary" (click)="deletePro(proyecto)">Eliminar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 </div>

@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SobreMiComponent implements OnInit {
 
-  usuario:Persona = new Persona();
+  persona:Persona = new Persona();
   personas:Persona[];
 
   fotoPerfil = 'assets/images/foto_cv.png'
@@ -21,11 +21,24 @@ export class SobreMiComponent implements OnInit {
     this.personaService.getAll().subscribe( 
       per => this.personas=per
     );
+    this.cargaForm();
   }
-  
+ 
+  cargaForm(): void {
+    this.activatedRoute.params.subscribe(
+      enlace=>{
+        let id=enlace['id'];
+        if(id){
+          this.personaService.get(id).subscribe(
+            p=> this.persona=p
+          );
+        }
+      }
+    );
+  }
 
-  updateUser(): void {
-    this.personaService.edit(this.usuario).subscribe(
+  updatePersona(): void {
+    this.personaService.edit(this.persona).subscribe(
       res=> this.router.navigate([''])
     );
   }

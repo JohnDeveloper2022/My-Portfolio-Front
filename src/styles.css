@@ -171,9 +171,10 @@ div h1 {
 div li {
     list-style: none;
 }
-#especial { font-weight: bold; }
+#especial { 
+    font-weight: bold; }
 #project {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
 }
 .btn-edit {
@@ -202,6 +203,7 @@ div li {
     color: white;
     padding: 18px;
     border: none;
+    width: 100%;
     text-align: left;
     box-shadow: 0 4px 8px 0 rgb(0,0,0,0.2);
     transition: 0.3s;
@@ -232,16 +234,20 @@ div li {
 }
 .round-circles {
     position: relative;
-    float: left;
-    /*display: flex;
+    text-align: center;
+    /*float: left;
+    display: flex;
     flex-wrap: wrap;
     background-color: white;
     min-height: 50vh;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    border: solid greenyellow;*/
+    margin: auto;*/
 
+}
+.circle-list {
+    display: inline-flex;
+    margin-bottom: 32px;
 }
 .circle {
     position: relative;
@@ -249,7 +255,7 @@ div li {
     height: 150px;
     border-radius: 50%;
     background: #f2f2f0;
-    margin: 1rem;
+    margin: auto;
 }
 .circle svg {
     width: 150px;
@@ -261,7 +267,7 @@ div li {
     stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
-    stroke-dashoffset: 66;
+    stroke-dashoffset: 350;
     animation: spinner-1 3s ease-out;
     fill: none;
 }
@@ -269,7 +275,7 @@ div li {
     stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
-    stroke-dashoffset: 164;
+    stroke-dashoffset: 282;
     animation: spinner-2 3s ease-out;
     fill: none;
 }
@@ -277,7 +283,7 @@ div li {
     stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
-    stroke-dashoffset: 82;
+    stroke-dashoffset: 214;
     animation: spinner-3 3s ease-out;
     fill: none;
 }
@@ -285,7 +291,7 @@ div li {
     stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
-    stroke-dashoffset: 102;
+    stroke-dashoffset: 146;
     animation: spinner-4 3s ease-out;
     fill: none;
 }
@@ -293,7 +299,7 @@ div li {
     stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
-    stroke-dashoffset: 41;
+    stroke-dashoffset: 78;
     animation: spinner-5 3s ease-out;
     fill: none;
 }
@@ -301,33 +307,33 @@ div li {
     stroke: #ed0c32;
     stroke-width: 20;
     stroke-dasharray: 410;
-    stroke-dashoffset: 61;
+    stroke-dashoffset: 10;
     animation: spinner-6 3s ease-out;
     fill: none;
 }
 @keyframes spinner-1 {
     from {stroke-dashoffset: 410;}
-    to {stroke-dashoffset: 66;}
+    to {stroke-dashoffset: 350;}
 }
 @keyframes spinner-2 {
     from {stroke-dashoffset: 410;}
-    to {stroke-dashoffset: 164;}
+    to {stroke-dashoffset: 282;}
 }
 @keyframes spinner-3 {
     from {stroke-dashoffset: 410;}
-    to {stroke-dashoffset: 82;}
+    to {stroke-dashoffset: 214;}
 }
 @keyframes spinner-4 {
     from {stroke-dashoffset: 410;}
-    to {stroke-dashoffset: 102;}
+    to {stroke-dashoffset: 146;}
 }
 @keyframes spinner-5 {
     from {stroke-dashoffset: 410;}
-    to {stroke-dashoffset: 41;}
+    to {stroke-dashoffset: 78;}
 }
 @keyframes spinner-6 {
     from {stroke-dashoffset: 410;}
-    to {stroke-dashoffset: 61;}
+    to {stroke-dashoffset: 10;}
 }
 .circle .inner {
     display: flex;
@@ -366,42 +372,55 @@ div .progress {
 }
 .progress .bar-1 {
     height: auto;
-    width: 75%;
-    font-size: 1.35em;
-    font-weight: bolder;
-    background-color: #ed0c32;
-    border-radius: 15px;
-    animation: progress-1 2s ease-out;
-}
-.progress .bar-2 {
-    height: auto;
     width: 25%;
     font-size: 1.35em;
     font-weight: bolder;
     background-color: #ff264a;
     border-radius: 15px;
+    animation: progress-1 2s ease-out;
+}
+.progress .bar-2 {
+    height: auto;
+    width: 50%;
+    font-size: 1.35em;
+    font-weight: bolder;
+    background-color: #D40B2C;
+    border-radius: 15px;
     animation: progress-2 2s ease-out;
 }
 .progress .bar-3 {
     height: auto;
-    width: 50%;
+    width: 75%;
     font-size: 1.35em;
     font-weight: bolder;
     background-color: #A1182f;
     border-radius: 15px;
     animation: progress-3 2s ease-out;
 }
-@keyframes progress-1 {
-    from {width: 0%;}
-    to {width: 75%;}
+.progress .bar-4 {
+    height: auto;
+    width: 100%;
+    font-size: 1.35em;
+    font-weight: bolder;
+    background-color: #6E0517;
+    border-radius: 15px;
+    animation: progress-4 2s ease-out;
 }
-@keyframes progress-2 {
+@keyframes progress-1 {
     from {width: 0%;}
     to {width: 25%;}
 }
-@keyframes progress-3 {
+@keyframes progress-2 {
     from {width: 0%;}
     to {width: 50%;}
+}
+@keyframes progress-3 {
+    from {width: 0%;}
+    to {width: 75%;}
+}
+@keyframes progress-4 {
+    from {width: 0%;}
+    to {width: 100%;}
 }
 .btn-edit-proyecto {
     position: relative;

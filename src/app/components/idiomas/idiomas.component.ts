@@ -16,8 +16,8 @@ export class IdiomasComponent implements OnInit {
   idiomas:Idioma[];
 
   constructor(private idiomaService:IdiomaService, private router:Router, private activatedRoute:ActivatedRoute) { 
+    
     this.niveles = ['Básico', 'Intermedio', 'Avanzado', 'Nativo'];
-
 
   }
 
@@ -61,4 +61,22 @@ export class IdiomasComponent implements OnInit {
     );
   }
 
+  retornarNivel(nivel: string){
+    switch(nivel)
+    {
+      case 'Básico':
+        nivel = 'bar-1';
+      break;
+      case 'Intermedio':
+        nivel = 'bar-2';
+      break;
+      case 'Avanzado':
+        nivel = 'bar-3';
+      break;
+      case 'Nativo':
+        nivel = 'bar-4';
+      break;
+    }
+    return nivel;
+  }
 }

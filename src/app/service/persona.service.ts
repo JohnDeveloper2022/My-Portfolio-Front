@@ -27,7 +27,7 @@ export class PersonaService {
 
   //editar persona
   public edit(persona:Persona):Observable<Persona> {
-    return this.http.put<Persona>('http://localhost:8080/edit/persona', persona);
+    return this.http.put<Persona>('http://localhost:8080/editar/persona', persona);
   }
 
   //borrar persona

@@ -24,12 +24,18 @@ const appRoutes: Routes = [
   { path: 'estudios/form', component: FormEducacionComponent},
   { path: 'experiencia/editar/:id', component: ExperienciaComponent},
   { path: 'experiencia/eliminar/:id', component: ExperienciaComponent},
-  { path: 'sobreMi/editar', component: SobreMiComponent},
-  { path: 'sobreMi/foto/editar', component: SobreMiComponent},
-  { path: 'sobreMi/datos/editar', component: SobreMiComponent},
+  { path: 'sobreMi/editar/:id', component: SobreMiComponent},
+  { path: 'sobreMi/foto/editar/:id', component: SobreMiComponent},
+  { path: 'sobreMi/datos/editar/:id', component: SobreMiComponent},
+  { path: 'skills/agregar', component: SkillsComponent},
+  { path: 'skills/editar/:id', component: SkillsComponent},
+  { path: 'skills/eliminar/:id', component: SkillsComponent},
   { path: 'idiomas/agregar', component: IdiomasComponent},
   { path: 'idiomas/editar/:id', component: IdiomasComponent},
-  { path: 'idiomas/eliminar/:id', component: IdiomasComponent}
+  { path: 'idiomas/eliminar/:id', component: IdiomasComponent},
+  { path: 'proyectos/agregar', component: ProyectosComponent},
+  { path: 'proyectos/editar/:id', component: ProyectosComponent},
+  { path: 'proyectos/eliminar/:id', component: ProyectosComponent}
 
 ]
 

@@ -1,11 +1,12 @@
 <div class="card" id="sobre-mi">
     <h1>Sobre mí</h1>
-    <div class="btn-edit">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobreMi/editar']"><i class="fas fa-pen"></i></a>
-    </div>
-    <div class="row m-auto" style="display:inline-flex; max-width: 80%;">
+    <div class="btn-edit" *ngFor="let persona of personas">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobreMi/editar', persona.id]"><i class="fas fa-pen"></i></a>
+    </div> 
+    <div class="row m-auto" style="display:inline-flex; max-width: 80%;" *ngFor="let persona of personas">
       <div class="col-md-6">
-        <p>Mi nombre es Johnny Gamboa. Soy músico y programador residenciado en Buenos Aires, Argentina.
+        <p>{{persona.sobre_mi}}</p>
+        <!--<p>Mi nombre es Johnny Gamboa. Soy músico y programador residenciado en Buenos Aires, Argentina.
             Realicé estudios musicales en Caracas (Venezuela) obteniendo el grado de Licenciado en Música, 
             así como también el grado de Doctor en Música y Medios Audiovisuales por la Universitat Politècnica de València (València, España).
         </p>
@@ -14,7 +15,7 @@
         </p>
         <p>Lo que más me gusta de la programación es su desarrollo y aplicación multidisciplinar,
             abarcando áreas del conocimiento científico, cultural y tecnológico.
-        </p>
+        </p>-->
       </div>
       <div class="card text-center col-md-6" style="width: 18rem; margin: auto;">
         <div class="img-perfil">
@@ -24,9 +25,9 @@
           </a>
         </div>
         <div class="card-body text-danger">
-          <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editDataModal" [routerLink]="['/sobreMi/datos/editar']"><i class="fas fa-pen"></i></a>
-          <h5 class="card-title">Johnny Gamboa</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Desarrollador Full Stack</h6>
+          <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editDataModal" [routerLink]="['/sobreMi/datos/editar', persona.id]"><i class="fas fa-pen"></i></a>
+          <h5 class="card-title">{{persona.nombre}}&nbsp;{{persona.apellido}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{persona.profesion}}</h6>
         </div>
       </div>
     </div>
@@ -42,13 +43,14 @@
             <form>
               <div class="mb-3">
                 <label for="sobre-mi" class="col-form-label"><small class="text-muted">Incluye una descripción personal, tus habilidades y objetivos.</small></label>
-                <textarea class="form-control" id="sobre-mi" rows="3"></textarea>
+                <textarea class="form-control" id="sobre-mi" name="sobre-mi" #sobreMi="ngModel" [(ngModel)]="persona.sobre_mi" rows="3" maxlength="650" required ngModel></textarea>
+                <div><span *ngIf="sobreMi.invalid && sobreMi.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-primary" (click)="updatePersona()">Actualizar</button>
           </div>
         </div>
       </div>
@@ -89,22 +91,25 @@
               <div class="row mb-3">
                 <div class="col-md-6">
                   <label for="name" class="col-form-label">Nombre</label>
-                  <input type="text" class="form-control" id="name">
+                  <input type="text" class="form-control" id="name" name="name" #nombre="ngModel" [(ngModel)]="persona.nombre" minlength="2" maxlength="45" placeholder="p. ej. Facundo" required ngModel>
+                  <div><span *ngIf="nombre.invalid && nombre.touched" style="color: #ed0c32;"><small>Ingrese un nombre válido</small></span></div>
                 </div>
                 <div class="col-md-6">
                   <label for="apellido" class="col-form-label">Apellido</label>
-                  <input type="text" class="form-control" id="apellido">
+                  <input type="text" class="form-control" id="apellido" name="apellido" #apellido="ngModel" [(ngModel)]="persona.apellido" minlength="2" maxlength="45" placeholder="p. ej. González" required ngModel>
+                  <div><span *ngIf="apellido.invalid && apellido.touched" style="color: #ed0c32;"><small>Ingrese un apellido válido</small></span></div>
                 </div>
               </div>
               <div class="mb-3">
                 <label for="profesion" class="col-form-label">Profesión</label>
-                <input type="text" class="form-control" id="profesion">
+                <input type="text" class="form-control" id="profesion" name="profesion" #profesion="ngModel" [(ngModel)]="persona.profesion" minlength="2" maxlength="45" placeholder="p. ej. Diseñador Gráfico" required ngModel>
+                <div><span *ngIf="profesion.invalid && profesion.touched" style="color: #ed0c32;"><small>Ingrese un nombre válido</small></span></div>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-primary" (click)="updatePersona()">Actualizar</button>
           </div>
         </div>
       </div>

@@ -3,20 +3,22 @@
     <div class="btn-edit">
         <a href="#" data-bs-toggle="modal" data-bs-target="#addSkillModal"><i class="fas fa-plus"></i></a>
     </div>
-    <div class="round-circles">
-      <div style="border: solid green">
+    <ul class="round-circles">
+      <li class="circle-list col-md-4" *ngFor="let skill of skills">
         <div class="circle">
             <svg>
-                <circle class="measure-1" cx="75" cy="75" r="65" />
+                <circle class="{{retornarNivelSk(skill.nivel)}}" cx="75" cy="75" r="65" />
             </svg>
-            <div class="inner">HTML</div>
+            <div class="inner">
+              <b>{{skill.nombre_skill}}</b>
+            </div>
         </div>
-      </div>
-      <div>
-        <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editSkillModal"><i class="fas fa-pen"></i></a>
-			  <a href="#" data-bs-toggle="modal" data-bs-target="#deleteSkillModal"><i class="fas fa-trash"></i></a>
-      </div>
-        <!--<div class="circle" style="border: solid indianred;">
+        <div>
+          <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editSkillModal" [routerLink]="['/skills/editar', skill.id]"><i class="fas fa-pen"></i></a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#deleteSkillModal" [routerLink]="['/skills/eliminar', skill.id]"><i class="fas fa-trash"></i></a>
+        </div>
+      </li>
+        <!--<div class="circle">
             <svg>
                 <circle class="measure-2" cx="75" cy="75" r="65" />
             </svg>
@@ -38,7 +40,7 @@
             <svg>
                 <circle class="measure-5" cx="75" cy="75" r="65" />
             </svg>
-            <div class="inner">GIT</div>
+            <div class="inner">JAVA</div>
         </div>
         <div class="circle">
             <svg>
@@ -46,7 +48,7 @@
             </svg>
             <div class="inner">SPRING BOOT</div>
         </div>-->
-    </div>
+      </ul>
     <!--Modal add skill-->
     <div class="modal fade" id="addSkillModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -59,21 +61,23 @@
             <form>
               <div class="mb-3">
                 <label for="conocimiento" class="form-label">Conocimiento o habilidad</label>
-                <input type="text" class="form-control" id="conocimiento" name="conocimiento" [(ngModel)]="skill.nombre_skill" placeholder="Default input">
+                <input type="text" class="form-control" id="conocimiento" name="conocimiento" #habilidad="ngModel" [(ngModel)]="skill.nombre_skill" placeholder="p. ej. React" required ngModel>
+                <div><span *ngIf="habilidad.invalid && habilidad.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
               </div>
               <div class="mb-3">
                 <label for="nivel" class="form-label">Nivel</label>
-                <select class="form-select" id="nivel" name="nivel" [(ngModel)]="skill.nivel" aria-label="Default select example">
+                <select class="form-select" id="nivel" name="nivel" #nivelSk="ngModel" [(ngModel)]="skill.nivel" aria-label="Default select example" required ngModel>
                   <option value="{{niveles}}" *ngFor="let niveles of nivelSkill">
                     {{niveles}}
                   </option>                  
                 </select>
+                <div><span *ngIf="nivelSk.invalid && nivelSk.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
               </div>
               <input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="skill.persona_id" />
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" role="button">Registrar</button>
+            <button type="button" class="btn btn-primary" role="button" (click)="createSkill()">Registrar</button>
           </div>
         </div>
       </div>
@@ -90,21 +94,23 @@
             <form>
               <div class="mb-3">
                 <label for="conocimiento" class="form-label">Conocimiento o habilidad</label>
-                <input type="text" class="form-control" id="conocimiento" name="conocimiento" [(ngModel)]="skill.nombre_skill" placeholder="Default input">
+                <input type="text" class="form-control" id="conocimiento" name="conocimiento" #habilidad="ngModel" [(ngModel)]="skill.nombre_skill" placeholder="p. ej. React" required ngModel>
+                <div><span *ngIf="habilidad.invalid && habilidad.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
               </div>
               <div class="mb-3">
                 <label for="nivel" class="form-label">Nivel</label>
-                <select class="form-select" id="nivel" name="nivel" [(ngModel)]="skill.nivel" aria-label="Default select example">
+                <select class="form-select" id="nivel" name="nivel" #nivelSk="ngModel" [(ngModel)]="skill.nivel" aria-label="Default select example" required ngModel>
                   <option value="{{niveles}}" *ngFor="let niveles of nivelSkill">
                     {{niveles}}
                   </option>                  
                 </select>
+                <div><span *ngIf="nivelSk.invalid && nivelSk.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
               </div>
               <input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="skill.persona_id" />
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" role="button">Actualizar</button>
+            <button type="button" class="btn btn-primary" role="button" (click)="updateSkill()">Actualizar</button>
           </div>
         </div>
       </div>
@@ -117,11 +123,11 @@
 			  <i class="fa-solid fa-trash-can fa-5x"></i>
 			</div>
 			<div class="modal-body mb-2" style="text-align: center;">
-			  ¿Deseas eliminar este idioma?
+			  ¿Deseas eliminar este conocimiento?
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
 			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-			  <button type="button" class="btn btn-primary">Eliminar</button>
+			  <button type="button" class="btn btn-primary" (click)="deleteSkill(skill)">Eliminar</button>
 			</div>
 		  </div>
 		</div>
