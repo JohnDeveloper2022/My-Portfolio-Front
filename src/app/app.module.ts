@@ -16,9 +16,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { FormEducacionComponent } from './components/educacion/form-educacion.component';
 import { PorfolioComponent } from './components/portfolio/porfolio.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: PorfolioComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'edicion', component: PorfolioComponent},
   { path: 'estudios', component: EducacionComponent},
   { path: 'estudios/:id', component: EducacionComponent},  
   { path: 'estudios/form', component: FormEducacionComponent},
@@ -52,7 +55,8 @@ const appRoutes: Routes = [
     FooterComponent,
     ContactoComponent,
     FormEducacionComponent,
-    PorfolioComponent
+    PorfolioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

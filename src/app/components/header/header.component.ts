@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonaService } from 'src/app/service/persona.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
+import { Usuario } from 'src/app/usuario';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +10,30 @@ import { PersonaService } from 'src/app/service/persona.service';
 })
 export class HeaderComponent implements OnInit {
 
+<<<<<<< HEAD
   logoArgPro = 'assets/images/logo_ArgPro.png'
   coverImage = 'assets/images/cover.jpg'
   miniCover = 'assets/images/version_control.svg'
 
   constructor(private service: PersonaService) { }
+=======
+  usuario:Usuario;
+  userLogueado:boolean = false;
+
+  constructor(private loginService:LoginService, private router:Router, private activatedRoute:ActivatedRoute) { }
+>>>>>>> login
 
   ngOnInit(): void {
-    /*this.service.getAll().subscribe(data => {
-      console.log(data);
-    });*/
+    
+    if(this.loginService.getUser(this.usuario)) {
+      this.userLogueado = true;
+    } else {
+      this.userLogueado = false;
+    }
   }
 
+  userLogout() {
+    localStorage.removeItem('usuario');
+    this.router.navigate(['']);
+  }
 }

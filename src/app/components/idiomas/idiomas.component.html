@@ -9,7 +9,7 @@
                 <b>{{idioma.nombre_idioma}}</b>
             </div>
         </div>
-        <div class="btn-edit-idioma">
+        <div class="btn-edit-idioma" *ngIf="!userLogueado">
             <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editIdiomaModal" [routerLink]="['/idiomas/editar', idioma.id]"><i class="fas fa-pen"></i></a>
 			<a href="#" data-bs-toggle="modal" data-bs-target="#deleteIdiomaModal" [routerLink]="['/idiomas/eliminar', idioma.id]"><i class="fas fa-trash"></i></a>
         </div>

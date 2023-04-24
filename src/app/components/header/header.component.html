@@ -32,23 +32,28 @@
 			<a class="navbar-nav nav-link me-3" href="https://github.com/JohnDeveloper2022"><i class="fa-brands fa-github"></i></a>
 		</div>
 		<form class="d-flex">
-			<button class="btn btn-outline-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">LOG IN</button>
+			<button class="btn btn-outline-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#loginModal"
+			routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="userLogueado; else elseBlock">LOG IN</button>
+			<ng-template #elseBlock><button class="btn btn-outline-danger btn-sm" type="button"
+			routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">LOG OUT</button></ng-template>
 		</form>
 	  </div>
-	  <!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <!--Login Modal -->
+		<!--<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" style="max-width: 340px; margin: auto;">
 				<div class="modal-content login-format">
 					<div class="modal-header" style="border-bottom:none;">
 						<h1 class="modal-title fs-3 text-center" id="exampleModalLabel">JOHNNY</h1>
 					</div>
 					<div class="modal-body">
-						<form action="" method="post">
+						<form>
 							<div class="form-group mb-3">
-								<input class="form-control" type="text" placeholder="Username" aria-label="default input example">
+								<label for="user_id" class="form-label">Nombre Usuario</label>
+								<input type="text" class="form-control" id="user_id" name="user_id" placeholder="Username" aria-label="default input example">
 							</div>
 							<div class="form-group mb-3">
-								<input class="form-control" type="password" id="inputPassword" placeholder="Password">
+								<label for="inputPassword" class="form-label">Password</label>
+								<input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
 							</div>
 							<div class="form-group mb-3">
 								<button type="submit" class="btn btn-primary" id="btn-login">Log in</button>
@@ -60,7 +65,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	</div>
   </nav>
 <div class="card">
