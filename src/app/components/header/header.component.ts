@@ -10,18 +10,15 @@ import { Usuario } from 'src/app/usuario';
 })
 export class HeaderComponent implements OnInit {
 
-<<<<<<< HEAD
   logoArgPro = 'assets/images/logo_ArgPro.png'
   coverImage = 'assets/images/cover.jpg'
   miniCover = 'assets/images/version_control.svg'
 
-  constructor(private service: PersonaService) { }
-=======
   usuario:Usuario;
   userLogueado:boolean = false;
 
   constructor(private loginService:LoginService, private router:Router, private activatedRoute:ActivatedRoute) { }
->>>>>>> login
+ 
 
   ngOnInit(): void {
     
