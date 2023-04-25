@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  logo = 'assets/images/logo_JG.png'
+
   constructor() { }
 
   ngOnInit(): void {
