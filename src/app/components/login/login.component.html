@@ -1,0 +1,23 @@
+<!--Login-->
+<div class="container pt-2 mt-4" style="max-width: 340px; margin: auto; box-shadow: 0 6px 12px 0 rgb(0,0,0,0.2);">
+    <div style="border-bottom:none;">
+        <h1 class="fs-3 text-center mb-3">JOHNNY</h1>
+    </div>
+    <form (ngSubmit)="login()">
+        <div class="form-group mb-3">
+            <label for="username" class="form-label">Nombre Usuario</label>
+            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="usuario.username" placeholder="Username" aria-label="default input example">
+        </div>
+        <div class="form-group mb-4">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="usuario.password" placeholder="Password">
+        </div>
+        <div class="form-group mb-4">
+            <button type="submit" class="btn btn-primary" id="btn-login">Log in</button>
+        </div>
+    </form>
+    <div class="" style="background-color: #f2f2f0; margin: 0 -12px; padding: 16px; text-align: right;">
+        <button type="button" class="btn btn-secondary" id="btn-close" (click)="volver()">Close</button>
+    </div>
+</div>
+

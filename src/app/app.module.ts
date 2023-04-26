@@ -16,11 +16,30 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { FormEducacionComponent } from './components/educacion/form-educacion.component';
 import { PorfolioComponent } from './components/portfolio/porfolio.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: PorfolioComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'edicion', component: PorfolioComponent},
   { path: 'estudios', component: EducacionComponent},
-  { path: 'estudios/form', component: FormEducacionComponent}
+  { path: 'estudios/:id', component: EducacionComponent},  
+  { path: 'estudios/form', component: FormEducacionComponent},
+  { path: 'experiencia/editar/:id', component: ExperienciaComponent},
+  { path: 'experiencia/eliminar/:id', component: ExperienciaComponent},
+  { path: 'sobreMi/editar/:id', component: SobreMiComponent},
+  { path: 'sobreMi/foto/editar/:id', component: SobreMiComponent},
+  { path: 'sobreMi/datos/editar/:id', component: SobreMiComponent},
+  { path: 'skills/agregar', component: SkillsComponent},
+  { path: 'skills/editar/:id', component: SkillsComponent},
+  { path: 'skills/eliminar/:id', component: SkillsComponent},
+  { path: 'idiomas/agregar', component: IdiomasComponent},
+  { path: 'idiomas/editar/:id', component: IdiomasComponent},
+  { path: 'idiomas/eliminar/:id', component: IdiomasComponent},
+  { path: 'proyectos/agregar', component: ProyectosComponent},
+  { path: 'proyectos/editar/:id', component: ProyectosComponent},
+  { path: 'proyectos/eliminar/:id', component: ProyectosComponent}
+
 ]
 
 @NgModule({
@@ -36,7 +55,8 @@ const appRoutes: Routes = [
     FooterComponent,
     ContactoComponent,
     FormEducacionComponent,
-    PorfolioComponent
+    PorfolioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

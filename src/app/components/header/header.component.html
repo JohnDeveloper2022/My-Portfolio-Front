@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg py-0 navbar-dark bg-dark">
 	<div class="container-fluid">
-	  <a class="navbar-brand me-4" href="#">
-		<img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-		<span style="color: white;">Argentina Programa</span></a>
+	  <a class="navbar-brand me-4" href="https://www.argentina.gob.ar/economia/conocimiento/argentina-programa">
+		<img [src]="logoArgPro" alt="" width="" height="" class="d-inline-block align-text-top" style="margin-left: -15px;">
+	  </a>
 	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	  </button>
@@ -32,39 +32,20 @@
 			<a class="navbar-nav nav-link me-3" href="https://github.com/JohnDeveloper2022"><i class="fa-brands fa-github"></i></a>
 		</div>
 		<form class="d-flex">
-			<button class="btn btn-outline-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">LOG IN</button>
+			<button class="btn btn-outline-danger btn-sm" type="button"
+			routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="userLogueado; else elseBlock">LOG IN</button>
+			<ng-template #elseBlock><button class="btn btn-outline-danger btn-sm" type="button"
+			routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">LOG OUT</button></ng-template>
 		</form>
 	  </div>
-	  <!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" style="max-width: 340px; margin: auto;">
-				<div class="modal-content login-format">
-					<div class="modal-header" style="border-bottom:none;">
-						<h1 class="modal-title fs-3 text-center" id="exampleModalLabel">JOHNNY</h1>
-					</div>
-					<div class="modal-body">
-						<form action="" method="post">
-							<div class="form-group mb-3">
-								<input class="form-control" type="text" placeholder="Username" aria-label="default input example">
-							</div>
-							<div class="form-group mb-3">
-								<input class="form-control" type="password" id="inputPassword" placeholder="Password">
-							</div>
-							<div class="form-group mb-3">
-								<button type="submit" class="btn btn-primary" id="btn-login">Log in</button>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer" style="background-color: #f2f2f0; margin: 0; border-top: none;">
-						<button type="button" class="btn btn-secondary" id="btn-close" data-bs-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
   </nav>
 <div class="card">
-	<div class="img-fluid" style="background-color: black; padding-bottom: 50px;">
+	<!--<img [src]="coverImage" class="img-fluid" alt="Imagen Destacada">-->
+	<div style="background-color: #212529; padding-bottom: 50px;">
+		<!--<div class="persona-coding">
+			<img [src]="miniCover" class="img-fluid" width="50%">
+		</div>-->
 		<div class="cover-text">
 			Hola <span style="color: #ed0c32;">Mundo</span><br>
 			Mi <span style="color: #ed0c32;">nombre</span> es <span style="color: #ed0c32;font-weight: bold;">JOHNNY </span>GAMBOA<span id="intermitente">_</span>
@@ -76,53 +57,5 @@
 		<div class="musico">
 			MÚSICO PROFESIONAL
 		</div>
-		<!--Modal contáctame-->
-		<div id="btn-centered">
-			<button type="button" class="contact-button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@fat">Contáctame</button>
-		</div>
-			<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-			  <div class="modal-content">
-				<div class="modal-header">
-				  <h1 class="modal-title fs-5" id="exampleModalLabel">Gracias por contactarme</h1>
-				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-				  <form>
-					<div class="mb-3" style="display: inline-flex; margin: 0;">
-						<div>
-							<label for="name" class="col-form-label">Nombre</label>
-							<input type="text" class="form-control" id="name" minlength="4" maxlength="12" required>
-							<div class="valid-feedback">Valid.</div>
-							<div class="invalid-feedback">Please fill out this field.</div>
-						</div>
-						<div>
-							<label for="apellido" class="col-form-label">Apellido</label>
-							<input type="text" class="form-control" id="apellido" minlength="4" maxlength="12" required>
-							<div class="valid-feedback">Valid.</div>
-							<div class="invalid-feedback">Please fill out this field.</div>
-						</div>
-					</div>
-					<div class="mb-3">
-						<label for="email" class="col-form-label">Email</label>
-						<input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-						<div class="valid-feedback">Valid.</div>
-						<div class="invalid-feedback">Please fill out this field.</div>
-					</div>
-					<div class="mb-3">
-					  <label for="message-text" class="col-form-label">Mensaje</label>
-					  <textarea class="form-control" id="message-text" minlength="4" maxlength="200" required></textarea>
-					  <div class="valid-feedback">Valid.</div>
-					  <div class="invalid-feedback">Please fill out this field.</div>
-					</div>
-					<div class="mb-3" style="float: right;">
-					  <button type="button" class="btn btn-secondary" id="btn-close-contact" data-bs-dismiss="modal">Close</button>
-					  <button type="submit" class="btn btn-primary" id="btn-send-contact">Send message</button>
-					</div>
-				  </form>
-				</div>
-			  </div>
-			</div>
-		  </div>
 	</div>
 </div>

@@ -92,61 +92,68 @@
 	</ul>
 </div>-->
 <!--Scroll-->
-<div class="card" id="educacion">
-	<h1 style="margin-bottom: 2%">Educación</h1>
+<div class="card mb-4" id="educacion">
+	<h1 class="mb-4">Educación</h1>
 	<div class="btn-edit">
-		<a href="#" data-bs-toggle="modal" data-bs-target="#estudioModal" ><i class="fas fa-plus"></i></a>
+		<a href="#" data-bs-toggle="modal" data-bs-target="#estudioModal"><i class="fas fa-plus"></i></a>
 		<!--<a routerLink="/estudios" routerLinkActive="active" ariaCurrentWhenActive="page"><i class="fas fa-pen"></i></a>-->
 	</div>
 	<!-- Modal add educacion-->
 	<div class="modal fade" id="estudioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-			<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<form>
-					<div class="mb-3">
-						<label for="nombre_instituto" class="form-label">Institución</label>
-						<input type="text" class="form-control" id="nombre_instituto" name="nombre_instituto" [(ngModel)]="educacion.nombre_instituto" placeholder="Default input">
-					</div>
-					<div class="mb-3">
-						<label for="titulo" class="form-label">Título</label>
-						<input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="educacion.titulo" placeholder="Default input">
-					</div>
-					<div class="row mb-3" style="display:inline-flex;">
-						<div class="col-md-6">
-							<label for="name" class="col-form-label">Fecha de inicio</label>
-							<select class="form-select" id="fecha_inicio" name="fecha_inicio" [(ngModel)]="educacion.fecha_inicio" aria-label="Default select example">
-								<option selected>Año de inicio</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
-							</select>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Añadir educación</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nombre_instituto" class="form-label">Institución</label>
+							<input type="text" class="form-control" id="nombre_instituto" name="nombre_instituto" #institucion="ngModel" [(ngModel)]="educacion.nombre_instituto" placeholder="p. ej. Universidad de Buenos Aires" required ngModel>
+							<div><span *ngIf="institucion.invalid && institucion.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
-						<div class="col-md-6">
-							<label for="apellido" class="col-form-label">Fecha fin</label>
-							<select class="form-select" id="fecha_fin" name="fecha_fin" [(ngModel)]="educacion.fecha_fin" aria-label="Default select example">
-								<option selected>Año de finalización</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
-							</select>
+						<div class="mb-3">
+							<label for="titulo" class="form-label">Título</label>
+							<input type="text" class="form-control" id="titulo" name="titulo" #titulo="ngModel" [(ngModel)]="educacion.titulo" placeholder="p. ej. Máster en Pedagogía" required ngModel>
+							<div><span *ngIf="titulo.invalid && titulo.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
-					</div>
-					<div class="mb-3">
-						<label for="descripcion" class="form-label">Descripción</label>
-						<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" rows="3"></textarea>
-					</div>
-					<input id="persona_id" name="persona_id" type="hidden" value="1" [(ngModel)]="educacion.persona_id" />
-				</form>
+						<div class="mb-3">
+							<label for="grado" class="form-label">Grado</label>
+							<input type="text" class="form-control" id="grado" name="grado" #grado="ngModel" [(ngModel)]="educacion.titulo_corto" placeholder="p. ej. Máster" required ngModel>
+							<div><span *ngIf="grado.invalid && grado.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-md-6">
+								<label for="fecha_inicio" class="col-form-label">Fecha de inicio</label>
+								<select class="form-select" id="fecha_inicio" name="fecha_inicio" #annoIn="ngModel" [(ngModel)]="educacion.fecha_inicio" aria-label="Default select example" required ngModel>
+									<option value="{{year}}" *ngFor="let year of yearList">
+										{{year}}
+									</option>
+								</select>
+								<div><span *ngIf="annoIn.invalid && annoIn.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+							</div>
+							<div class="col-md-6">
+								<label for="fecha_fin" class="col-form-label">Fecha de finalización</label>
+								<select class="form-select" id="fecha_fin" name="fecha_fin" #annoFn="ngModel" [(ngModel)]="educacion.fecha_fin" aria-label="Default select example" required ngModel>
+									<option value="{{year}}" *ngFor="let year of yearList">
+										{{year}}
+									</option>
+								</select>
+								<div><span *ngIf="annoFn.invalid && annoFn.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="descripcion" class="form-label">Descripción</label>
+							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" rows="3"></textarea>
+						</div>
+						<input type="text" type="hidden" id="persona_id" name="persona_id" value="{{educacion.persona_id}}" [(ngModel)]="educacion.persona_id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" role="button" (click)="createEdu()">Registrar</button>
+				</div>
 			</div>
-			<div class="modal-footer">
-			<button type="button" class="btn btn-primary" (click)="create()">Registrar</button>
-			</div>
-		</div>
 		</div>
 	</div> 
 	<div class="row educacion" id="accordionExample" style="margin: auto;" *ngFor="let educacion of estudios; let i = index">
@@ -157,8 +164,8 @@
 		</div>
 		<div class="col-8">
 			<div style="float: right;">
-				<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fas fa-pen"></i></a>
-				<a href="#"><i class="fas fa-trash"></i></a>
+				<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editModal" [routerLink]="['/estudios', educacion.id]"><i class="fas fa-pen"></i></a>
+				<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash"></i></a>
 			</div>
 			<div class="collapse show" id="estudios-{{i}}" data-bs-parent="#accordionExample">
 				<h4>{{educacion.titulo}}</h4>
@@ -174,50 +181,75 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar educación</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<form>
 						<div class="mb-3">
 							<label for="nombre_instituto" class="form-label">Institución</label>
-							<input type="text" class="form-control" id="nombre_instituto" name="nombre_instituto" placeholder="Default input">
+							<input type="text" class="form-control" id="nombre_instituto" name="nombre_instituto" #institucion="ngModel" [(ngModel)]="educacion.nombre_instituto" placeholder="p. ej. Universidad de Buenos Aires" required ngModel>
+							<div><span *ngIf="institucion.invalid && institucion.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
 						<div class="mb-3">
 							<label for="titulo" class="form-label">Título</label>
-							<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Default input">
+							<input type="text" class="form-control" id="titulo" name="titulo" #titulo="ngModel" [(ngModel)]="educacion.titulo" placeholder="p. ej. Máster en Pedagogía" required ngModel>
+							<div><span *ngIf="titulo.invalid && titulo.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
-						<div class="row mb-3" style="display:inline-flex;">
+						<div class="mb-3">
+							<label for="grado" class="form-label">Grado</label>
+							<input type="text" class="form-control" id="grado" name="grado" #grado="ngModel" [(ngModel)]="educacion.titulo_corto" placeholder="p. ej. Máster" required ngModel>
+							<div><span *ngIf="grado.invalid && grado.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+						</div>
+						<div class="row mb-3">
 							<div class="col-md-6">
-								<label for="name" class="col-form-label">Fecha de inicio</label>
-								<select class="form-select" id="fecha_inicio" name="fecha_inicio" aria-label="Default select example">
-									<option selected>Año de inicio</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
+								<label for="fecha_inicio" class="col-form-label">Fecha de inicio</label>
+								<select class="form-select" id="fecha_inicio" name="fecha_inicio" #annoIn="ngModel" [(ngModel)]="educacion.fecha_inicio" aria-label="Default select example" required ngModel>
+									<option value="{{year}}" *ngFor="let year of yearList">
+										{{year}}
+									</option>
 								</select>
+								<div><span *ngIf="annoIn.invalid && annoIn.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 							</div>
 							<div class="col-md-6">
-								<label for="apellido" class="col-form-label">Fecha fin</label>
-								<select class="form-select" id="fecha_fin" name="fecha_fin" aria-label="Default select example">
-									<option selected>Año de finalización</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
+								<label for="fecha_fin" class="col-form-label">Fecha de finalización</label>
+								<select class="form-select" id="fecha_fin" name="fecha_fin" #annoFn="ngModel" [(ngModel)]="educacion.fecha_fin" aria-label="Default select example" required ngModel>
+									<option value="{{year}}" *ngFor="let year of yearList">
+										{{year}}
+									</option>
 								</select>
+								<div><span *ngIf="annoFn.invalid && annoFn.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 							</div>
 						</div>
 						<div class="mb-3">
 							<label for="descripcion" class="form-label">Descripción</label>
-							<textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" rows="3"></textarea>
 						</div>
-					</form>
+						<input type="text" type="hidden" id="persona_id" name="persona_id" value="{{educacion.persona_id}}" [(ngModel)]="educacion.persona_id" />
+					</form>					
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Eliminar</button>
-					<button type="button" class="btn btn-primary">Actualizar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="updateEdu()">Actualizar</button>
 				</div>
 			</div>
 		</div>
-	</div> 
+	</div>
+	<!--Modal delete educacion-->
+	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="card modal-header" style="color: #ed0c32; border: none;">
+			  <i class="fa-solid fa-trash-can fa-5x"></i>
+			</div>
+			<div class="modal-body mb-2" style="text-align: center;">
+			  ¿Deseas eliminar este estudio?
+			</div>
+			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-danger" (click)="deleteEdu(educacion)">Eliminar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>	  
 </div>  

@@ -17,7 +17,7 @@ export class IdiomaService {
 
   //ver idioma
   public get(id:number):Observable<Idioma> {
-    return this.http.get<Idioma>('http://localhost:8080/ver/idioma/id');
+    return this.http.get<Idioma>('http://localhost:8080/ver/idioma/' + id);
   }
   
   //crear idioma
@@ -32,6 +32,6 @@ export class IdiomaService {
 
   //borrar idioma
   public delete(id:number):Observable<Idioma> {
-    return this.http.delete<Idioma>('http://localhost:8080/delete/idioma/id');
+    return this.http.delete<Idioma>('http://localhost:8080/delete/idioma/' + id);
   }
 }

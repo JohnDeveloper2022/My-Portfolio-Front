@@ -86,26 +86,133 @@
 		</li>
 	</ul>
 </div>-->
-<div class="card mb-3" id="experiencia">
-	<h1 style="margin-bottom: 2%">Experiencia</h1>
+<div class="card mb-4" id="experiencia">
+	<h1 class="mb-4">Experiencia</h1>
 	<div class="btn-edit">
-		<a href="#"><i class="fas fa-plus"></i></a>
+		<a href="#" data-bs-toggle="modal" data-bs-target="#expeModal"><i class="fas fa-plus"></i></a>
 	</div>
-	<div class="d-grid gap-3 experience">
-		<div class="row g-0">
-			<button class="btn-experience" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-				<i class="fa-solid fa-d fa-2xl"></i><b>esarrollo Web</b>
-				<p>Argentina Programa</p>
-			</button>
-		</div>
-		<div class="collapse show" id="collapseExample1">
-			<div class="card card-body">
-				Aplicación de tecnologías y herramientas de programación para el desarrollo de mi portfolio web.
-				Front-end con HTML, CSS, JavaScript, Bootstrap, Angular y back-end con Java y Spring Boot. 
-				Utilización de metodologías ágiles (Scrum) y manejo de base de datos relacionales (MySQL).
+	<!-- Modal add experiencia-->
+	<div class="modal fade" id="expeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Añadir experiencia</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nombre_empresa" class="form-label">Nombre de la empresa</label>
+							<input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" #empresa="ngModel" [(ngModel)]="experiencia.nombre_empresa" placeholder="p. ej. Teatro Colón" required ngModel>
+							<div><span *ngIf="empresa.invalid && empresa.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+						</div>
+						<div class="mb-3">
+							<label for="cargo" class="form-label">Cargo</label>
+							<input type="text" class="form-control" id="cargo" name="cargo" #cargo="ngModel" [(ngModel)]="experiencia.cargo" placeholder="p. ej. Compositor" required ngModel>
+							<div><span *ngIf="cargo.invalid && cargo.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-md-6">
+								<label for="fecha_inicio" class="col-form-label">Fecha de inicio</label>
+								<div class="row">
+									<div class="col">
+										<select class="form-select" id="fecha_inicio" name="mes_inicio" #mesIn="ngModel" [(ngModel)]="experiencia.mes_inicio" aria-label="Default select example" required ngModel>
+											<option value="{{mes}}" *ngFor="let mes of meses">
+												{{mes}}
+											</option>
+										</select>
+										<br>
+									</div>
+									<div class="col">
+										<select class="form-select" id="fecha_inicio" name="anno_inicio" #annoIn="ngModel" [(ngModel)]="experiencia.anno_inicio" aria-label="Default select example" required ngModel>
+											<option value="{{year}}" *ngFor="let year of yearList">
+												{{year}}
+											</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="fecha_fin" class="col-form-label">Fecha de Finalización</label>
+								<div class="row">
+									<div class="col">
+										<select class="form-select" id="fecha_fin" name="mes_fin" #mesFn="ngModel" [(ngModel)]="experiencia.mes_fin" aria-label="Default select example" required ngModel>
+											<option value="{{mes}}" *ngFor="let mes of meses">
+												{{mes}}
+											</option>
+										</select>
+										<br>
+									</div>
+									<div class="col">
+										<select class="form-select" id="fecha_fin" name="anno_fin" #annoFn="ngModel" [(ngModel)]="experiencia.anno_fin" aria-label="Default select example" required ngModel>
+											<option value="{{year}}" *ngFor="let year of yearList">
+												{{year}}
+											</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div><span *ngIf="mesIn.invalid && mesIn.touched && annoIn.invalid && annoIn.touched && mesFn.invalid && mesFn.touched && annoFn.invalid && annoFn.touched"
+								 style="color: #ed0c32;"><small>Las fechas de inicio y finalización son requeridas</small></span></div>
+						</div>
+						<!--<div class="row mb-3">
+							<div class="col-md-6">
+								<label for="mes_fin" class="col-form-label">Fecha de finalización</label>
+								<select class="form-select" id="mes_fin" name="mes_fin" [(ngModel)]="experiencia.mes_fin" aria-label="Default select example">
+									<option value="{{mes}}" *ngFor="let mes of meses">
+										{{mes}}
+									</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<label for="anno_fin" class="col-form-label"></label>
+								<select class="form-select" id="anno_fin" name="anno_fin" [(ngModel)]="experiencia.anno_fin" aria-label="Default select example">
+									<option value="{{year}}" *ngFor="let year of yearList">
+										{{year}}
+									</option>
+								</select>
+							</div>
+						</div>-->
+						<div class="mb-3">
+							<label for="ubicacion" class="form-label">Ubicación</label>
+							<input type="text" class="form-control" id="ubicacion" name="ubicacion" #ubicacion="ngModel" [(ngModel)]="experiencia.ubicacion" placeholder="p. ej. Buenos Aires, Argentina" required ngModel>
+							<div><span *ngIf="ubicacion.invalid && ubicacion.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+						</div>
+						<div class="mb-3">
+							<label for="descripcion" class="form-label">Descripción</label>
+							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="experiencia.descripcion" rows="3" required ngModel></textarea>
+						</div>
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="experiencia.persona_id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" (click)="createExp()">Registrar</button>
+				</div>
 			</div>
 		</div>
-		<div class="row g-0">
+	</div>
+	<div class="d-grid gap-3 experience" *ngFor="let exper of experiencias; let i = index">
+		<div class="d-flex g-1">
+			<div class="p-2 w-100">
+				<button class="btn-experience" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExp" aria-expanded="false" aria-controls="collapseExp">
+					<b>{{exper.cargo}}</b>
+					<p style="margin: 0;">{{exper.nombre_empresa}}</p>
+					<p style="margin: 0;"><small>{{exper.mes_inicio}}&nbsp;{{exper.anno_inicio}}&nbsp;-&nbsp;{{exper.mes_fin}}&nbsp;{{exper.anno_fin}}</small></p>
+				</button>
+			</div>
+			<div class="p-2 flex-shrink-1" style="width: 100px;">
+				<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editExpeModal" [routerLink]="['/experiencia/editar', exper.id]"><i class="fas fa-pen"></i></a>
+				<a href="#" data-bs-toggle="modal" data-bs-target="#deleteExpeModal" [routerLink]="['/experiencia/eliminar', exper.id]"><i class="fas fa-trash"></i></a>
+			</div>			
+		</div>
+		<div class="collapse show" id="collapseExp">
+			<div class="card card-body">
+				<p>{{exper.descripcion}}</p>
+			</div>
+		</div>
+		
+		
+		<!--<div class="row g-0">
 			<button class="btn-experience" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
 				<i class="fa-solid fa-a fa-2xl"></i><b>sistente en Archivo Musical</b>
 			</button>
@@ -126,6 +233,106 @@
 				Director Musical de la Orquesta Sinfónica Juvenil e Infantil Núcleo Carapita. 
 				Aplicación de técnicas de ensayo para el montaje y performance del repertorio sinfónico programado.
 			</div>
+		</div>-->
+	</div>
+	<!--Modal edit experiencia-->
+	<div class="modal fade" id="editExpeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar experiencia</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="nombre_empresa" class="form-label">Nombre de la empresa</label>
+							<input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" #empresa="ngModel" [(ngModel)]="experiencia.nombre_empresa" placeholder="p. ej. Teatro Colón" required ngModel>
+							<div><span *ngIf="empresa.invalid && empresa.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+						</div>
+						<div class="mb-3">
+							<label for="cargo" class="form-label">Cargo</label>
+							<input type="text" class="form-control" id="cargo" name="cargo" #cargo="ngModel" [(ngModel)]="experiencia.cargo" placeholder="p. ej. Compositor" required ngModel>
+							<div><span *ngIf="cargo.invalid && cargo.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-md-6">
+								<label for="fecha_inicio" class="col-form-label">Fecha de inicio</label>
+								<div class="row">
+									<div class="col">
+										<select class="form-select" id="fecha_inicio" name="mes_inicio" #mesIn="ngModel" [(ngModel)]="experiencia.mes_inicio" aria-label="Default select example" required ngModel>
+											<option value="{{mes}}" *ngFor="let mes of meses">
+												{{mes}}
+											</option>
+										</select>
+										<br>
+									</div>
+									<div class="col">
+										<select class="form-select" id="fecha_inicio" name="anno_inicio" #annoIn="ngModel" [(ngModel)]="experiencia.anno_inicio" aria-label="Default select example" required ngModel>
+											<option value="{{year}}" *ngFor="let year of yearList">
+												{{year}}
+											</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="fecha_fin" class="col-form-label">Fecha de Finalización</label>
+								<div class="row">
+									<div class="col">
+										<select class="form-select" id="fecha_fin" name="mes_fin" #mesFn="ngModel" [(ngModel)]="experiencia.mes_fin" aria-label="Default select example" required ngModel>
+											<option value="{{mes}}" *ngFor="let mes of meses">
+												{{mes}}
+											</option>
+										</select>
+										<br>
+									</div>
+									<div class="col">
+										<select class="form-select" id="fecha_fin" name="anno_fin" #annoFn="ngModel" [(ngModel)]="experiencia.anno_fin" aria-label="Default select example" required ngModel>
+											<option value="{{year}}" *ngFor="let year of yearList">
+												{{year}}
+											</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div><span *ngIf="mesIn.invalid && mesIn.touched && annoIn.invalid && annoIn.touched && mesFn.invalid && mesFn.touched && annoFn.invalid && annoFn.touched"
+								 style="color: #ed0c32;"><small>Las fechas de inicio y finalización son requeridas</small></span></div>
+						</div>
+						<div class="mb-3">
+							<label for="ubicacion" class="form-label">Ubicación</label>
+							<input type="text" class="form-control" id="ubicacion" name="ubicacion" #ubicacion="ngModel" [(ngModel)]="experiencia.ubicacion" placeholder="p. ej. Buenos Aires, Argentina" required ngModel>
+							<div><span *ngIf="ubicacion.invalid && ubicacion.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+						</div>
+						<div class="mb-3">
+							<label for="descripcion" class="form-label">Descripción</label>
+							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="experiencia.descripcion" rows="3" required ngModel></textarea>
+						</div>
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="experiencia.persona_id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-danger" (click)="updateExp()">Actualizar</button>
+				</div>
+			</div>
 		</div>
 	</div>
+	<!--Modal delete experiencia-->
+	<div class="modal fade" id="deleteExpeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="card modal-header" style="color: #ed0c32; border: none;">
+			  <i class="fa-solid fa-trash-can fa-5x"></i>
+			</div>
+			<div class="modal-body mb-2" style="text-align: center;">
+			  ¿Deseas eliminar esta experiencia?
+			</div>
+			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-danger" (click)="deleteExp(experiencia)">Eliminar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 </div>

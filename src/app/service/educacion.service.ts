@@ -17,7 +17,7 @@ export class EducacionService {
 
   //ver estudio
   public get(id:number):Observable<Educacion> {
-    return this.http.get<Educacion>('http://localhost:8080/ver/estudios/id')
+    return this.http.get<Educacion>('http://localhost:8080/ver/estudio/' + id)
   }
 
   //crear estudio
@@ -32,6 +32,6 @@ export class EducacionService {
 
   //eliminar estudio
   public delete(id:number):Observable<Educacion> {
-    return this.http.delete<Educacion>('http://localhost:8080/delete/estudio/id')
+    return this.http.delete<Educacion>('http://localhost:8080/delete/estudio/' + id)
   }
 }

@@ -17,7 +17,7 @@ export class PersonaService {
 
   //ver persona
   public get(id:number):Observable<Persona> {
-    return this.http.get<Persona>('http://localhost:8080/ver/persona/id');
+    return this.http.get<Persona>('http://localhost:8080/ver/persona/' + id);
   }
 
   //crear persona
@@ -27,12 +27,12 @@ export class PersonaService {
 
   //editar persona
   public edit(persona:Persona):Observable<Persona> {
-    return this.http.put<Persona>('http://localhost:8080/edit/persona', persona);
+    return this.http.put<Persona>('http://localhost:8080/editar/persona', persona);
   }
 
   //borrar persona
   public delete(id:number):Observable<Persona> {
-    return this.http.delete<Persona>('http://localhost:8080/delete/persona/id');
+    return this.http.delete<Persona>('http://localhost:8080/delete/persona/' + id);
   }
 }
 
