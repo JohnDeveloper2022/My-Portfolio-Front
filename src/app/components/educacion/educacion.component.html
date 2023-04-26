@@ -92,8 +92,8 @@
 	</ul>
 </div>-->
 <!--Scroll-->
-<div class="card" id="educacion">
-	<h1 style="margin-bottom: 2%">Educación</h1>
+<div class="card mb-4" id="educacion">
+	<h1 class="mb-4">Educación</h1>
 	<div class="btn-edit">
 		<a href="#" data-bs-toggle="modal" data-bs-target="#estudioModal"><i class="fas fa-plus"></i></a>
 		<!--<a routerLink="/estudios" routerLinkActive="active" ariaCurrentWhenActive="page"><i class="fas fa-pen"></i></a>-->
@@ -151,7 +151,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" role="button" (click)="createEdu()">Registrar</button>
+					<button type="button" class="btn btn-danger" role="button" (click)="createEdu()">Registrar</button>
 				</div>
 			</div>
 		</div>
@@ -230,7 +230,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateEdu()">Actualizar</button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="updateEdu()">Actualizar</button>
 				</div>
 			</div>
 		</div>
@@ -247,7 +247,7 @@
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
 			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-			  <button type="button" class="btn btn-primary" (click)="deleteEdu(educacion)">Eliminar</button>
+			  <button type="button" class="btn btn-danger" (click)="deleteEdu(educacion)">Eliminar</button>
 			</div>
 		  </div>
 		</div>

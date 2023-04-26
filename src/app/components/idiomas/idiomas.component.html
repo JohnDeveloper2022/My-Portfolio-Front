@@ -1,5 +1,5 @@
-<div class="card">
-    <h1 style="margin-bottom:25px">Idiomas</h1>
+<div class="card mb-4">
+    <h1 class="mb-4">Idiomas</h1>
     <div class="btn-edit">
         <a href="#" data-bs-toggle="modal" data-bs-target="#addIdiomaModal"><i class="fas fa-plus"></i></a>
     </div>
@@ -52,7 +52,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" role="button" (click)="createIdiom()">Registrar</button>
+					<button type="button" class="btn btn-danger" role="button" (click)="createIdiom()">Registrar</button>
 				</div>
 			</div>
 		</div>
@@ -85,7 +85,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" role="button" (click)="updateIdiom()">Actualizar</button>
+					<button type="button" class="btn btn-danger" role="button" (click)="updateIdiom()">Actualizar</button>
 				</div>
 			</div>
 		</div>
@@ -102,7 +102,7 @@
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
 			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-			  <button type="button" class="btn btn-primary" (click)="deleteIdiom(idioma)">Eliminar</button>
+			  <button type="button" class="btn btn-danger" (click)="deleteIdiom(idioma)">Eliminar</button>
 			</div>
 		  </div>
 		</div>

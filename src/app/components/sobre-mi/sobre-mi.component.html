@@ -1,11 +1,11 @@
-<div class="card" id="sobre-mi">
-    <h1>Sobre mí</h1>
+<div class="card mb-4" id="sobre-mi">
+    <h1 class="mb-4">Sobre mí</h1>
     <div class="btn-edit" *ngFor="let persona of personas">
         <a href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobreMi/editar', persona.id]"><i class="fas fa-pen"></i></a>
     </div> 
     <div class="row m-auto" style="display:inline-flex; max-width: 80%;" *ngFor="let persona of personas">
       <div class="col-md-6">
-        <p>{{persona.sobre_mi}}</p>
+        <p class="mb-4">{{persona.sobre_mi}}</p>
         <!--<p>Mi nombre es Johnny Gamboa. Soy músico y programador residenciado en Buenos Aires, Argentina.
             Realicé estudios musicales en Caracas (Venezuela) obteniendo el grado de Licenciado en Música, 
             así como también el grado de Doctor en Música y Medios Audiovisuales por la Universitat Politècnica de València (València, España).
@@ -17,7 +17,7 @@
             abarcando áreas del conocimiento científico, cultural y tecnológico.
         </p>-->
       </div>
-      <div class="card text-center col-md-6" style="width: 18rem; margin: auto;">
+      <div class="card text-center col-md-6 mb-2 pb-0" style="width: 18rem; margin: auto; border: none;">
         <div class="img-perfil">
           <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editFotoModal" [routerLink]="['/sobreMi/foto/editar']">
             <img [src]="fotoPerfil" class="img-thumbnail" alt="Imagen de perfil">
@@ -49,8 +49,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="updatePersona()">Actualizar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" (click)="updatePersona()">Actualizar</button>
           </div>
         </div>
       </div>
@@ -72,8 +72,8 @@
             <div style="text-align: center;">Formato .jpg o .png</div>
           </div>
           <div class="modal-footer mb-2" style="justify-content: center;">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cambiar foto</button>
-            <button type="button" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cambiar foto</button>
+            <button type="button" class="btn btn-danger">Actualizar</button>
           </div>
         </div>
       </div>
@@ -108,8 +108,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="updatePersona()">Actualizar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" (click)="updatePersona()">Actualizar</button>
           </div>
         </div>
       </div>
@@ -119,13 +119,13 @@
         <small>...ver más</small>
       </button>
     </div>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body" style="max-width: 80%; margin: auto;">
+        <div class="collapse m-auto" id="collapseExample" style="max-width: 80%;">
+            <div class="card card-body ps-0" style="border: none;">
             Estas son algunas de las tecnologías que he utilizado en mi portfolio y con las que trabajo actualmente:
             </div>
-            <div class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="col">
-                  <div class="card card-effect">
+            <div class="row row-cols-1 row-cols-md-2 g-1">
+                <div class="col mb-3">
+                  <div class="card card-effect h-100">
                     <i class="fa-brands fa-angular fa-5x"></i>
                     <div class="card-body" style="text-align: center;">
                       <h5 class="card-title" style="color: #ed0c32;">Angular</h5>
@@ -133,8 +133,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="card card-effect">
+                <div class="col mb-3">
+                  <div class="card card-effect h-100">
                     <i class="fa-brands fa-bootstrap fa-5x"></i>
                     <div class="card-body" style="text-align: center;">
                       <h5 class="card-title" style="color: #ed0c32;">Bootstrap</h5>
@@ -142,8 +142,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="card card-effect">
+                <div class="col mb-3">
+                  <div class="card card-effect h-100">
                     <i class="fa-brands fa-java fa-5x"></i>
                     <div class="card-body" style="text-align: center;">
                       <h5 class="card-title" style="color: #ed0c32;">Java</h5>
@@ -151,8 +151,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="card card-effect">
+                <div class="col mb-3">
+                  <div class="card card-effect h-100">
                     <i class="fa-solid fa-power-off fa-5x"></i>
                     <div class="card-body" style="text-align: center;">
                       <h5 class="card-title" style="color: #ed0c32;">Spring Boot</h5>

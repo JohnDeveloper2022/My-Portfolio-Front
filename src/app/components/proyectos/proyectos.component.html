@@ -1,9 +1,9 @@
-<div class="card" id="proyectos">
-    <h1>Proyectos</h1>
+<div class="card mb-4" id="proyectos">
+    <h1 class="mb-4">Proyectos</h1>
     <div class="btn-edit">
         <a href="#" data-bs-toggle="modal" data-bs-target="#addProyectoModal"><i class="fas fa-plus"></i></a>
     </div>
-    <p>En esta seccion se encuentra la información de proyectos desarrollados.
+    <p class="m-auto mb-4">En esta seccion se encuentra la información de proyectos desarrollados.
         <span id="especial">La sección incluye este portfolio web</span>y se ilustra
         con imágenes de los proyectos.
     </p>
@@ -47,7 +47,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" role="button" (click)="createPro()">Registrar</button>
+					<button type="button" class="btn btn-danger" role="button" (click)="createPro()">Registrar</button>
 				</div>
 			</div>
 		</div>
@@ -76,7 +76,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" role="button" (click)="updatePro()">Actualizar</button>
+					<button type="button" class="btn btn-danger" role="button" (click)="updatePro()">Actualizar</button>
 				</div>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
 			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-			  <button type="button" class="btn btn-primary" (click)="deletePro(proyecto)">Eliminar</button>
+			  <button type="button" class="btn btn-danger" (click)="deletePro(proyecto)">Eliminar</button>
 			</div>
 		  </div>
 		</div>

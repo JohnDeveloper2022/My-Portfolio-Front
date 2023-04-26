@@ -86,8 +86,8 @@
 		</li>
 	</ul>
 </div>-->
-<div class="card mb-3" id="experiencia">
-	<h1 style="margin-bottom: 2%">Experiencia</h1>
+<div class="card mb-4" id="experiencia">
+	<h1 class="mb-4">Experiencia</h1>
 	<div class="btn-edit">
 		<a href="#" data-bs-toggle="modal" data-bs-target="#expeModal"><i class="fas fa-plus"></i></a>
 	</div>
@@ -186,7 +186,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" (click)="createExp()">Registrar</button>
+					<button type="button" class="btn btn-danger" (click)="createExp()">Registrar</button>
 				</div>
 			</div>
 		</div>
@@ -313,7 +313,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" (click)="updateExp()">Actualizar</button>
+					<button type="button" class="btn btn-danger" (click)="updateExp()">Actualizar</button>
 				</div>
 			</div>
 		</div>
@@ -330,7 +330,7 @@
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
 			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-			  <button type="button" class="btn btn-primary" (click)="deleteExp(experiencia)">Eliminar</button>
+			  <button type="button" class="btn btn-danger" (click)="deleteExp(experiencia)">Eliminar</button>
 			</div>
 		  </div>
 		</div>
