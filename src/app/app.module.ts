@@ -14,7 +14,6 @@ import { IdiomasComponent } from './components/idiomas/idiomas.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
-import { FormEducacionComponent } from './components/educacion/form-educacion.component';
 import { PorfolioComponent } from './components/portfolio/porfolio.component';
 import { LoginComponent } from './components/login/login.component';
 
@@ -24,7 +23,6 @@ const appRoutes: Routes = [
   { path: 'edicion', component: PorfolioComponent},
   { path: 'estudios', component: EducacionComponent},
   { path: 'estudios/:id', component: EducacionComponent},  
-  { path: 'estudios/form', component: FormEducacionComponent},
   { path: 'experiencia/editar/:id', component: ExperienciaComponent},
   { path: 'experiencia/eliminar/:id', component: ExperienciaComponent},
   { path: 'sobreMi/editar/:id', component: SobreMiComponent},
@@ -54,7 +52,6 @@ const appRoutes: Routes = [
     ProyectosComponent,
     FooterComponent,
     ContactoComponent,
-    FormEducacionComponent,
     PorfolioComponent,
     LoginComponent
   ],

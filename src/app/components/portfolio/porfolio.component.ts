@@ -9,5 +9,6 @@ export class PorfolioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 }

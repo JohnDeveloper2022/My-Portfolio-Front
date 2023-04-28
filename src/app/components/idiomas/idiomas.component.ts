@@ -13,13 +13,13 @@ import { Usuario } from 'src/app/usuario';
 export class IdiomasComponent implements OnInit {
 
   usuario:Usuario = new Usuario();
-  userLogueado:boolean = false;
+  userLogueado:boolean;
   niveles:string[];
 
   idioma:Idioma = new Idioma();
   idiomas:Idioma[];
 
-  constructor(private idiomaService:IdiomaService, private router:Router, private activatedRoute:ActivatedRoute) { 
+  constructor(private idiomaService:IdiomaService, private loginService:LoginService, private router:Router, private activatedRoute:ActivatedRoute) { 
     
     this.niveles = ['Básico', 'Intermedio', 'Avanzado', 'Nativo'];
 
@@ -30,6 +30,14 @@ export class IdiomasComponent implements OnInit {
       idiom=> this.idiomas=idiom
     );
     this.cargaForm();
+  }
+
+  mostrar() {
+    if(this.userLogueado = true) {
+      this.router.navigate(['/edicion'])
+    } else {
+      this.router.navigate([''])
+    }
   }
 
   cargaForm(): void {

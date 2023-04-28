@@ -1,91 +1,4 @@
-<!--<div class="card">
-	<h1 style="margin-bottom: 2%">Experiencia</h1>
-	<div class="btn-edit">
-		<a href="#"><i class="fas fa-plus"></i></a>
-	</div>
-	    <div class="linea">
-          <svg>
-            <line x1="0" y1="0" x2="800" y2="800" />
-          </svg>
-        </div>
-	<ul class="experience">
-		<li style="border: solid blue;">
-			<div class="card mb-3" style="max-width: 1250px;">
-				<div class="row g-0">
-					<div class="col-md-4" style="border: solid blue; height: 100px; width: 150px;">
-						<img src="..." class="img-fluid rounded-start" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h4 class="card-title">Desarrollo Web</h4>
-							<h6 class="card-title">Argentina Programa</h6>
-							<p class="card-text"><small class="text-muted"><time datetime="2022-03">Marzo 2022</time> -
-								<time datetime="2023-01">Enero 2023</time>
-								Buenos Aires, Argentina</small></p>
-							<p class="card-text">Aplicación de tecnologías y herramientas de programación para el desarrollo de mi portfolio web.
-								Front-end con HTML, CSS, JavaScript, Bootstrap, Angular y back-end con Java y Spring Boot. 
-								Utilización de metodologías ágiles (<em>Scrum</em>) y manejo de base de datos relacionales (MySQL).</p>
-						</div>
-					</div>
-					<div class="btn-list">
-						<a href="#"><i class="fas fa-pen"></i></a>
-						<a href="#"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="card mb-3" style="max-width: 1250px;">
-				<div class="row g-0">
-					<div class="col-md-4">
-						<img src="..." class="img-fluid rounded-start" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h4 class="card-title">Asistente en Archivo Musical</h4>
-							<h6 class="card-title">L'Auditori</h6>
-							<p class="card-text"><small class="text-muted"><time datetime="2013-01">Enero 2013</time> -
-								<time datetime="2015-07">Julio 2015</time>
-								Barcelona, España</small></p>
-							<p class="card-text">Catalogación de los fondos del archivo de partituras de l'OBC
-								a través del programa de gestión de orquestas OPAS (Orchestra Planning Administration System).
-							</p>						
-						</div>
-					</div>
-					<div class="btn-list">
-						<a href="#"><i class="fas fa-pen"></i></a>
-						<a href="#"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="card mb-3" style="max-width: 1250px;">
-				<div class="row g-0">
-					<div class="col-md-4">
-						<img src="..." class="img-fluid rounded-start" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h4 class="card-title">Director Musical</h4>
-							<h6 class="card-title">Fundación de Orquestas Juveniles e Infantiles de Venezuela</h6>
-							<p class="card-text"><small class="text-muted"><time datetime="2004-09">Septiembre 2004</time> -
-								<time datetime="2005-04">Abril 2005</time>
-								Caracas, Venezuela</small></p>
-							<p class="card-text">Director Musical de la Orquesta Sinfónica Juvenil e Infantil Núcleo Carapita. 
-								Aplicación de técnicas de ensayo para el montaje y performance del repertorio sinfónico programado.
-							</p>
-						</div>
-					</div>
-					<div class="btn-list">
-						<a href="#"><i class="fas fa-pen"></i></a>
-						<a href="#"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-			</div>
-		</li>
-	</ul>
-</div>-->
+
 <div class="card mb-4" id="experiencia">
 	<h1 class="mb-4">Experiencia</h1>
 	<div class="btn-edit">
@@ -155,24 +68,6 @@
 							<div><span *ngIf="mesIn.invalid && mesIn.touched && annoIn.invalid && annoIn.touched && mesFn.invalid && mesFn.touched && annoFn.invalid && annoFn.touched"
 								 style="color: #ed0c32;"><small>Las fechas de inicio y finalización son requeridas</small></span></div>
 						</div>
-						<!--<div class="row mb-3">
-							<div class="col-md-6">
-								<label for="mes_fin" class="col-form-label">Fecha de finalización</label>
-								<select class="form-select" id="mes_fin" name="mes_fin" [(ngModel)]="experiencia.mes_fin" aria-label="Default select example">
-									<option value="{{mes}}" *ngFor="let mes of meses">
-										{{mes}}
-									</option>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<label for="anno_fin" class="col-form-label"></label>
-								<select class="form-select" id="anno_fin" name="anno_fin" [(ngModel)]="experiencia.anno_fin" aria-label="Default select example">
-									<option value="{{year}}" *ngFor="let year of yearList">
-										{{year}}
-									</option>
-								</select>
-							</div>
-						</div>-->
 						<div class="mb-3">
 							<label for="ubicacion" class="form-label">Ubicación</label>
 							<input type="text" class="form-control" id="ubicacion" name="ubicacion" #ubicacion="ngModel" [(ngModel)]="experiencia.ubicacion" placeholder="p. ej. Buenos Aires, Argentina" required ngModel>
@@ -210,30 +105,6 @@
 				<p>{{exper.descripcion}}</p>
 			</div>
 		</div>
-		
-		
-		<!--<div class="row g-0">
-			<button class="btn-experience" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
-				<i class="fa-solid fa-a fa-2xl"></i><b>sistente en Archivo Musical</b>
-			</button>
-		</div>
-		<div class="collapse" id="collapseExample2">
-			<div class="card card-body">
-				Catalogación de los fondos del archivo de partituras de l'OBC
-				a través del programa de gestión de orquestas OPAS (Orchestra Planning Administration System).
-			</div>
-		</div>
-		<div class="row g-0">
-			<button class="btn-experience" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
-				<i class="fa-solid fa-d fa-2xl"></i><b>irector Musical</b>
-			</button>
-		</div>
-		<div class="collapse" id="collapseExample3">
-			<div class="card card-body">
-				Director Musical de la Orquesta Sinfónica Juvenil e Infantil Núcleo Carapita. 
-				Aplicación de técnicas de ensayo para el montaje y performance del repertorio sinfónico programado.
-			</div>
-		</div>-->
 	</div>
 	<!--Modal edit experiencia-->
 	<div class="modal fade" id="editExpeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

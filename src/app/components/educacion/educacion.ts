@@ -6,5 +6,5 @@ export class Educacion {
     fecha_inicio:number;
     fecha_fin:number;
     descripcion:string;
-    persona_id:number=1;
+    persona_id:number;
 }

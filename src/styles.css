@@ -59,7 +59,6 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     width: 70%;
     margin: 25px auto;
-    border: solid greenyellow;
 }
 #intermitente {
     animation: cursor infinite 0.8s
