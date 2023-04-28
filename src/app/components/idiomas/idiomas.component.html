@@ -9,20 +9,10 @@
                 <b>{{idioma.nombre_idioma}}</b>
             </div>
         </div>
-        <div class="btn-edit-idioma" *ngIf="!userLogueado">
+        <div class="btn-edit-idioma" *ngIf="mostrar">
             <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editIdiomaModal" [routerLink]="['/idiomas/editar', idioma.id]"><i class="fas fa-pen"></i></a>
 			<a href="#" data-bs-toggle="modal" data-bs-target="#deleteIdiomaModal" [routerLink]="['/idiomas/eliminar', idioma.id]"><i class="fas fa-trash"></i></a>
         </div>
-        <!--<div class="progress">
-            <div class="progress-bar bar-2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <b>ALEMÁN</b>
-			</div>
-        </div>
-        <div class="progress">
-            <div class="progress-bar bar-3" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <b>ITALIANO</b>
-			</div>
-        </div>-->
     </div>
     <!--Modal add idioma-->
     <div class="modal fade" id="addIdiomaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

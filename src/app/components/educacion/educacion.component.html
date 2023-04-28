@@ -1,102 +1,8 @@
-<!--<div class="card">
-	<h1 style="margin-bottom: 2%">Educación</h1>
-	<div class="btn-edit">
-		<a href="#"><i class="fas fa-plus"></i></a>
-	</div>
-	<ul>
-		<li>
-			<div class="card mb-3" style="max-width: 1250px;">
-				<div class="row g-0">
-					<div class="col-md-4">
-						<img src="..." class="img-fluid rounded-start" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h4 class="card-title">Argentina Programa</h4>
-							<h6 class="card-title">Programador Full Stack</h6>
-							<p class="card-text"><small class="text-muted">2022 - 2023</small></p>
-							<p class="card-text">Capacitación en programación web full stack para el desarrollo 
-								de aplicaciones con HTML, CSS, JavaScript, Bootstrap, Angular, Java y Spring Boot.</p>
-						</div>
-					</div>
-					<div class="btn-list">
-						<a href="#"><i class="fas fa-pen"></i></a>
-						<a href="#"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="card mb-3" style="max-width: 1250px;">
-				<div class="row g-0">
-					<div class="col-md-4">
-						<img src="..." class="img-fluid rounded-start" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h4 class="card-title">Universitat Politècnica de València</h4>
-							<h6 class="card-title">Doctor en Música</h6>
-							<p class="card-text"><small class="text-muted">2009 - 2014</small></p>
-							<p class="card-text">Especialización en Música y Medios Audiovisuales.</p>
-						</div>
-					</div>
-					<div class="btn-list">
-						<a href="#"><i class="fas fa-pen"></i></a>
-						<a href="#"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li class="ref-list">
-			<div class="card mb-3" style="max-width: 1250px;">
-				<div class="row g-0">
-					<div class="col-md-4">
-						<img src="..." class="img-fluid rounded-start" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h4 class="card-title">Universitat de Barcelona</h4>
-							<h6 class="card-title">Máster en Música</h6>
-							<p class="card-text"><small class="text-muted">2012 - 2013</small></p>
-							<p class="card-text">Especialización en Música como Arte Interdisciplinar.</p>
-						</div>
-					</div>
-					<div class="btn-list">
-						<a href="#"><i class="fas fa-pen"></i></a>
-						<a href="#"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-			</div>
-		</li>		
-		<li>
-			<div class="card mb-3" style="max-width: 1250px;">
-				<div class="row g-0">
-					<div class="col-md-4">
-						<img src="assets/images/logoIUDEM.png" class="img-fluid rounded-start" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h4 class="card-title">Instituto Universitario de Estudios Musicales</h4>
-							<h6 class="card-title">Licenciado en Música</h6>
-							<p class="card-text"><small class="text-muted">1999 - 2004</small></p>
-							<p class="card-text">Licenciatura en Música mención Dirección Orquestal.</p>
-						</div>
-					</div>
-					<div class="btn-list">
-						<a href="#"><i class="fas fa-pen"></i></a>
-						<a href="#"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-			</div>
-		</li>
-	</ul>
-</div>-->
-<!--Scroll-->
+
 <div class="card mb-4" id="educacion">
 	<h1 class="mb-4">Educación</h1>
 	<div class="btn-edit">
 		<a href="#" data-bs-toggle="modal" data-bs-target="#estudioModal"><i class="fas fa-plus"></i></a>
-		<!--<a routerLink="/estudios" routerLinkActive="active" ariaCurrentWhenActive="page"><i class="fas fa-pen"></i></a>-->
 	</div>
 	<!-- Modal add educacion-->
 	<div class="modal fade" id="estudioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -147,7 +53,7 @@
 							<label for="descripcion" class="form-label">Descripción</label>
 							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" rows="3"></textarea>
 						</div>
-						<input type="text" type="hidden" id="persona_id" name="persona_id" value="{{educacion.persona_id}}" [(ngModel)]="educacion.persona_id" />
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="educacion.persona_id" />
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -172,7 +78,6 @@
 				<h4>{{educacion.nombre_instituto}}</h4>
 				<p><small class="text-muted">{{educacion.fecha_inicio}} - {{educacion.fecha_fin}}</small></p>
 				<p>{{educacion.descripcion}}</p>
-				<p>{{educacion.persona_id}}</p>
 			</div>
 		</div>
 	</div>
@@ -225,7 +130,7 @@
 							<label for="descripcion" class="form-label">Descripción</label>
 							<textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" rows="3"></textarea>
 						</div>
-						<input type="text" type="hidden" id="persona_id" name="persona_id" value="{{educacion.persona_id}}" [(ngModel)]="educacion.persona_id" />
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="educacion.persona_id" />
 					</form>					
 				</div>
 				<div class="modal-footer">

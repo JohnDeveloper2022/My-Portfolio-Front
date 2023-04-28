@@ -30,13 +30,30 @@
 		<div class="d-flex me-3 mb-3 mt-0 mb-lg-0">
 			<a class="navbar-nav nav-link me-3" href="https://www.linkedin.com/in/jlg26"><i class="fa-brands fa-linkedin"></i></a>
 			<a class="navbar-nav nav-link me-3" href="https://github.com/JohnDeveloper2022"><i class="fa-brands fa-github"></i></a>
-		</div>
+		</div> 
 		<form class="d-flex">
 			<button class="btn btn-outline-danger btn-sm" type="button"
-			routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="userLogueado; else elseBlock">LOG IN</button>
+			 *ngIf="!userLogueado; else elseBlock" (click)="activarEdicion()">LOG IN</button>
 			<ng-template #elseBlock><button class="btn btn-outline-danger btn-sm" type="button"
-			routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">LOG OUT</button></ng-template>
+				data-bs-toggle="modal" data-bs-target="#cerrarSesionModal">LOG OUT</button></ng-template>
 		</form>
+	  </div>
+	  <!--Modal cerrar sesión-->
+	  <div class="modal fade" id="cerrarSesionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="card modal-header" style="color: #ed0c32; border: none;">
+				<i class="fa-solid fa-power-off fa-5x"></i>
+			</div>
+			<div class="modal-body mb-2" style="text-align: center;">
+			  ¿Deseas salir de la sesión?
+			</div>
+			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-danger" (click)="desactivarEdicion()">Cerrar sesión</button>
+			</div>
+		  </div>
+		</div>
 	  </div>
 	</div>
   </nav>

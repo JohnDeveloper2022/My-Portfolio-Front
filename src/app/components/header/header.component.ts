@@ -15,22 +15,22 @@ export class HeaderComponent implements OnInit {
   miniCover = 'assets/images/version_control.svg'
 
   usuario:Usuario;
-  userLogueado:boolean = false;
+  userLogueado:boolean;
+  showButton:boolean;
 
   constructor(private loginService:LoginService, private router:Router, private activatedRoute:ActivatedRoute) { }
  
 
   ngOnInit(): void {
-    
-    if(this.loginService.getUser(this.usuario)) {
-      this.userLogueado = true;
-    } else {
-      this.userLogueado = false;
-    }
   }
 
-  userLogout() {
-    localStorage.removeItem('usuario');
-    this.router.navigate(['']);
+  activarEdicion(): void {
+    this.router.navigate(['/login']);
   }
+
+  desactivarEdicion(): void {
+    this.router.navigate(['']);
+    this.userLogueado = false;
+  }
+
 }
