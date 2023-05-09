@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
 import { Experiencia } from './experiencia';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -15,8 +16,9 @@ export class ExperienciaComponent implements OnInit {
 
   experiencia:Experiencia = new Experiencia();
   experiencias:Experiencia[];
+  user:boolean = false;
 
-  constructor(private experienciaService:ExperienciaService, private router:Router, private activatedRoute:ActivatedRoute) { 
+  constructor(private experienciaService:ExperienciaService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) { 
 
     this.meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -27,6 +29,7 @@ export class ExperienciaComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.user = this.usuarioService.getSession();
     this.experienciaService.getAll().subscribe(
       exp => this.experiencias=exp
     );

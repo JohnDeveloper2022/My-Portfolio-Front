@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProyectoService } from 'src/app/service/proyecto.service';
 import { Proyecto } from './proyecto';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -12,10 +13,12 @@ export class ProyectosComponent implements OnInit {
 
   proyecto:Proyecto = new Proyecto();
   proyectos:Proyecto[];
+  user:boolean = false;
 
-  constructor(private proyectoService:ProyectoService, private router:Router, private activatedRoute:ActivatedRoute) { }
+  constructor(private proyectoService:ProyectoService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) { }
 
   ngOnInit(): void {
+    this.user = this.usuarioService.getSession();
     this.proyectoService.getAll().subscribe(
       pro=> this.proyectos = pro
     );

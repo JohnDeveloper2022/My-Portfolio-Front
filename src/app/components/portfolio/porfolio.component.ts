@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-porfolio',
@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PorfolioComponent implements OnInit {
 
+  @Input() userLogueado: any;
+
   constructor() { }
 
   ngOnInit(): void {
-    
+    console.log(localStorage.getItem('user'))
   }
 }

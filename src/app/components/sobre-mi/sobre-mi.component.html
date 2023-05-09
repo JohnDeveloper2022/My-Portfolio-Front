@@ -1,7 +1,8 @@
 <div class="card mb-4" id="sobre-mi">
-    <h1 class="mb-4">Sobre mí</h1>
+  <h1 class="mb-4">Sobre mí</h1>
+  <div *ngIf="user"></div>
     <div class="btn-edit" *ngFor="let persona of personas">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobreMi/editar', persona.id]"><i class="fas fa-pen"></i></a>
+        <a *ngIf="user" href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobreMi/editar', persona.id]"><i class="fas fa-pen"></i></a>
     </div> 
     <div class="row m-auto" style="display:inline-flex; max-width: 80%;" *ngFor="let persona of personas">
       <div class="col-md-6">
@@ -15,7 +16,7 @@
           </a>
         </div>
         <div class="card-body text-danger">
-          <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editDataModal" [routerLink]="['/sobreMi/datos/editar', persona.id]"><i class="fas fa-pen"></i></a>
+          <a href="#" *ngIf="user"  style="float: right;" data-bs-toggle="modal" data-bs-target="#editDataModal" [routerLink]="['/sobreMi/datos/editar', persona.id]"><i class="fas fa-pen"></i></a>
           <h5 class="card-title">{{persona.nombre}}&nbsp;{{persona.apellido}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{persona.profesion}}</h6>
         </div>
@@ -56,7 +57,7 @@
           <div class="modal-body mb-2">
             <form>
               <div class="text-center">
-                <img src="..." alt="" class="img-thumbnail" width="200px" height="200px">
+                <!--<img src="..." alt="" class="img-thumbnail" width="200px" height="200px">-->
               </div>
             </form>
             <div style="text-align: center;">Formato .jpg o .png</div>

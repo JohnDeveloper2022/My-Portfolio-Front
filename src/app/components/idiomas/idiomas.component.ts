@@ -4,6 +4,7 @@ import { IdiomaService } from 'src/app/service/idioma.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 import { Usuario } from 'src/app/usuario';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-idiomas',
@@ -18,26 +19,20 @@ export class IdiomasComponent implements OnInit {
 
   idioma:Idioma = new Idioma();
   idiomas:Idioma[];
+  user:boolean = false;
 
-  constructor(private idiomaService:IdiomaService, private loginService:LoginService, private router:Router, private activatedRoute:ActivatedRoute) { 
+  constructor(private idiomaService:IdiomaService, private loginService:LoginService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) { 
     
     this.niveles = ['Básico', 'Intermedio', 'Avanzado', 'Nativo'];
 
   }
 
   ngOnInit(): void {
+    this.user = this.usuarioService.getSession();
     this.idiomaService.getAll().subscribe(
       idiom=> this.idiomas=idiom
     );
     this.cargaForm();
-  }
-
-  mostrar() {
-    if(this.userLogueado = true) {
-      this.router.navigate(['/edicion'])
-    } else {
-      this.router.navigate([''])
-    }
   }
 
   cargaForm(): void {

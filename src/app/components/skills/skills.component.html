@@ -1,7 +1,7 @@
 <div class="card mb-4" id="skills">
     <h1 class="mb-5">Habilidades</h1>
     <div class="btn-edit">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#addSkillModal"><i class="fas fa-plus"></i></a>
+        <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addSkillModal"><i class="fas fa-plus"></i></a>
     </div>
     <ul class="round-circles">
       <li class="circle-list col-md-4" *ngFor="let skill of skills">
@@ -13,7 +13,7 @@
               <b>{{skill.nombre_skill}}</b>
             </div>
         </div>
-        <div>
+        <div *ngIf="user">
           <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editSkillModal" [routerLink]="['/skills/editar', skill.id]"><i class="fas fa-pen"></i></a>
           <a href="#" data-bs-toggle="modal" data-bs-target="#deleteSkillModal" [routerLink]="['/skills/eliminar', skill.id]"><i class="fas fa-trash"></i></a>
         </div>

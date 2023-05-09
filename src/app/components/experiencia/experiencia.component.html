@@ -2,7 +2,7 @@
 <div class="card mb-4" id="experiencia">
 	<h1 class="mb-4">Experiencia</h1>
 	<div class="btn-edit">
-		<a href="#" data-bs-toggle="modal" data-bs-target="#expeModal"><i class="fas fa-plus"></i></a>
+		<a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#expeModal"><i class="fas fa-plus"></i></a>
 	</div>
 	<!-- Modal add experiencia-->
 	<div class="modal fade" id="expeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,7 +95,7 @@
 					<p style="margin: 0;"><small>{{exper.mes_inicio}}&nbsp;{{exper.anno_inicio}}&nbsp;-&nbsp;{{exper.mes_fin}}&nbsp;{{exper.anno_fin}}</small></p>
 				</button>
 			</div>
-			<div class="p-2 flex-shrink-1" style="width: 100px;">
+			<div class="p-2 flex-shrink-1" style="width: 100px;" *ngIf="user">
 				<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editExpeModal" [routerLink]="['/experiencia/editar', exper.id]"><i class="fas fa-pen"></i></a>
 				<a href="#" data-bs-toggle="modal" data-bs-target="#deleteExpeModal" [routerLink]="['/experiencia/eliminar', exper.id]"><i class="fas fa-trash"></i></a>
 			</div>			

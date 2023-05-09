@@ -1,7 +1,7 @@
 <div class="card mb-4">
     <h1 class="mb-4">Idiomas</h1>
     <div class="btn-edit">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#addIdiomaModal"><i class="fas fa-plus"></i></a>
+        <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addIdiomaModal"><i class="fas fa-plus"></i></a>
     </div>
     <div class="idiomas" *ngFor="let idioma of idiomas;">
         <div class="progress">
@@ -9,7 +9,7 @@
                 <b>{{idioma.nombre_idioma}}</b>
             </div>
         </div>
-        <div class="btn-edit-idioma" *ngIf="mostrar">
+        <div class="btn-edit-idioma" *ngIf="user">
             <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editIdiomaModal" [routerLink]="['/idiomas/editar', idioma.id]"><i class="fas fa-pen"></i></a>
 			<a href="#" data-bs-toggle="modal" data-bs-target="#deleteIdiomaModal" [routerLink]="['/idiomas/eliminar', idioma.id]"><i class="fas fa-trash"></i></a>
         </div>

@@ -1,7 +1,7 @@
 <div class="card mb-4" id="proyectos">
     <h1 class="mb-4">Proyectos</h1>
     <div class="btn-edit">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#addProyectoModal"><i class="fas fa-plus"></i></a>
+        <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addProyectoModal"><i class="fas fa-plus"></i></a>
     </div>
     <p class="m-auto mb-4">En esta seccion se encuentra la información de proyectos desarrollados.
         <span id="especial">La sección incluye este portfolio web</span>y se ilustra
@@ -10,13 +10,13 @@
 	<ul style="text-align: center;">
 		<li class="col-md-6" id="project" *ngFor="let proy of proyectos"> 
 			<div class="card" style="width: 18rem;">
-				<img src="..." class="card-img-top" alt="...">
+				<!--<img src="..." class="card-img-top" alt="...">-->
 				<div class="card-body">
 					<h5 class="card-title">{{proy.nombre_proyecto}}</h5>
 					<p class="card-text">{{proy.descripcion}}</p>
 					<a href="#" style="background-color:lightgrey;">Ver proyecto</a>
 				</div>
-				<div class="btn-edit-proyecto">
+				<div class="btn-edit-proyecto" *ngIf="user">
 					<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editProyectoModal" [routerLink]="['/proyectos/editar', proy.id]"><i class="fas fa-pen"></i></a>
 					<a href="#" data-bs-toggle="modal" data-bs-target="#deleteProyectoModal" [routerLink]="['/proyectos/eliminar', proy.id]"><i class="fas fa-trash"></i></a>
 				</div>

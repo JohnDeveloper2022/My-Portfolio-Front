@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SkillService } from 'src/app/service/skill.service';
 import { Skill } from './skill';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-skills',
@@ -14,13 +15,15 @@ export class SkillsComponent implements OnInit {
 
   skill:Skill = new Skill();
   skills:Skill[];
+  user:boolean = false; 
 
-  constructor(private skillService:SkillService, private router:Router, private activatedRoute:ActivatedRoute) {
+  constructor(private skillService:SkillService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) {
     
     this.nivelSkill = ['Principiante', 'Básico', 'Intermedio', 'Intermedio alto', 'Avanzado', 'Experto'];
   }
 
   ngOnInit(): void {
+    this.user = this.usuarioService.getSession();
     this.skillService.getAll().subscribe(
       sk=> this.skills = sk
     );

@@ -33,13 +33,13 @@
 		</div> 
 		<form class="d-flex">
 			<button class="btn btn-outline-danger btn-sm" type="button"
-			 *ngIf="!userLogueado; else elseBlock" (click)="activarEdicion()">LOG IN</button>
+			 *ngIf="!user; else elseBlock" (click)="activarEdicion()">LOG IN</button>
 			<ng-template #elseBlock><button class="btn btn-outline-danger btn-sm" type="button"
-				data-bs-toggle="modal" data-bs-target="#cerrarSesionModal">LOG OUT</button></ng-template>
+				data-bs-toggle="modal" data-bs-target="#cerrarSesion">LOG OUT</button></ng-template>
 		</form>
 	  </div>
 	  <!--Modal cerrar sesión-->
-	  <div class="modal fade" id="cerrarSesionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal fade" id="cerrarSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		  <div class="modal-content">
 			<div class="card modal-header" style="color: #ed0c32; border: none;">
