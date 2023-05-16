@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
+import { UsuarioService } from 'src/app/service/usuario.service';
 import { Usuario } from 'src/app/usuario';
 
 @Component({
@@ -16,12 +17,13 @@ export class HeaderComponent implements OnInit {
 
   usuario:Usuario;
   userLogueado:boolean;
-  showButton:boolean;
+  user: boolean = false;
 
-  constructor(private loginService:LoginService, private router:Router, private activatedRoute:ActivatedRoute) { }
+  constructor(private loginService:LoginService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) { }
  
 
   ngOnInit(): void {
+    this.user = this.usuarioService.getSession();
   }
 
   activarEdicion(): void {
@@ -29,8 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   desactivarEdicion(): void {
-    this.router.navigate(['']);
-    this.userLogueado = false;
+    this.loginService.logout();    
   }
 
 }

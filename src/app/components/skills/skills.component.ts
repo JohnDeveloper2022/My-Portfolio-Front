@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SkillService } from 'src/app/service/skill.service';
 import { Skill } from './skill';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-skills',
@@ -14,13 +15,17 @@ export class SkillsComponent implements OnInit {
 
   skill:Skill = new Skill();
   skills:Skill[];
+  user:boolean = false; 
 
-  constructor(private skillService:SkillService, private router:Router, private activatedRoute:ActivatedRoute) {
+  constructor(private skillService:SkillService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) {
     
     this.nivelSkill = ['Principiante', 'Básico', 'Intermedio', 'Intermedio alto', 'Avanzado', 'Experto'];
+
+    this.skill.persona_id = 1;
   }
 
   ngOnInit(): void {
+    this.user = this.usuarioService.getSession();
     this.skillService.getAll().subscribe(
       sk=> this.skills = sk
     );
@@ -42,22 +47,32 @@ export class SkillsComponent implements OnInit {
 
   createSkill(): void {
     this.skillService.create(this.skill).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/skills']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   updateSkill(): void {
     this.skillService.edit(this.skill).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/skills']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   deleteSkill(skill:Skill): void {
-    this.skillService.delete(skill.id).subscribe(
-      res=> this.skillService.getAll().subscribe(
-        response=> this.skills = response
+    this.skillService.delete(skill.id).subscribe(data => {
+      this.skillService.getAll().subscribe(
+        res=> this.router.navigate(['/skills']).then(
+          (dir) => window.location.reload()
+        )
       )
-    );
+    });
+  }
+
+  clear() {
+    this.router.navigate(['/skills']); 
   }
 
   retornarNivelSk(nivel:string) {

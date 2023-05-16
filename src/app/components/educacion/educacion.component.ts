@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EducacionService } from 'src/app/service/educacion.service';
 import { Educacion } from './educacion';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-educacion',
@@ -14,15 +15,19 @@ export class EducacionComponent implements OnInit {
 
   educacion:Educacion = new Educacion();
   estudios:Educacion[];
+  user:boolean = false;
 
-  constructor(private educacionService:EducacionService, private router:Router, private activatedRoute:ActivatedRoute) {
+  constructor(private educacionService:EducacionService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) {
 
     for (let i = 1930; i <= 2023; i++) {
       this.yearList.push(i);
     }
+
+    this.educacion.persona_id = 1;
   }
 
   ngOnInit(): void {
+    this.user = this.usuarioService.getSession();
     this.educacionService.getAll().subscribe(
       edu => this.estudios=edu
     );
@@ -44,24 +49,34 @@ export class EducacionComponent implements OnInit {
   }
 
   createEdu():void{
-    console.log(this.educacion);
+    console.log(this.educacion.id);
     this.educacionService.create(this.educacion).subscribe(
-      res=>this.router.navigate(['/estudios'])
+      res=> this.router.navigate(['/estudios']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   updateEdu():void{
     this.educacionService.edit(this.educacion).subscribe(
-      res=>this.router.navigate(['/estudios'])
+      res=> this.router.navigate(['/estudios']).then(
+        (dir) => window.location.reload() 
+      )
     );
   }
 
   deleteEdu(educacion:Educacion):void{
-    this.educacionService.delete(educacion.id).subscribe(
-        res=>this.educacionService.getAll().subscribe(
-          response=>this.estudios=response
+    this.educacionService.delete(educacion.id).subscribe(data => {
+      this.educacionService.getAll().subscribe(
+        res => this.router.navigate(['/estudios']).then(
+          (dir) => window.location.reload()
         )
-    );
+      )
+    });
+  }
+
+  clear() {
+    this.router.navigate(['/estudios']);
   }
 
 }

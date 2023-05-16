@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
 import { Experiencia } from './experiencia';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -15,8 +16,9 @@ export class ExperienciaComponent implements OnInit {
 
   experiencia:Experiencia = new Experiencia();
   experiencias:Experiencia[];
+  user:boolean = false;
 
-  constructor(private experienciaService:ExperienciaService, private router:Router, private activatedRoute:ActivatedRoute) { 
+  constructor(private experienciaService:ExperienciaService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) { 
 
     this.meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -24,9 +26,12 @@ export class ExperienciaComponent implements OnInit {
     for (let i = 1930; i <= 2023; i++) {
       this.yearList.push(i);
     }
+
+    this.experiencia.persona_id = 1;
   }
   
   ngOnInit(): void {
+    this.user = this.usuarioService.getSession();
     this.experienciaService.getAll().subscribe(
       exp => this.experiencias=exp
     );
@@ -49,22 +54,32 @@ export class ExperienciaComponent implements OnInit {
 
   createExp(): void {
     this.experienciaService.create(this.experiencia).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/experiencias']).then(
+        (dir) => window.location.reload() 
+      )
     );
   }
 
   updateExp(): void {
     this.experienciaService.edit(this.experiencia).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/experiencias']).then(
+        (dir) => window.location.reload() 
+      )
     );
   }
 
   deleteExp(experiencia:Experiencia): void {
-    this.experienciaService.delete(experiencia.id).subscribe(
-      res=> this.experienciaService.getAll().subscribe(
-        response=> this.experiencias=response
+    this.experienciaService.delete(experiencia.id).subscribe(data => {
+      this.experienciaService.getAll().subscribe(
+        res => this.router.navigate(['/experiencias']).then(
+          (dir) => window.location.reload()
+        )
       )
-    );
+    });
+  }
+
+  clear() {
+    this.router.navigate(['/experiencias']); 
   }
 
 }

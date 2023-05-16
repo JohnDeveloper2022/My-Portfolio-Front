@@ -3,14 +3,16 @@
     <div style="border-bottom:none;">
         <h1 class="fs-3 text-center mb-3">JOHNNY</h1>
     </div>
-    <form (ngSubmit)="login()">
+    <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
         <div class="form-group mb-3">
             <label for="username" class="form-label">Nombre Usuario</label>
-            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="usuario.username" placeholder="Username" aria-label="default input example">
+            <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && username.errors }" id="username" name="username" #username="ngModel" [(ngModel)]="usuario.username" placeholder="Username" aria-label="default input example" required ngModel>
+            <div><span *ngIf="username.invalid && username.touched" style="color: #ed0c32;"><small>Username es requerido</small></span></div>
         </div>
         <div class="form-group mb-4">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="usuario.password" placeholder="Password">
+            <input type="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && password.errors }" id="password" name="password" #password="ngModel" [(ngModel)]="usuario.password" placeholder="Password" required NgModel>
+            <div><span *ngIf="password.invalid && password.touched" style="color: #ed0c32;"><small>Password es requerido</small></span></div>
         </div>
         <div class="form-group mb-4">
             <button type="submit" class="btn btn-primary" id="btn-login">Log in</button>

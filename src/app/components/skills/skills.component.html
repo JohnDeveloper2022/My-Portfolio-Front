@@ -1,7 +1,10 @@
 <div class="card mb-4" id="skills">
+  <div class="mt-2" style="float: left;">
+		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left"></i></a>
+	</div>
     <h1 class="mb-5">Habilidades</h1>
     <div class="btn-edit">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#addSkillModal"><i class="fas fa-plus"></i></a>
+        <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addSkillModal" [routerLink]="['/skills']"><i class="fas fa-plus"></i></a>
     </div>
     <ul class="round-circles">
       <li class="circle-list col-md-4" *ngFor="let skill of skills">
@@ -13,7 +16,7 @@
               <b>{{skill.nombre_skill}}</b>
             </div>
         </div>
-        <div>
+        <div *ngIf="user">
           <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editSkillModal" [routerLink]="['/skills/editar', skill.id]"><i class="fas fa-pen"></i></a>
           <a href="#" data-bs-toggle="modal" data-bs-target="#deleteSkillModal" [routerLink]="['/skills/eliminar', skill.id]"><i class="fas fa-trash"></i></a>
         </div>
@@ -43,7 +46,7 @@
                 </select>
                 <div><span *ngIf="nivelSk.invalid && nivelSk.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
               </div>
-              <input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="skill.persona_id" />
+              <input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="skill.persona_id" />
             </form>
           </div>
           <div class="modal-footer">
@@ -53,12 +56,12 @@
       </div>
     </div>
     <!--Modal edit skill-->
-    <div class="modal fade" id="editSkillModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editSkillModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Editar skill</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clear()" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form>
@@ -76,7 +79,7 @@
                 </select>
                 <div><span *ngIf="nivelSk.invalid && nivelSk.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
               </div>
-              <input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="skill.persona_id" />
+              <input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="skill.persona_id" />
             </form>
           </div>
           <div class="modal-footer">
@@ -86,7 +89,7 @@
       </div>
     </div>
     <!--Modal delete skill-->
-	<div class="modal fade" id="deleteSkillModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="deleteSkillModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		  <div class="modal-content">
 			<div class="card modal-header" style="color: #ed0c32; border: none;">
@@ -96,7 +99,7 @@
 			  ¿Deseas eliminar este conocimiento?
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
 			  <button type="button" class="btn btn-danger" (click)="deleteSkill(skill)">Eliminar</button>
 			</div>
 		  </div>
