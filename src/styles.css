@@ -1,10 +1,6 @@
 */* {
     margin-left: 8px;
     margin-right: 8px;
-}
-.cabecera {
-    background-color: black;
-    padding: 25px 25px;
 }*/
 .cursiva {
     font-style: italic;
@@ -18,17 +14,11 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-nav a:hover, .navbar-nav a:focus{
     color: whitesmoke;
 }
-/*.login-format {
-    max-width: 340px;
-    margin: auto;
-}*/
+
 .text-center {
     width: 100%;
     text-align: center;
 }
-/*.form-group {
-    margin-bottom: 1rem;
-}*/
 #btn-login {
     width: 100%;
     background: #ed0c32;
@@ -216,15 +206,6 @@ div li {
 .round-circles {
     position: relative;
     text-align: center;
-    /*float: left;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: white;
-    min-height: 50vh;
-    justify-content: center;
-    align-items: center;
-    margin: auto;*/
-
 }
 .circle-list {
     display: inline-flex;
@@ -422,23 +403,3 @@ div .progress {
     padding: 25px;
 
 }
-/*#logo {
-    display: block;
-    float:left;
-    position: relative;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background-color: #ed0c32;
-    margin: 0;
-}
-#logo:hover {
-    background-color:#ba0927;
-}
-#jg {
-    color: white;
-    position: absolute;
-    text-align: center;
-    font-size: 3em;
-    font-weight: bolder;
-}*/

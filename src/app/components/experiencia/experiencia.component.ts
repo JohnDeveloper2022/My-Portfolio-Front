@@ -26,6 +26,8 @@ export class ExperienciaComponent implements OnInit {
     for (let i = 1930; i <= 2023; i++) {
       this.yearList.push(i);
     }
+
+    this.experiencia.persona_id = 1;
   }
   
   ngOnInit(): void {
@@ -52,22 +54,32 @@ export class ExperienciaComponent implements OnInit {
 
   createExp(): void {
     this.experienciaService.create(this.experiencia).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/experiencias']).then(
+        (dir) => window.location.reload() 
+      )
     );
   }
 
   updateExp(): void {
     this.experienciaService.edit(this.experiencia).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/experiencias']).then(
+        (dir) => window.location.reload() 
+      )
     );
   }
 
   deleteExp(experiencia:Experiencia): void {
-    this.experienciaService.delete(experiencia.id).subscribe(
-      res=> this.experienciaService.getAll().subscribe(
-        response=> this.experiencias=response
+    this.experienciaService.delete(experiencia.id).subscribe(data => {
+      this.experienciaService.getAll().subscribe(
+        res => this.router.navigate(['/experiencias']).then(
+          (dir) => window.location.reload()
+        )
       )
-    );
+    });
+  }
+
+  clear() {
+    this.router.navigate(['/experiencias']); 
   }
 
 }

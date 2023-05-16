@@ -20,6 +20,8 @@ export class SkillsComponent implements OnInit {
   constructor(private skillService:SkillService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) {
     
     this.nivelSkill = ['Principiante', 'Básico', 'Intermedio', 'Intermedio alto', 'Avanzado', 'Experto'];
+
+    this.skill.persona_id = 1;
   }
 
   ngOnInit(): void {
@@ -45,22 +47,32 @@ export class SkillsComponent implements OnInit {
 
   createSkill(): void {
     this.skillService.create(this.skill).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/skills']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   updateSkill(): void {
     this.skillService.edit(this.skill).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/skills']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   deleteSkill(skill:Skill): void {
-    this.skillService.delete(skill.id).subscribe(
-      res=> this.skillService.getAll().subscribe(
-        response=> this.skills = response
+    this.skillService.delete(skill.id).subscribe(data => {
+      this.skillService.getAll().subscribe(
+        res=> this.router.navigate(['/skills']).then(
+          (dir) => window.location.reload()
+        )
       )
-    );
+    });
+  }
+
+  clear() {
+    this.router.navigate(['/skills']); 
   }
 
   retornarNivelSk(nivel:string) {

@@ -1,7 +1,10 @@
 <div class="card mb-4" id="proyectos">
+	<div class="mt-2" style="float: left;">
+		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left"></i></a>
+	</div>
     <h1 class="mb-4">Proyectos</h1>
     <div class="btn-edit">
-        <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addProyectoModal"><i class="fas fa-plus"></i></a>
+        <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addProyectoModal" [routerLink]="['/proyectos']"><i class="fas fa-plus"></i></a>
     </div>
     <p class="m-auto mb-4">En esta seccion se encuentra la información de proyectos desarrollados.
         <span id="especial">La sección incluye este portfolio web</span>y se ilustra
@@ -10,11 +13,11 @@
 	<ul style="text-align: center;">
 		<li class="col-md-6" id="project" *ngFor="let proy of proyectos"> 
 			<div class="card" style="width: 18rem;">
-				<!--<img src="..." class="card-img-top" alt="...">-->
+				<img [src]="fotoPortfolio" class="card-img-top" alt="Proyecto Portfolio">
 				<div class="card-body">
 					<h5 class="card-title">{{proy.nombre_proyecto}}</h5>
 					<p class="card-text">{{proy.descripcion}}</p>
-					<a href="#" style="background-color:lightgrey;">Ver proyecto</a>
+					<a href="#" class="card-link" style="color: #ed0c32;">Ver proyecto</a>
 				</div>
 				<div class="btn-edit-proyecto" *ngIf="user">
 					<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editProyectoModal" [routerLink]="['/proyectos/editar', proy.id]"><i class="fas fa-pen"></i></a>
@@ -43,7 +46,7 @@
 							<textarea class="form-control" id="descripcion" name="descripcion" #descripcion="ngModel" [(ngModel)]="proyecto.descripcion" rows="3" maxlength="150" required ngModel></textarea>
 							<div><span *ngIf="descripcion.invalid && descripcion.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
-						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="proyecto.persona_id" />
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="proyecto.persona_id" />
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -53,12 +56,12 @@
 		</div>
 	</div>
     <!--Modal editar proyecto-->
-    <div class="modal fade" id="editProyectoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editProyectoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" style="border: none;">
 					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar proyecto</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clear()" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<form>
@@ -72,7 +75,7 @@
 							<textarea class="form-control" id="descripcion" name="descripcion" #descripcion="ngModel" [(ngModel)]="proyecto.descripcion" rows="3" maxlength="150" required ngModel></textarea>
 							<div><span *ngIf="descripcion.invalid && descripcion.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
-						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="proyecto.persona_id" />
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="proyecto.persona_id" />
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -82,7 +85,7 @@
 		</div>
 	</div>
 	<!--Modal delete proyecto-->
-	<div class="modal fade" id="deleteProyectoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="deleteProyectoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		  <div class="modal-content">
 			<div class="card modal-header" style="color: #ed0c32; border: none;">
@@ -92,7 +95,7 @@
 			  ¿Deseas eliminar este proyecto?
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
 			  <button type="button" class="btn btn-danger" (click)="deletePro(proyecto)">Eliminar</button>
 			</div>
 		  </div>

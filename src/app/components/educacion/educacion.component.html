@@ -1,8 +1,11 @@
 
 <div class="card mb-4" id="educacion">
+	<div class="mt-2" style="float: left;">
+		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left"></i></a>
+	</div>
 	<h1 class="mb-4">Educación</h1>
 	<div class="btn-edit">
-		<a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#estudioModal"><i class="fas fa-plus"></i></a>
+		<a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#estudioModal" [routerLink]="['/estudios']"><i class="fas fa-plus"></i></a>
 	</div>
 	<!-- Modal add educacion-->
 	<div class="modal fade" id="estudioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -57,7 +60,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" role="button" (click)="createEdu()">Registrar</button>
+					<button type="button" class="btn btn-danger" (click)="createEdu()">Registrar</button>
 				</div>
 			</div>
 		</div>
@@ -70,8 +73,8 @@
 		</div>
 		<div class="col-8">
 			<div style="float: right;" *ngIf="user">
-				<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editModal" [routerLink]="['/estudios', educacion.id]"><i class="fas fa-pen"></i></a>
-				<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash"></i></a>
+				<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editModal" [routerLink]="['/estudios/editar', educacion.id]"><i class="fas fa-pen"></i></a>
+				<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" [routerLink]="['/estudios/eliminar', educacion.id]"><i class="fas fa-trash"></i></a>
 			</div>
 			<div class="collapse show" id="estudios-{{i}}" data-bs-parent="#accordionExample">
 				<h4>{{educacion.titulo}}</h4>
@@ -82,12 +85,12 @@
 		</div>
 	</div>
 	<!-- Modal edit educacion-->
-	<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar educación</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clear()" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<form>
@@ -134,14 +137,14 @@
 					</form>					
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="updateEdu()">Actualizar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
+					<button type="button" class="btn btn-danger" (click)="updateEdu()">Actualizar</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!--Modal delete educacion-->
-	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		  <div class="modal-content">
 			<div class="card modal-header" style="color: #ed0c32; border: none;">
@@ -151,7 +154,7 @@
 			  ¿Deseas eliminar este estudio?
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
 			  <button type="button" class="btn btn-danger" (click)="deleteEdu(educacion)">Eliminar</button>
 			</div>
 		  </div>

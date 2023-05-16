@@ -44,8 +44,14 @@ export class SobreMiComponent implements OnInit {
 
   updatePersona(): void {
     this.personaService.edit(this.persona).subscribe(
-      res=> this.router.navigate([''])
-    );
+      res=> this.router.navigate(['/sobremi']).then(
+        (dir) => window.location.reload()
+      )
+    );   
+  }
+
+  clear() {
+    this.router.navigate(['/sobremi']); 
   }
 
 }

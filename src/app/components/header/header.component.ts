@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   desactivarEdicion(): void {
-    this.loginService.logout();
+    this.loginService.logout();    
   }
 
 }

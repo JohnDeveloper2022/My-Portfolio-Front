@@ -25,6 +25,7 @@ export class IdiomasComponent implements OnInit {
     
     this.niveles = ['Básico', 'Intermedio', 'Avanzado', 'Nativo'];
 
+    this.idioma.persona_id = 1; 
   }
 
   ngOnInit(): void {
@@ -50,24 +51,34 @@ export class IdiomasComponent implements OnInit {
 
   createIdiom(): void {
     this.idiomaService.create(this.idioma).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/idiomas']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   updateIdiom(): void {
     this.idiomaService.edit(this.idioma).subscribe(
-      res=> this.router.navigate([''])
-    );
-  }
-
-  deleteIdiom(idioma:Idioma): void {
-    this.idiomaService.delete(idioma.id).subscribe(
-      res=> this.idiomaService.getAll().subscribe(
-        response=>this.idiomas=response
+      res=> this.router.navigate(['/idiomas']).then(
+        (dir) => window.location.reload()
       )
     );
   }
 
+  deleteIdiom(idioma:Idioma): void {
+    this.idiomaService.delete(idioma.id).subscribe(data => { 
+      this.idiomaService.getAll().subscribe(
+        res => this.router.navigate(['/idiomas']).then(
+          (dir) => window.location.reload()
+        )
+      )
+    });
+  }
+
+  clear() {
+    this.router.navigate(['/idiomas']);
+  }
+  
   retornarNivel(nivel: string){
     switch(nivel)
     {

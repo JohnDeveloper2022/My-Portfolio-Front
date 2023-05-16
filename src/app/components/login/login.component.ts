@@ -22,9 +22,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(form:NgForm) {
-    this.loginService.getUserLogin(this.usuario).subscribe((data) => {
-      this.router.navigate(['/edicion'])
-    })
+    this.loginService.getUserLogin(this.usuario).subscribe({
+      next: (data) => this.router.navigate(['/portfolio']),
+      error: (e) => alert('Por favor ingrese sus datos correctamente'),
+      complete: () => alert('Bienvenido a tu portfolio web, Johnny')
+    });
   }
 
   volver(): void {

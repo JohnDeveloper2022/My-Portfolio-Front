@@ -22,6 +22,8 @@ export class EducacionComponent implements OnInit {
     for (let i = 1930; i <= 2023; i++) {
       this.yearList.push(i);
     }
+
+    this.educacion.persona_id = 1;
   }
 
   ngOnInit(): void {
@@ -47,24 +49,34 @@ export class EducacionComponent implements OnInit {
   }
 
   createEdu():void{
-    console.log(this.educacion);
+    console.log(this.educacion.id);
     this.educacionService.create(this.educacion).subscribe(
-      res=>this.router.navigate(['/estudios'])
+      res=> this.router.navigate(['/estudios']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   updateEdu():void{
     this.educacionService.edit(this.educacion).subscribe(
-      res=>this.router.navigate(['/estudios'])
+      res=> this.router.navigate(['/estudios']).then(
+        (dir) => window.location.reload() 
+      )
     );
   }
 
   deleteEdu(educacion:Educacion):void{
-    this.educacionService.delete(educacion.id).subscribe(
-        res=>this.educacionService.getAll().subscribe(
-          response=>this.estudios=response
+    this.educacionService.delete(educacion.id).subscribe(data => {
+      this.educacionService.getAll().subscribe(
+        res => this.router.navigate(['/estudios']).then(
+          (dir) => window.location.reload()
         )
-    );
+      )
+    });
+  }
+
+  clear() {
+    this.router.navigate(['/estudios']);
   }
 
 }

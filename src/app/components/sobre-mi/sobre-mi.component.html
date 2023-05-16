@@ -1,8 +1,11 @@
 <div class="card mb-4" id="sobre-mi">
+  <div class="mt-2" style="float: left;">
+		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left"></i></a>
+	</div>
   <h1 class="mb-4">Sobre mí</h1>
   <div *ngIf="user"></div>
     <div class="btn-edit" *ngFor="let persona of personas">
-        <a *ngIf="user" href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobreMi/editar', persona.id]"><i class="fas fa-pen"></i></a>
+        <a *ngIf="user" href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobremi/editar', persona.id]"><i class="fas fa-pen"></i></a>
     </div> 
     <div class="row m-auto" style="display:inline-flex; max-width: 80%;" *ngFor="let persona of personas">
       <div class="col-md-6">
@@ -10,25 +13,25 @@
       </div>
       <div class="card text-center col-md-6 mb-2 pb-0" style="width: 18rem; margin: auto; border: none;">
         <div class="img-perfil">
-          <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editFotoModal" [routerLink]="['/sobreMi/foto/editar']">
+          <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editFotoModal" [routerLink]="['/sobremi/editar/foto']">
             <img [src]="fotoPerfil" class="img-thumbnail" alt="Imagen de perfil">
-            <i class="fa-solid fa-camera fa-3x img-perfil-camara"></i>
+            <i *ngIf="user" class="fa-solid fa-camera fa-3x img-perfil-camara"></i>
           </a>
         </div>
         <div class="card-body text-danger">
-          <a href="#" *ngIf="user"  style="float: right;" data-bs-toggle="modal" data-bs-target="#editDataModal" [routerLink]="['/sobreMi/datos/editar', persona.id]"><i class="fas fa-pen"></i></a>
+          <a href="#" *ngIf="user"  style="float: right;" data-bs-toggle="modal" data-bs-target="#editDataModal" [routerLink]="['/sobremi/editar', persona.id]"><i class="fas fa-pen"></i></a>
           <h5 class="card-title">{{persona.nombre}}&nbsp;{{persona.apellido}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{persona.profesion}}</h6>
         </div>
       </div>
     </div>
     <!--Modal edit sobre mí-->
-    <div class="modal fade" id="editAboutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editAboutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Sobre mí</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clear()" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form>
@@ -40,19 +43,19 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
             <button type="button" class="btn btn-danger" (click)="updatePersona()">Actualizar</button>
           </div>
         </div>
       </div>
     </div>
     <!--Modal edit foto-->
-    <div class="modal fade" id="editFotoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editFotoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Foto de perfil</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clear()" aria-label="Close"></button>
           </div>
           <div class="modal-body mb-2">
             <form>
@@ -63,19 +66,19 @@
             <div style="text-align: center;">Formato .jpg o .png</div>
           </div>
           <div class="modal-footer mb-2" style="justify-content: center;">
-            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cambiar foto</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" (click)="clear()">Cambiar foto</button>
             <button type="button" class="btn btn-danger">Actualizar</button>
           </div>
         </div>
       </div>
     </div>
     <!--Modal edit Datos-->
-    <div class="modal fade" id="editDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Datos personales</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clear()" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form>
@@ -99,7 +102,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
             <button type="button" class="btn btn-danger" (click)="updatePersona()">Actualizar</button>
           </div>
         </div>

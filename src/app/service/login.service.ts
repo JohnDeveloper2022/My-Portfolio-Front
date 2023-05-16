@@ -23,6 +23,7 @@ export class LoginService {
 
   logout() {
     localStorage.removeItem('user');
-    this.router.navigate(['/']);
+    this.router.navigate(['/portfolio']);
+    window.location.reload();
   }
 }

@@ -11,6 +11,6 @@ export class PorfolioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('user'))
+  
   }
 }

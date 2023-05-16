@@ -14,8 +14,12 @@ export class ProyectosComponent implements OnInit {
   proyecto:Proyecto = new Proyecto();
   proyectos:Proyecto[];
   user:boolean = false;
+  fotoPortfolio = 'assets/images/portfolio.png'
 
-  constructor(private proyectoService:ProyectoService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) { }
+  constructor(private proyectoService:ProyectoService, private router:Router, private activatedRoute:ActivatedRoute, private usuarioService:UsuarioService) {
+
+    this.proyecto.persona_id = 1;
+  }
 
   ngOnInit(): void {
     this.user = this.usuarioService.getSession();
@@ -41,22 +45,32 @@ export class ProyectosComponent implements OnInit {
 
   createPro(): void {
     this.proyectoService.create(this.proyecto).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/proyectos']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   updatePro(): void {
     this.proyectoService.edit(this.proyecto).subscribe(
-      res=> this.router.navigate([''])
+      res=> this.router.navigate(['/proyectos']).then(
+        (dir) => window.location.reload()
+      )
     );
   }
 
   deletePro(proyecto:Proyecto): void {
-    this.proyectoService.delete(proyecto.id).subscribe(
-      res=> this.proyectoService.getAll().subscribe(
-        response=> this.proyectos= response
+    this.proyectoService.delete(proyecto.id).subscribe(data => {
+      this.proyectoService.getAll().subscribe(
+        res => this.router.navigate(['/proyectos']).then(
+          (dir) => window.location.reload()
+        )
       )
-    );
+    });
+  }
+
+  clear() {
+    this.router.navigate(['/proyectos']); 
   }
 
 }

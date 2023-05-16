@@ -1,7 +1,10 @@
 <div class="card mb-4">
+	<div class="mt-2" style="float: left;">
+		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left"></i></a>
+	</div>
     <h1 class="mb-4">Idiomas</h1>
     <div class="btn-edit">
-        <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addIdiomaModal"><i class="fas fa-plus"></i></a>
+        <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addIdiomaModal" [routerLink]="['/idiomas']"><i class="fas fa-plus"></i></a>
     </div>
     <div class="idiomas" *ngFor="let idioma of idiomas;">
         <div class="progress">
@@ -38,7 +41,7 @@
                             </select>
 							<div><span *ngIf="nivel.invalid && nivel.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
-						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="idioma.persona_id" />
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="idioma.persona_id" />
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -48,12 +51,12 @@
 		</div>
 	</div>
     <!--Modal edit idioma-->
-    <div class="modal fade" id="editIdiomaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editIdiomaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" style="border: none;">
 					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar idioma</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clear()" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<form>
@@ -71,7 +74,7 @@
                             </select>
 							<div><span *ngIf="nivel.invalid && nivel.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
 						</div>
-						<input type="text" type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="idioma.persona_id" />
+						<input type="hidden" id="persona_id" name="persona_id" value="1" [(ngModel)]="idioma.persona_id" />
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -81,7 +84,7 @@
 		</div>
 	</div>
     <!--Modal delete idioma-->
-	<div class="modal fade" id="deleteIdiomaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="deleteIdiomaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		  <div class="modal-content">
 			<div class="card modal-header" style="color: #ed0c32; border: none;">
@@ -91,7 +94,7 @@
 			  ¿Deseas eliminar este idioma?
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
 			  <button type="button" class="btn btn-danger" (click)="deleteIdiom(idioma)">Eliminar</button>
 			</div>
 		  </div>

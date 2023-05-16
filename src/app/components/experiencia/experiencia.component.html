@@ -1,8 +1,11 @@
 
 <div class="card mb-4" id="experiencia">
+	<div class="mt-2" style="float: left;">
+		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left"></i></a>
+	</div>
 	<h1 class="mb-4">Experiencia</h1>
 	<div class="btn-edit">
-		<a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#expeModal"><i class="fas fa-plus"></i></a>
+		<a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#expeModal" [routerLink]="['/experiencias']"><i class="fas fa-plus"></i></a>
 	</div>
 	<!-- Modal add experiencia-->
 	<div class="modal fade" id="expeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -96,8 +99,8 @@
 				</button>
 			</div>
 			<div class="p-2 flex-shrink-1" style="width: 100px;" *ngIf="user">
-				<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editExpeModal" [routerLink]="['/experiencia/editar', exper.id]"><i class="fas fa-pen"></i></a>
-				<a href="#" data-bs-toggle="modal" data-bs-target="#deleteExpeModal" [routerLink]="['/experiencia/eliminar', exper.id]"><i class="fas fa-trash"></i></a>
+				<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editExpeModal" [routerLink]="['/experiencias/editar', exper.id]"><i class="fas fa-pen"></i></a>
+				<a href="#" data-bs-toggle="modal" data-bs-target="#deleteExpeModal" [routerLink]="['/experiencias/eliminar', exper.id]"><i class="fas fa-trash"></i></a>
 			</div>			
 		</div>
 		<div class="collapse show" id="collapseExp">
@@ -107,12 +110,12 @@
 		</div>
 	</div>
 	<!--Modal edit experiencia-->
-	<div class="modal fade" id="editExpeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="editExpeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar experiencia</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clear()" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<form>
@@ -183,14 +186,14 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
 					<button type="button" class="btn btn-danger" (click)="updateExp()">Actualizar</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!--Modal delete experiencia-->
-	<div class="modal fade" id="deleteExpeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="deleteExpeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		  <div class="modal-content">
 			<div class="card modal-header" style="color: #ed0c32; border: none;">
@@ -200,7 +203,7 @@
 			  ¿Deseas eliminar esta experiencia?
 			</div>
 			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
 			  <button type="button" class="btn btn-danger" (click)="deleteExp(experiencia)">Eliminar</button>
 			</div>
 		  </div>

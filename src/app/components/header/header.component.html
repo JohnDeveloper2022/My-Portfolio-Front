@@ -38,25 +38,25 @@
 				data-bs-toggle="modal" data-bs-target="#cerrarSesion">LOG OUT</button></ng-template>
 		</form>
 	  </div>
-	  <!--Modal cerrar sesión-->
-	  <div class="modal fade" id="cerrarSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		  <div class="modal-content">
-			<div class="card modal-header" style="color: #ed0c32; border: none;">
-				<i class="fa-solid fa-power-off fa-5x"></i>
-			</div>
-			<div class="modal-body mb-2" style="text-align: center;">
-			  ¿Deseas salir de la sesión?
-			</div>
-			<div class="modal-footer mb-3" style="justify-content: center; border: none;">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-			  <button type="button" class="btn btn-danger" (click)="desactivarEdicion()">Cerrar sesión</button>
-			</div>
-		  </div>
+	</div>
+</nav>
+<!--Modal cerrar sesión-->
+<div class="modal fade" id="cerrarSesion" tabindex="-1" aria-labelledby="cerrarSesion" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="card modal-header" style="color: #ed0c32; border: none;">
+			<i class="fa-solid fa-power-off fa-5x"></i>
+		</div>
+		<div class="modal-body mb-2" style="text-align: center;">
+		  ¿Deseas salir de la sesión?
+		</div>
+		<div class="modal-footer mb-3" style="justify-content: center; border: none;">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+		  <button type="button" class="btn btn-danger" (click)="desactivarEdicion()">Cerrar sesión</button>
 		</div>
 	  </div>
 	</div>
-  </nav>
+  </div>
 <div class="card">
 	<!--<img [src]="coverImage" class="img-fluid" alt="Imagen Destacada">-->
 	<div style="background-color: #212529; padding-bottom: 50px;">
