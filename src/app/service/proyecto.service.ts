@@ -2,36 +2,39 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Proyecto } from '../components/proyectos/proyecto';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProyectoService {
 
+  url:string= environment.apiURL + "proyectos";
+
   constructor(private http: HttpClient) { }
 
   //traer proyectos
   public getAll():Observable<Proyecto[]> {
-    return this.http.get<Proyecto[]>('http://localhost:8080/mostrar/proyectos');
+    return this.http.get<Proyecto[]>(this.url);
   }
 
   //ver proyecto
   public get(id:number):Observable<Proyecto> {
-    return this.http.get<Proyecto>('http://localhost:8080/ver/proyecto/' + id);
+    return this.http.get<Proyecto>(this.url+'/'+id);
   }
 
   //crear proyecto
   public create(proyecto:Proyecto):Observable<Proyecto> {
-    return this.http.post<Proyecto>('http://localhost:8080/new/proyecto', proyecto);
+    return this.http.post<Proyecto>(this.url, proyecto);
   }
 
   //editar proyecto
   public edit(proyecto:Proyecto):Observable<Proyecto> {
-    return this.http.put<Proyecto>('http://localhost:8080/editar/proyecto', proyecto);
+    return this.http.put<Proyecto>(this.url, proyecto);
   }
 
   //eliminar proyecto
   public delete(id:number):Observable<Proyecto> {
-    return this.http.delete<Proyecto>('http://localhost:8080/delete/proyecto/' + id);
+    return this.http.delete<Proyecto>(this.url+'/'+id);
   }
 }
