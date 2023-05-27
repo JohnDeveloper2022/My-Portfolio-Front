@@ -4,32 +4,35 @@
         no dudes es usar el formulario.
     </p>
     <div class="m-auto" style="max-width: 60%;">
-        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <form ngNoForm action="https://formsubmit.co/ab9ea79479ac18704254acb31ab40930" method="POST" autocomplete="off">
             <div class="row mb-3" style="display:inline-flex;">
                 <div class="col-md-6">
                     <label for="nombre" class="col-form-label">Nombre</label>
-                    <input type="text" class="form-control" #name="ngModel" id="nombre" name="nombre" minlength="3" required ngModel>  
-                    <div><span *ngIf="name.invalid && name.touched" style="color: #ed0c32;"><small>Ingrese un nombre válido</small></span></div>
+                    <input type="text" class="form-control" #name="ngModel" id="nombre" name="nombre" pattern="^([a-zA-Z]|[à-ú]|[À-Ú])+$" minlength="3" required ngModel>  
+                    <div><span *ngIf="name.invalid && (name.dirty || name.touched)" style="color: #ed0c32;"><small>Ingrese un nombre válido</small></span>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="apellido" class="col-form-label">Apellido</label>
-                    <input type="text" class="form-control" #apellido="ngModel" id="apellido" name="apellido" pattern="[a-zA-Z]+$" minlength="3" maxlength="12" required ngModel>
-                    <div><span *ngIf="apellido.invalid && apellido.touched" style="color: #ed0c32;"><small>Ingrese un apellido válido</small></span></div>
+                    <input type="text" class="form-control" #apellido="ngModel" id="apellido" name="apellido" pattern="^([a-zA-Z]|[à-ú]|[À-Ú])+$" minlength="3" maxlength="12" required ngModel>
+                    <div><span *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" style="color: #ed0c32;"><small>Ingrese un apellido válido</small></span></div>
                 </div>
             </div>
             <div class="mb-3">
                 <label for="email" class="col-form-label">Email</label>
                 <input type="email" class="form-control" #email="ngModel" id="email" name="email" email placeholder="name@example.com" required ngModel>
-                <div><span *ngIf="email.invalid && email.touched" style="color: #ed0c32;"><small>Ingrese un email válido</small></span></div>
+                <div><span *ngIf="email.invalid && (email.dirty || email.touched)" style="color: #ed0c32;"><small>Ingrese un email válido</small></span></div>
             </div>
             <div class="mb-3">
                 <label for="mensaje" class="col-form-label">Mensaje</label>
                 <textarea type="textarea" class="form-control" #message="ngModel" id="mensaje" name="mensaje" rows="3" maxlength="200" placeholder="El motivo de tu consulta..." required ngModel></textarea>
-                <div><span *ngIf="message.invalid && message.touched" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
+                <div><span *ngIf="message.invalid && (message.dirty || message.touched)" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
             </div>
             <div class="d-grid mt-5 mb-3">
                 <button type="submit" class="btn btn-primary py-2" id="btn-send-contact">Enviar mensaje</button>
             </div>
+            <input type="hidden" name="_next" value="http://localhost:4200/portfolio">
+            <input type="hidden" name="_captcha" value="false">
         </form>
     </div>
 </div>
