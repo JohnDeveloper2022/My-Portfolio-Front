@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ExperienciaService {
 
-  url:string= environment.apiURL + "experiencias";
+  url:string= "http://localhost:8081/experiencias";
 
   constructor(private http: HttpClient) { }
 

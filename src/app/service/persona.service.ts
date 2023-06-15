@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class PersonaService {
 
-  url:string= environment.apiURL + "persona";
+  url:string= "http://localhost:8081/persona";
 
   constructor(private http: HttpClient) { }
 

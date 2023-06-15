@@ -57,22 +57,27 @@
 	  </div>
 	</div>
   </div>
-<div class="card">
+<div class="card" style="border: none;">
 	<!--<img [src]="coverImage" class="img-fluid" alt="Imagen Destacada">-->
-	<div style="background-color: #212529; padding-bottom: 50px;">
-		<!--<div class="persona-coding">
-			<img [src]="miniCover" class="img-fluid" width="50%">
-		</div>-->
-		<div class="cover-text">
-			Hola <span style="color: #ed0c32;">Mundo</span><br>
-			Mi <span style="color: #ed0c32;">nombre</span> es <span style="color: #ed0c32;font-weight: bold;">JOHNNY </span>GAMBOA<span id="intermitente">_</span>
+	<div class="row" id="cover">	
+		<div class="col-md-6">
+			<div class="cover-text">
+				<h1>HOLA <span style="color: #ed0c32;">MUNDO,</span></h1>
+				<h1>Mi <span style="color: #ed0c32;">nombre</span> es <span style="color: #ed0c32;font-weight: bold;">JOHNNY </span>GAMBOA<span id="intermitente">_</span></h1>
+				<h4 class="subtitle">Soy programador full stack y músico profesional</h4>
+			</div>
+			<!--<div class="programador">
+				PROGRAMADOR WEB <br>
+				<p style="font-size: 20px;">front-end & back-end</p>
+			</div>
+			<div class="musico">
+				MÚSICO PROFESIONAL
+			</div>-->
 		</div>
-		<div class="programador">
-			PROGRAMADOR WEB <br>
-			<p style="font-size: 20px;">front-end & back-end</p>
-		</div>
-		<div class="musico">
-			MÚSICO PROFESIONAL
+		<div class="col-md-6" style="background-color: #ed0c32;">
+			<div class="persona-coding">
+				<img [src]="miniCover" class="img-fluid" width="100%">
+			</div>
 		</div>
 	</div>
 </div>

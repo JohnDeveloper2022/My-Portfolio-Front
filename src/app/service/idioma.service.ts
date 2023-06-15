@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class IdiomaService {
 
-  url:string= environment.apiURL + "idiomas";
+  url:string= "http://localhost:8081/idiomas";
 
   constructor(private http: HttpClient) { }
 

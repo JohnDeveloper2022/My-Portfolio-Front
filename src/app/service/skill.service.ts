@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class SkillService {
 
-  url:string= environment.apiURL + "skills";
+  url:string= "http://localhost:8081/skills";
 
   constructor(private http: HttpClient) { }
 
