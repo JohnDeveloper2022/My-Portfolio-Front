@@ -1,23 +1,23 @@
-<div class="card mb-4" id="proyectos">
+<div class="card mb-4" id="proyectos" style="padding-bottom: 8%; border: none;">
 	<div class="mt-2" style="float: left;">
-		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left"></i></a>
+		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left ms-4"></i></a>
 	</div>
-    <h1 class="mb-4">Proyectos</h1>
+    <h1 class="mb-4" style="text-align: center;">Proyectos</h1>
     <div class="btn-edit">
         <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addProyectoModal" [routerLink]="['/proyectos']"><i class="fas fa-plus"></i></a>
     </div>
-    <p class="m-auto mb-4">En esta seccion se encuentra la información de proyectos desarrollados.
-        <span id="especial">La sección incluye este portfolio web</span>y se ilustra
-        con imágenes de los proyectos.
-    </p>
-	<ul style="text-align: center;">
-		<li class="col-md-6" id="project" *ngFor="let proy of proyectos"> 
-			<div class="card" style="width: 18rem;">
-				<img [src]="fotoPortfolio" class="card-img-top" alt="Proyecto Portfolio">
+    <h5 class="m-auto mb-4" style="width: 90%; text-align: center; color: #4d4d4d;">Estos son algunos de los trabajos en los que he colaborado profesionalmente,
+        <span style="color: #ed0c32;">incluyendo mi portfolio web.</span>
+	</h5>
+	<ul class="row justify-content-center" style="text-align: center; padding: 0;">
+		<li class="col-md-6 mt-4" id="project" *ngFor="let proy of proyectos"> 
+			<div class="card h-100" style="width: 18rem; border: none; box-shadow: 0 8px 42px 4px #dddddd;">
+				<i class="fa-regular fa-folder-open fa-5x mt-2"></i>
+				<!--<img [src]="fotoPortfolio" class="card-img-top" alt="Proyecto Portfolio">-->
 				<div class="card-body">
 					<h5 class="card-title">{{proy.nombre_proyecto}}</h5>
 					<p class="card-text">{{proy.descripcion}}</p>
-					<a href="#" class="card-link" style="color: #ed0c32;">Ver proyecto</a>
+					<a href="#" class="subrayado" style="color: #ed0c32;">Ver proyecto</a>
 				</div>
 				<div class="btn-edit-proyecto" *ngIf="user">
 					<a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#editProyectoModal" [routerLink]="['/proyectos/editar', proy.id]"><i class="fas fa-pen"></i></a>
