@@ -1,7 +1,4 @@
-*/* {
-    margin-left: 8px;
-    margin-right: 8px;
-}*/
+*
 .cursiva {
     font-style: italic;
 }
@@ -34,66 +31,69 @@ h1, h2, h3, h4, h5, h6 {
     border:none;
     border-radius: 2px;
 }
-
+#login-hidden {
+    display: inline;
+}
+@media screen and (max-width: 1199px) {
+    #login-hidden {display: none;}
+}
+#cover {
+    background-color: #212529;
+    height: 600px;
+}
 .persona-coding {
-    position: absolute;
-    width: 100%;
-    top: 100px;
-    border: solid greenyellow;
+    position: relative;
+    max-width: 500px;
+    text-align: center;
+    top: 150px;
+    margin: auto;
+    animation: coding 4s; 
+}
+@keyframes coding {
+    0%  {right: -10%; opacity: 0;}
+    15% {opacity: 0;}
+    30% {opacity: 0.5;}
+    50% {opacity: 0.7;}
+    80% {right: 0; opacity: 0.9;}
+}
+@media screen and (max-width: 1060px) {
+    .persona-coding {max-width: 360px; top: 200px;}
+}
+@media screen and (max-width: 767px) {
+    .persona-coding {max-width: 320px; top: 40px;}
 }
 .cover-text {
-    font-size: 2vw;
-    text-align:start;
+    font-size:100%;
+    text-align:center;
     font-weight:normal;
     font-variant: small-caps;
     color: white;
-    width: 70%;
-    margin: 25px auto;
+    width: 100%;
+    margin: 150px auto 0px;
+    animation: hola 2s;
+    animation-timing-function: ease-out;
+}
+@keyframes hola {
+    0%   {margin-left: -5%; opacity: 0;}
+    25%  {opacity: 0;}
+    100% {margin-left: 0%; opacity: 0.9;}
+}
+.profesion {
+    margin-top: 60px;
+}
+@media screen and (max-width: 767px) {
+    .cover-text {margin-top: 80px;}
+    .profesion {margin-top: 25px; font-size: medium;}
 }
 #intermitente {
-    animation: cursor infinite 0.8s
+    opacity: 0;
+    animation: cursor infinite 0.8s;
+    animation-delay: 2s;
 }
 @keyframes cursor {
     from {opacity: 0;}
     to   { opacity: 1;}
 }
-.programador {
-    background-color: white;
-    color: black;
-    font-size: 5vw;
-    font-weight: bold;
-    margin: auto;
-    margin-bottom: 25px;
-    padding: 10px;
-    width: 70%;
-    text-align: center;
-    mix-blend-mode: screen;
-    animation: program 6s;
-}
-@keyframes program {
-    0% {margin-left: 0%; margin-bottom: 25px; opacity: 0;}
-    5% {opacity: 0;}
-    50%{margin-left: 15%; opacity: 0.9;}
-}
-.musico {
-    background-color: white;
-    color: black;
-    font-size: 5vw;
-    font-weight: bold;
-    margin: auto;
-    margin-bottom: 25px;
-    padding: 10px;
-    width: 70%;
-    text-align: center;
-    mix-blend-mode: screen;
-    animation: mus 5s;
-}
-@keyframes mus {
-    0%  {margin-right: 0;opacity: 0;}
-    20% {opacity: 0;}
-    50% {margin-right: 15%;opacity: 0.8;}
-}
-
 #btn-send-contact {
     background: #ed0c32;
     border: none;
@@ -125,16 +125,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card {
-    border-radius: 25px;
-    padding: 15px;
-    margin: 10px 10px;
+    margin: 10px 0px;
 }
 .card-effect {
-    box-shadow: none;
+    box-shadow: 0 4px 12px 0 rgb(0,0,0,0.19);
     transition: 0.2s;
 }
 .card-effect:hover{
-    box-shadow: 0 6px 12px 0 rgb(0,0,0,0.2);
+    box-shadow: 0 6px 18px 0 rgb(0,0,0,0.2);
 }
 div h1 {
     margin-top: 1em;
@@ -144,10 +142,7 @@ div li {
 }
 #especial { 
     font-weight: bold; }
-#project {
-    display: inline-flex;
-    justify-content: center;
-}
+
 .btn-edit {
     position: absolute;
     right: 0px;
@@ -188,7 +183,7 @@ div li {
     width: 60%;
 }
 @media screen and (max-width: 720px) {
-    .educacion {width: 100%;}
+    .educacion {width: 90%;}
 }
 .edu {
     text-align: center;
@@ -197,15 +192,19 @@ div li {
 }
 .edu a {
     text-decoration: none;
+    background-color: inherit;
     color: #ed0c32;
+    transition: 0.3s;
 }
 .edu a:hover {
-    color: #A1182f;
-    background-color: #f2f2f0;
+    color: white;
+    background-color: #ed0c32;
+    transform: translate(5px);
 }
 .round-circles {
     position: relative;
     text-align: center;
+    padding: 0%;
 }
 .circle-list {
     display: inline-flex;
@@ -319,6 +318,9 @@ div li {
     width: 80%;
     margin: auto;
 }
+@media screen and (max-width: 720px) {
+    .idiomas{width: 90%;}
+}
 .progress {
     position: relative;
 }
@@ -330,7 +332,7 @@ div li {
 }
 div .progress {
     margin: 25px 50px;
-    background-color: white;
+    background-color: #f8f8f8;
 }
 .progress .bar-1 {
     height: auto;
@@ -387,8 +389,20 @@ div .progress {
 .btn-edit-proyecto {
     position: relative;
     text-align: right;
-    margin-top: -45px;
-    
+    margin-top: -45px;  
+}
+#project {
+    display: inline-flex;
+    justify-content: center;
+}
+.subrayado {
+    text-decoration: none;
+    opacity: 100%;
+    transition: 0.3s;
+}
+.subrayado:hover {
+    text-decoration: underline;
+    opacity: 70%;
 }
 .pie {
     background-color: #212529;

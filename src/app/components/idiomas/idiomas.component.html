@@ -1,15 +1,15 @@
-<div class="card mb-4">
+<div class="card mb-4" style="padding-bottom: 10%; border: none; background-color: #f8f8f8;">
 	<div class="mt-2" style="float: left;">
-		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left"></i></a>
+		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left ms-4"></i></a>
 	</div>
-    <h1 class="mb-4">Idiomas</h1>
+    <h1 class="mb-4 wow animate__animated animate__fadeIn" style="text-align: center;">Idiomas</h1>
     <div class="btn-edit">
         <a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#addIdiomaModal" [routerLink]="['/idiomas']"><i class="fas fa-plus"></i></a>
     </div>
     <div class="idiomas" *ngFor="let idioma of idiomas;">
-        <div class="progress">
-            <div class="progress-bar {{retornarNivel(idioma.nivel)}}" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <b>{{idioma.nombre_idioma}}</b>
+        <div class="progress wow animate__animated animate__fadeIn">
+            <div class="progress-bar wow {{retornarNivel(idioma.nivel)}}" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <b><small>{{idioma.nombre_idioma}}</small></b>
             </div>
         </div>
         <div class="btn-edit-idioma" *ngIf="user">

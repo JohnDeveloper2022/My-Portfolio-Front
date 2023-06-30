@@ -1,9 +1,9 @@
-<div class="card" id="contacto">
-    <h1 class="mb-4" style="text-align: center;">Contacto</h1>
-    <p class="m-auto mb-4">Hola. Gracias por visitar mi sitio web. Si tienes alguna pregunta o deseas contactarme para futuros proyectos,
-        no dudes es usar el formulario.
-    </p>
-    <div class="m-auto" style="max-width: 60%;">
+<div class="card" id="contacto" style="border: none; background-color: #212529; border-radius: 0%;">
+    <h1 class="mb-4 wow animate__animated animate__fadeIn animate__slow 2s" style="text-align: center; color: white;">Contacto</h1>
+    <h5 class="m-auto mb-4 wow animate__animated animate__fadeInUp animate__slow" style="text-align: center; color: white; width: 90%; opacity: 75%;">Gracias por visitar mi sitio web. Si tienes alguna pregunta o deseas contactarme para futuros proyectos,
+        <span style="color: #ed0c32;">no dudes es usar el formulario.</span>
+    </h5>
+    <div class="m-auto wow animate__animated animate__zoomIn" style="max-width: 60%; color: #9b9b9b;">
         <form ngNoForm action="https://formsubmit.co/ab9ea79479ac18704254acb31ab40930" method="POST" autocomplete="off">
             <div class="row mb-3" style="display:inline-flex;">
                 <div class="col-md-6">
@@ -28,7 +28,7 @@
                 <textarea type="textarea" class="form-control" #message="ngModel" id="mensaje" name="mensaje" rows="3" maxlength="200" placeholder="El motivo de tu consulta..." required ngModel></textarea>
                 <div><span *ngIf="message.invalid && (message.dirty || message.touched)" style="color: #ed0c32;"><small>Este campo es requerido</small></span></div>
             </div>
-            <div class="d-grid mt-5 mb-3">
+            <div class="d-grid mt-5 mb-5">
                 <button type="submit" class="btn btn-primary py-2" id="btn-send-contact">Enviar mensaje</button>
             </div>
             <input type="hidden" name="_next" value="https://portfolio-johnny-f39f6.web.app">

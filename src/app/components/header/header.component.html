@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg py-0 navbar-dark bg-dark">
+<nav class="navbar navbar-expand-xl py-0 navbar-dark bg-dark">
 	<div class="container-fluid">
 	  <a class="navbar-brand me-4" href="https://www.argentina.gob.ar/economia/conocimiento/argentina-programa">
 		<img [src]="logoArgPro" alt="" width="" height="" class="d-inline-block align-text-top" style="margin-left: -15px;">
@@ -27,12 +27,12 @@
 			<a class="nav-link" href="#contacto">Contacto</a>
 		  </li>
 		</ul>
-		<div class="d-flex me-3 mb-3 mt-0 mb-lg-0">
+		<div class="d-flex me-3 mb-2 mt-2">
 			<a class="navbar-nav nav-link me-3" href="https://www.linkedin.com/in/jlg26"><i class="fa-brands fa-linkedin"></i></a>
 			<a class="navbar-nav nav-link me-3" href="https://github.com/JohnDeveloper2022"><i class="fa-brands fa-github"></i></a>
 		</div> 
 		<form class="d-flex">
-			<button class="btn btn-outline-danger btn-sm" type="button"
+			<button class="btn btn-outline-danger btn-sm" id="login-hidden" type="button"
 			 *ngIf="!user; else elseBlock" (click)="activarEdicion()">LOG IN</button>
 			<ng-template #elseBlock><button class="btn btn-outline-danger btn-sm" type="button"
 				data-bs-toggle="modal" data-bs-target="#cerrarSesion">LOG OUT</button></ng-template>
@@ -57,22 +57,19 @@
 	  </div>
 	</div>
   </div>
-<div class="card">
-	<!--<img [src]="coverImage" class="img-fluid" alt="Imagen Destacada">-->
-	<div style="background-color: #212529; padding-bottom: 50px;">
-		<!--<div class="persona-coding">
-			<img [src]="miniCover" class="img-fluid" width="50%">
-		</div>-->
-		<div class="cover-text">
-			Hola <span style="color: #ed0c32;">Mundo</span><br>
-			Mi <span style="color: #ed0c32;">nombre</span> es <span style="color: #ed0c32;font-weight: bold;">JOHNNY </span>GAMBOA<span id="intermitente">_</span>
+<div class="card" style="border: none;">
+	<div class="row" id="cover">	
+		<div class="col-md-6">
+			<div class="cover-text">
+				<h1>HOLA <span style="color: #ed0c32;">MUNDO,</span></h1>
+				<h1>Mi <span style="color: #ed0c32;">nombre</span> es <span style="color: #ed0c32;font-weight: bold;">JOHNNY </span>GAMBOA<span id="intermitente">_</span></h1>
+				<h4 class="profesion">Soy programador full stack y músico profesional</h4>
+			</div>
 		</div>
-		<div class="programador">
-			PROGRAMADOR WEB <br>
-			<p style="font-size: 20px;">front-end & back-end</p>
-		</div>
-		<div class="musico">
-			MÚSICO PROFESIONAL
+		<div class="col-md-6" style="background-color: #ed0c32;">
+			<div class="persona-coding">
+				<img [src]="miniCover" class="img-fluid" width="100%">
+			</div>
 		</div>
 	</div>
 </div>
