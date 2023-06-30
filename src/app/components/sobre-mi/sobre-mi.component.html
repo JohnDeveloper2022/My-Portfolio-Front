@@ -2,23 +2,23 @@
   <div class="mt-2" style="float: left;">
 		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left ms-4"></i></a>
 	</div>
-  <h1 class="mb-5" style="text-align: center;">Sobre mí</h1>
+  <h1 class="mb-5 wow animate__animated animate__fadeIn" style="text-align: center;">Sobre mí</h1>
   <div *ngIf="user"></div>
     <div class="btn-edit" *ngFor="let persona of personas">
         <a *ngIf="user" href="#" data-bs-toggle="modal" data-bs-target="#editAboutModal" [routerLink]="['/sobremi/editar', persona.id]"><i class="fas fa-pen"></i></a>
     </div> 
     <div class="row m-auto" style="display:inline-flex; max-width: 80%;" *ngFor="let persona of personas">
-      <div class="col-md-6">
+      <div class="col-md-6 wow animate__animated animate__fadeInLeft animate__slow">
         <p class="mb-4">{{persona.sobre_mi}}</p>
       </div>
       <div class="card text-center col-md-6 mb-2 pb-0" style="width: 18rem; margin: auto; border: none;">
-        <div class="img-perfil">
+        <div class="img-perfil wow animate__animated animate__fadeInUp">
           <img [src]="fotoPerfil" class="img-thumbnail" alt="Imagen de perfil">
           <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#editFotoModal" [routerLink]="['/sobremi/editar/foto']">
             <i *ngIf="user" class="fa-solid fa-camera fa-3x img-perfil-camara"></i>
           </a>
         </div>
-        <div class="card-body text-danger">
+        <div class="card-body text-danger wow animate__animated animate__fadeIn animate__slow 2s">
           <a href="#" *ngIf="user"  style="float: right;" data-bs-toggle="modal" data-bs-target="#editDataModal" [routerLink]="['/sobremi/editar', persona.id]"><i class="fas fa-pen"></i></a>
           <h5 class="card-title">{{persona.nombre}}&nbsp;{{persona.apellido}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{persona.profesion}}</h6>
@@ -118,7 +118,7 @@
               <h4 style="color: whitesmoke;">Estas son algunas de las tecnologías que he utilizado en mi portfolio y con las que trabajo actualmente:</h4>
             </div>
             <div class="row row-cols-1 row-cols-lg-2 g-3 m-auto" style="max-width: 60%;">
-                <div class="col mb-3">
+                <div class="col mb-3 animate__animated animate__fadeInLeft animate__slow">
                   <div class="card card-effect h-100" style="border: none;">
                     <i class="fa-brands fa-angular fa-5x mt-2"></i>
                     <div class="card-body" style="text-align: center;">
@@ -127,7 +127,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col mb-3">
+                <div class="col mb-3 animate__animated animate__fadeInRight animate__slow">
                   <div class="card card-effect h-100" style="border: none;">
                     <i class="fa-brands fa-bootstrap fa-5x mt-2"></i>
                     <div class="card-body" style="text-align: center;">
@@ -136,7 +136,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col mb-3">
+                <div class="col mb-3 animate__animated animate__zoomIn animate__slow">
                   <div class="card card-effect h-100" style="border: none;">
                     <i class="fa-brands fa-java fa-5x mt-2"></i>
                     <div class="card-body" style="text-align: center;">
@@ -145,7 +145,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col mb-3">
+                <div class="col mb-3 animate__animated animate__zoomIn animate__slow">
                   <div class="card card-effect h-100" style="border: none;">
                     <i class="fa-solid fa-power-off fa-5x mt-2"></i>
                     <div class="card-body" style="text-align: center;">

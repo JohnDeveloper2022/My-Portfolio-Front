@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ProyectoService {
 
-  url:string= "http://localhost:8081/proyectos";
+  url:string= environment.apiURL + "proyectos";
 
   constructor(private http: HttpClient) { }
 

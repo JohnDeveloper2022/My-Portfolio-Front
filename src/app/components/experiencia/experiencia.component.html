@@ -3,7 +3,7 @@
 	<div class="mt-2" style="float: left;">
 		<a href="#" *ngIf="user"><i class="fa-solid fa-arrow-left ms-4"></i></a>
 	</div>
-	<h1 class="mb-5" style="text-align: center;">Experiencia</h1>
+	<h1 class="mb-5 wow animate__animated animate__fadeIn" style="text-align: center;">Experiencia</h1>
 	<div class="btn-edit">
 		<a href="#" *ngIf="user" data-bs-toggle="modal" data-bs-target="#expeModal" [routerLink]="['/experiencias']"><i class="fas fa-plus"></i></a>
 	</div>
@@ -91,7 +91,7 @@
 	</div>
 	<div class="d-grid gap-3 experience" *ngFor="let exper of experiencias; let i = index">
 		<div class="d-flex g-1">
-			<div class="p-2 w-100">
+			<div class="p-2 w-100 wow animate__animated animate__slideInRight">
 				<button class="btn-experience" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapseExp">
 					<b>{{exper.cargo}}</b>
 					<p style="margin: 0;">{{exper.nombre_empresa}}</p>

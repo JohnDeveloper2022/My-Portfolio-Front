@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NgwWowModule } from 'ngx-wow';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -58,6 +59,7 @@ const appRoutes: Routes = [
     LoginComponent
   ],
   imports: [
+    NgwWowModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,

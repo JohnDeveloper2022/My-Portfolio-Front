@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class EducacionService {
 
-  url:string= "http://localhost:8081/estudios";
+  url:string= environment.apiURL + "estudios";
 
   constructor(private http: HttpClient) { }
 
